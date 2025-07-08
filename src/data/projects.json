@@ -1,0 +1,152 @@
+[
+  {
+    "id": "resumai",
+    "title": "ResumAI",
+    "summary": "AI-powered resume builder and analyzer.",
+    "description": "ResumAI leverages LLMs to generate, analyze, and optimize resumes for job seekers. Features include PDF export, keyword matching, and recruiter feedback simulation.",
+    "techStack": ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS", "Vercel"],
+    "githubUrl": "https://github.com/shubh/resumai",
+    "demoUrl": "https://resumai.shubhgupta.com",
+    "image": "/projects/resumai.png"
+  },
+  {
+    "id": "asl-interpreter",
+    "title": "ASL Interpreter",
+    "summary": "Real-time American Sign Language recognition app.",
+    "description": "A web app that uses TensorFlow.js and a webcam to interpret ASL gestures into text and speech, making communication more accessible.",
+    "techStack": ["React", "TensorFlow.js", "WebRTC", "Tailwind CSS"],
+    "githubUrl": "https://github.com/shubh/asl-interpreter",
+    "demoUrl": "https://asl.shubhgupta.com",
+    "image": "/projects/asl-interpreter.png"
+  },
+  {
+    "id": "flight-delay-prediction",
+    "title": "Flight Delay Prediction",
+    "summary": "ML pipeline for predicting flight delays.",
+    "description": "End-to-end ML pipeline using PySpark and Airflow to predict flight delays based on weather, airline, and historical data. Includes dashboards and REST API.",
+    "techStack": ["PySpark", "Airflow", "FastAPI", "React", "Docker"],
+    "githubUrl": "https://github.com/shubh/flight-delay-prediction",
+    "demoUrl": null,
+    "image": "/projects/flight-delay-prediction.png"
+  },
+  {
+    "id": "all-in-casino",
+    "title": "All-In Casino",
+    "summary": "Decentralized casino dApp on Ethereum.",
+    "description": "A provably fair, on-chain casino with games like Poker and Blackjack. Built with Solidity, React, and Chainlink VRF for randomness.",
+    "techStack": ["Solidity", "React", "Chainlink", "Ethers.js", "Next.js"],
+    "githubUrl": "https://github.com/shubh/all-in-casino",
+    "demoUrl": "https://casino.shubhgupta.com",
+    "image": "/projects/all-in-casino.png"
+  },
+  {
+    "id": "llm-hw-optimizer",
+    "title": "LLM Hardware Optimizer",
+    "summary": "Accelerating LLM inference on custom hardware.",
+    "description": "Research project optimizing transformer inference on FPGAs and GPUs. Achieved 2x speedup for BERT and GPT models using quantization and custom kernels.",
+    "techStack": ["Python", "CUDA", "FPGA", "PyTorch", "C++"],
+    "githubUrl": "https://github.com/shubh/llm-hw-optimizer",
+    "demoUrl": null,
+    "image": "/projects/llm-hw-optimizer.png"
+  },
+  {
+    "id": "dsp-algo-suite",
+    "title": "DSP Algorithm Suite",
+    "summary": "Collection of classical DSP algorithms.",
+    "description": "A library of digital signal processing algorithms (FFT, filters, modulation) with interactive visualizations and real-time audio demos.",
+    "techStack": ["TypeScript", "Web Audio API", "React", "D3.js"],
+    "githubUrl": "https://github.com/shubh/dsp-algo-suite",
+    "demoUrl": "https://dsp.shubhgupta.com",
+    "image": "/projects/dsp-algo-suite.png"
+  },
+  {
+    "id": "blockchain-voting",
+    "title": "Blockchain Voting",
+    "summary": "Secure, transparent voting platform.",
+    "description": "A blockchain-based voting system ensuring transparency, privacy, and auditability. Used in university elections with 1,000+ votes cast.",
+    "techStack": ["Solidity", "Next.js", "IPFS", "React", "Tailwind CSS"],
+    "githubUrl": "https://github.com/shubh/blockchain-voting",
+    "demoUrl": null,
+    "image": "/projects/blockchain-voting.png"
+  },
+  {
+    "id": "mlops-dashboard",
+    "title": "MLOps Dashboard",
+    "summary": "Monitor and manage ML pipelines at scale.",
+    "description": "A dashboard for tracking ML experiments, deployments, and metrics. Integrates with MLflow, Kubernetes, and Prometheus.",
+    "techStack": ["React", "MLflow", "Kubernetes", "Prometheus", "TypeScript"],
+    "githubUrl": "https://github.com/shubh/mlops-dashboard",
+    "demoUrl": "https://mlops.shubhgupta.com",
+    "image": "/projects/mlops-dashboard.png"
+  },
+  {
+    "id": "streaming-data-pipeline",
+    "title": "Streaming Data Pipeline",
+    "summary": "Real-time data streaming with PySpark.",
+    "description": "A scalable pipeline for ingesting, processing, and visualizing streaming data using PySpark, Kafka, and D3.js.",
+    "techStack": ["PySpark", "Kafka", "D3.js", "React", "Docker"],
+    "githubUrl": "https://github.com/shubh/streaming-data-pipeline",
+    "demoUrl": null,
+    "image": "/projects/streaming-data-pipeline.png"
+  },
+  {
+    "id": "portfolio-v1",
+    "title": "Portfolio v1",
+    "summary": "First iteration of my developer portfolio.",
+    "description": "A classic portfolio site built with Gatsby and styled-components. Showcases early projects and blog posts.",
+    "techStack": ["Gatsby", "React", "styled-components"],
+    "githubUrl": "https://github.com/shubh/portfolio-v1",
+    "demoUrl": "https://v1.shubhgupta.com",
+    "image": "/projects/portfolio-v1.png"
+  },
+  {
+    "id": "algo-visualizer",
+    "title": "Algorithm Visualizer",
+    "summary": "Interactive visualizations for algorithms.",
+    "description": "A web app to visualize sorting, pathfinding, and graph algorithms step-by-step. Used in university CS courses.",
+    "techStack": ["React", "TypeScript", "D3.js", "Tailwind CSS"],
+    "githubUrl": "https://github.com/shubh/algo-visualizer",
+    "demoUrl": "https://algo.shubhgupta.com",
+    "image": "/projects/algo-visualizer.png"
+  },
+  {
+    "id": "llm-chatbot",
+    "title": "LLM Chatbot",
+    "summary": "Conversational AI chatbot using LLMs.",
+    "description": "A chatbot powered by GPT-4, with context memory and custom persona support. Deployed on Vercel with serverless functions.",
+    "techStack": ["Next.js", "OpenAI API", "TypeScript", "Vercel"],
+    "githubUrl": "https://github.com/shubh/llm-chatbot",
+    "demoUrl": "https://chatbot.shubhgupta.com",
+    "image": "/projects/llm-chatbot.png"
+  },
+  {
+    "id": "airbnb-clone",
+    "title": "Airbnb Clone",
+    "summary": "Full-stack clone of Airbnb platform.",
+    "description": "A feature-rich Airbnb clone with authentication, booking, and payment integration. Built with Next.js, Prisma, and Stripe.",
+    "techStack": ["Next.js", "Prisma", "Stripe", "React", "Tailwind CSS"],
+    "githubUrl": "https://github.com/shubh/airbnb-clone",
+    "demoUrl": null,
+    "image": "/projects/airbnb-clone.png"
+  },
+  {
+    "id": "stock-screener",
+    "title": "Stock Screener",
+    "summary": "Screen and analyze stocks in real time.",
+    "description": "A stock screener app with real-time data, technical indicators, and custom filters. Built with React, D3.js, and WebSockets.",
+    "techStack": ["React", "D3.js", "WebSockets", "Tailwind CSS"],
+    "githubUrl": "https://github.com/shubh/stock-screener",
+    "demoUrl": "https://stocks.shubhgupta.com",
+    "image": "/projects/stock-screener.png"
+  },
+  {
+    "id": "personal-finance-tracker",
+    "title": "Personal Finance Tracker",
+    "summary": "Track expenses and visualize budgets.",
+    "description": "A personal finance app to track expenses, set budgets, and visualize spending trends. Uses local storage and D3.js charts.",
+    "techStack": ["React", "TypeScript", "D3.js", "Tailwind CSS"],
+    "githubUrl": "https://github.com/shubh/personal-finance-tracker",
+    "demoUrl": null,
+    "image": "/projects/personal-finance-tracker.png"
+  }
+] 
