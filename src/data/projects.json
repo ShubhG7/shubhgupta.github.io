@@ -7,7 +7,17 @@
     "techStack": ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS", "Vercel"],
     "githubUrl": "https://github.com/shubh/resumai",
     "demoUrl": "https://resumai.shubhgupta.com",
-    "image": "/projects/resumai.png"
+    "image": "https://ui-avatars.com/api/?name=ResumAI&background=random&size=256"
+  },
+  {
+    "id": "cart-classifier",
+    "title": "C(ART) Classifier",
+    "summary": "Art classification using deep learning.",
+    "description": "A deep learning model to classify artworks and styles. Built with CNNs and transfer learning for robust performance.",
+    "techStack": ["Python", "TensorFlow", "Keras", "Streamlit"],
+    "githubUrl": "",
+    "demoUrl": null,
+    "image": "https://ui-avatars.com/api/?name=C(ART)+Classifier&background=random&size=256"
   },
   {
     "id": "asl-interpreter",
@@ -17,7 +27,67 @@
     "techStack": ["React", "TensorFlow.js", "WebRTC", "Tailwind CSS"],
     "githubUrl": "https://github.com/shubh/asl-interpreter",
     "demoUrl": "https://asl.shubhgupta.com",
-    "image": "/projects/asl-interpreter.png"
+    "image": "https://ui-avatars.com/api/?name=ASL+Interpreter&background=random&size=256"
+  },
+  {
+    "id": "llm-inference-optimization",
+    "title": "LLM Inference Workload Optimization",
+    "summary": "Optimizing LLM inference on custom hardware.",
+    "description": "Research project focused on accelerating large language model inference using hardware-aware optimizations and quantization techniques.",
+    "techStack": ["Python", "CUDA", "FPGA", "PyTorch", "C++"],
+    "githubUrl": "",
+    "demoUrl": null,
+    "image": "https://ui-avatars.com/api/?name=LLM+Inference+Workload+Optimization&background=random&size=256"
+  },
+  {
+    "id": "car-price-prediction",
+    "title": "Car Price Prediction",
+    "summary": "Predicting car prices using ML models.",
+    "description": "A regression-based machine learning project to estimate car prices from features like make, model, year, and mileage.",
+    "techStack": ["Python", "scikit-learn", "Pandas", "Streamlit"],
+    "githubUrl": "",
+    "demoUrl": null,
+    "image": "https://ui-avatars.com/api/?name=Car+Price+Prediction&background=random&size=256"
+  },
+  {
+    "id": "stroke-prediction",
+    "title": "Stroke Prediction",
+    "summary": "ML model for predicting stroke risk.",
+    "description": "A healthcare analytics project using patient data to predict the risk of stroke. Includes data preprocessing and model evaluation.",
+    "techStack": ["Python", "scikit-learn", "Pandas", "Matplotlib"],
+    "githubUrl": "",
+    "demoUrl": null,
+    "image": "https://ui-avatars.com/api/?name=Stroke+Prediction&background=random&size=256"
+  },
+  {
+    "id": "house-price-prediction",
+    "title": "House Price Prediction",
+    "summary": "Predicting house prices with ML.",
+    "description": "A regression project to estimate house prices based on location, size, and amenities. Visualized with interactive dashboards.",
+    "techStack": ["Python", "scikit-learn", "Pandas", "Streamlit"],
+    "githubUrl": "",
+    "demoUrl": null,
+    "image": "https://ui-avatars.com/api/?name=House+Price+Prediction&background=random&size=256"
+  },
+  {
+    "id": "stock-price-prediction",
+    "title": "Stock Price Prediction",
+    "summary": "Forecasting stock prices using ML.",
+    "description": "A time series forecasting project for predicting stock prices using LSTM and ARIMA models. Includes data visualization.",
+    "techStack": ["Python", "TensorFlow", "Keras", "Matplotlib"],
+    "githubUrl": "",
+    "demoUrl": null,
+    "image": "https://ui-avatars.com/api/?name=Stock+Price+Prediction&background=random&size=256"
+  },
+  {
+    "id": "aco",
+    "title": "Ant Colony Optimization (ACO)",
+    "summary": "Metaheuristic optimization with ACO.",
+    "description": "Implementation of the Ant Colony Optimization algorithm for solving combinatorial problems like TSP and scheduling.",
+    "techStack": ["Python", "NumPy", "Matplotlib"],
+    "githubUrl": "",
+    "demoUrl": null,
+    "image": "https://ui-avatars.com/api/?name=Ant+Colony+Optimization+(ACO)&background=random&size=256"
   },
   {
     "id": "flight-delay-prediction",
@@ -27,126 +97,56 @@
     "techStack": ["PySpark", "Airflow", "FastAPI", "React", "Docker"],
     "githubUrl": "https://github.com/shubh/flight-delay-prediction",
     "demoUrl": null,
-    "image": "/projects/flight-delay-prediction.png"
+    "image": "https://ui-avatars.com/api/?name=Flight+Delay+Prediction&background=random&size=256"
+  },
+  {
+    "id": "etl-airflow",
+    "title": "ETL Pipeline in Airflow",
+    "summary": "Building ETL pipelines with Airflow.",
+    "description": "A data engineering project demonstrating ETL pipeline orchestration using Apache Airflow for automation and monitoring.",
+    "techStack": ["Python", "Airflow", "Pandas", "Docker"],
+    "githubUrl": "",
+    "demoUrl": null,
+    "image": "https://ui-avatars.com/api/?name=ETL+Pipeline+in+Airflow&background=random&size=256"
+  },
+  {
+    "id": "abstract-essence",
+    "title": "Research Paper: Abstract & Essence",
+    "summary": "Summarizing research papers with NLP.",
+    "description": "A natural language processing project to extract and summarize the abstract and essence of research papers automatically.",
+    "techStack": ["Python", "NLTK", "spaCy", "Streamlit"],
+    "githubUrl": "",
+    "demoUrl": null,
+    "image": "https://ui-avatars.com/api/?name=Research+Paper:+Abstract+%26+Essence&background=random&size=256"
+  },
+  {
+    "id": "pixelart-sdxl",
+    "title": "PixelArt SDXL",
+    "summary": "Pixel art generation with SDXL.",
+    "description": "A creative project using Stable Diffusion XL (SDXL) to generate pixel art from text prompts. Includes a web interface for user input.",
+    "techStack": ["Python", "Stable Diffusion", "Streamlit"],
+    "githubUrl": "",
+    "demoUrl": null,
+    "image": "https://ui-avatars.com/api/?name=PixelArt+SDXL&background=random&size=256"
+  },
+  {
+    "id": "orion",
+    "title": "Orion",
+    "summary": "A platform for collaborative research.",
+    "description": "Orion is a web-based platform designed to facilitate collaborative research, sharing datasets, and running experiments in the cloud.",
+    "techStack": ["Next.js", "TypeScript", "Node.js", "MongoDB"],
+    "githubUrl": "",
+    "demoUrl": null,
+    "image": "https://ui-avatars.com/api/?name=Orion&background=random&size=256"
   },
   {
     "id": "all-in-casino",
-    "title": "All-In Casino",
+    "title": "All In Casino",
     "summary": "Decentralized casino dApp on Ethereum.",
     "description": "A provably fair, on-chain casino with games like Poker and Blackjack. Built with Solidity, React, and Chainlink VRF for randomness.",
     "techStack": ["Solidity", "React", "Chainlink", "Ethers.js", "Next.js"],
     "githubUrl": "https://github.com/shubh/all-in-casino",
     "demoUrl": "https://casino.shubhgupta.com",
-    "image": "/projects/all-in-casino.png"
-  },
-  {
-    "id": "llm-hw-optimizer",
-    "title": "LLM Hardware Optimizer",
-    "summary": "Accelerating LLM inference on custom hardware.",
-    "description": "Research project optimizing transformer inference on FPGAs and GPUs. Achieved 2x speedup for BERT and GPT models using quantization and custom kernels.",
-    "techStack": ["Python", "CUDA", "FPGA", "PyTorch", "C++"],
-    "githubUrl": "https://github.com/shubh/llm-hw-optimizer",
-    "demoUrl": null,
-    "image": "/projects/llm-hw-optimizer.png"
-  },
-  {
-    "id": "dsp-algo-suite",
-    "title": "DSP Algorithm Suite",
-    "summary": "Collection of classical DSP algorithms.",
-    "description": "A library of digital signal processing algorithms (FFT, filters, modulation) with interactive visualizations and real-time audio demos.",
-    "techStack": ["TypeScript", "Web Audio API", "React", "D3.js"],
-    "githubUrl": "https://github.com/shubh/dsp-algo-suite",
-    "demoUrl": "https://dsp.shubhgupta.com",
-    "image": "/projects/dsp-algo-suite.png"
-  },
-  {
-    "id": "blockchain-voting",
-    "title": "Blockchain Voting",
-    "summary": "Secure, transparent voting platform.",
-    "description": "A blockchain-based voting system ensuring transparency, privacy, and auditability. Used in university elections with 1,000+ votes cast.",
-    "techStack": ["Solidity", "Next.js", "IPFS", "React", "Tailwind CSS"],
-    "githubUrl": "https://github.com/shubh/blockchain-voting",
-    "demoUrl": null,
-    "image": "/projects/blockchain-voting.png"
-  },
-  {
-    "id": "mlops-dashboard",
-    "title": "MLOps Dashboard",
-    "summary": "Monitor and manage ML pipelines at scale.",
-    "description": "A dashboard for tracking ML experiments, deployments, and metrics. Integrates with MLflow, Kubernetes, and Prometheus.",
-    "techStack": ["React", "MLflow", "Kubernetes", "Prometheus", "TypeScript"],
-    "githubUrl": "https://github.com/shubh/mlops-dashboard",
-    "demoUrl": "https://mlops.shubhgupta.com",
-    "image": "/projects/mlops-dashboard.png"
-  },
-  {
-    "id": "streaming-data-pipeline",
-    "title": "Streaming Data Pipeline",
-    "summary": "Real-time data streaming with PySpark.",
-    "description": "A scalable pipeline for ingesting, processing, and visualizing streaming data using PySpark, Kafka, and D3.js.",
-    "techStack": ["PySpark", "Kafka", "D3.js", "React", "Docker"],
-    "githubUrl": "https://github.com/shubh/streaming-data-pipeline",
-    "demoUrl": null,
-    "image": "/projects/streaming-data-pipeline.png"
-  },
-  {
-    "id": "portfolio-v1",
-    "title": "Portfolio v1",
-    "summary": "First iteration of my developer portfolio.",
-    "description": "A classic portfolio site built with Gatsby and styled-components. Showcases early projects and blog posts.",
-    "techStack": ["Gatsby", "React", "styled-components"],
-    "githubUrl": "https://github.com/shubh/portfolio-v1",
-    "demoUrl": "https://v1.shubhgupta.com",
-    "image": "/projects/portfolio-v1.png"
-  },
-  {
-    "id": "algo-visualizer",
-    "title": "Algorithm Visualizer",
-    "summary": "Interactive visualizations for algorithms.",
-    "description": "A web app to visualize sorting, pathfinding, and graph algorithms step-by-step. Used in university CS courses.",
-    "techStack": ["React", "TypeScript", "D3.js", "Tailwind CSS"],
-    "githubUrl": "https://github.com/shubh/algo-visualizer",
-    "demoUrl": "https://algo.shubhgupta.com",
-    "image": "/projects/algo-visualizer.png"
-  },
-  {
-    "id": "llm-chatbot",
-    "title": "LLM Chatbot",
-    "summary": "Conversational AI chatbot using LLMs.",
-    "description": "A chatbot powered by GPT-4, with context memory and custom persona support. Deployed on Vercel with serverless functions.",
-    "techStack": ["Next.js", "OpenAI API", "TypeScript", "Vercel"],
-    "githubUrl": "https://github.com/shubh/llm-chatbot",
-    "demoUrl": "https://chatbot.shubhgupta.com",
-    "image": "/projects/llm-chatbot.png"
-  },
-  {
-    "id": "airbnb-clone",
-    "title": "Airbnb Clone",
-    "summary": "Full-stack clone of Airbnb platform.",
-    "description": "A feature-rich Airbnb clone with authentication, booking, and payment integration. Built with Next.js, Prisma, and Stripe.",
-    "techStack": ["Next.js", "Prisma", "Stripe", "React", "Tailwind CSS"],
-    "githubUrl": "https://github.com/shubh/airbnb-clone",
-    "demoUrl": null,
-    "image": "/projects/airbnb-clone.png"
-  },
-  {
-    "id": "stock-screener",
-    "title": "Stock Screener",
-    "summary": "Screen and analyze stocks in real time.",
-    "description": "A stock screener app with real-time data, technical indicators, and custom filters. Built with React, D3.js, and WebSockets.",
-    "techStack": ["React", "D3.js", "WebSockets", "Tailwind CSS"],
-    "githubUrl": "https://github.com/shubh/stock-screener",
-    "demoUrl": "https://stocks.shubhgupta.com",
-    "image": "/projects/stock-screener.png"
-  },
-  {
-    "id": "personal-finance-tracker",
-    "title": "Personal Finance Tracker",
-    "summary": "Track expenses and visualize budgets.",
-    "description": "A personal finance app to track expenses, set budgets, and visualize spending trends. Uses local storage and D3.js charts.",
-    "techStack": ["React", "TypeScript", "D3.js", "Tailwind CSS"],
-    "githubUrl": "https://github.com/shubh/personal-finance-tracker",
-    "demoUrl": null,
-    "image": "/projects/personal-finance-tracker.png"
+    "image": "https://ui-avatars.com/api/?name=All+In+Casino&background=random&size=256"
   }
 ] 
