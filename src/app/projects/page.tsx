@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import projects from '@/data/projects.json';
 
 // Get all unique tech stack tags
@@ -30,6 +30,13 @@ const tagColors: { [key: string]: string } = {
 
 const ProjectsPage = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setDarkMode(document.documentElement.classList.contains('dark'));
+    }
+  }, []);
 
   // Filter projects based on selected tags
   const filteredProjects = useMemo(() => {

@@ -6,19 +6,27 @@ import Footer from './Footer';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [darkMode, setDarkMode] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
+  // On mount, read from localStorage
   useEffect(() => {
-    // Apply dark mode to html element
+    const stored = localStorage.getItem('darkMode');
+    if (stored === 'true') setDarkMode(true);
+    if (stored === 'false') setDarkMode(false);
+    setHasMounted(true);
+  }, []);
+
+  // When darkMode changes, update <html> and localStorage
+  useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
+    localStorage.setItem('darkMode', darkMode ? 'true' : 'false');
   }, [darkMode]);
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+  const toggleDarkMode = () => setDarkMode((prev) => !prev);
 
   return (
     <div
@@ -26,7 +34,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       style={{ backgroundColor: 'var(--bg-main)', color: 'var(--text-main)' }}
     >
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <main className="flex-1 container mx-auto px-4">{children}</main>
+      <main className="flex-1 container mx-auto px-4">
+        {typeof children === 'function' ? children({ darkMode }) : children}
+      </main>
       <Footer />
     </div>
   );

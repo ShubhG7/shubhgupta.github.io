@@ -8,7 +8,6 @@ interface NavbarProps {
 }
 
 const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
-
   return (
     <nav
       className="w-full flex items-center justify-between p-2.5 transition-colors duration-300"
@@ -22,18 +21,16 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
       </div>
       <div className="flex items-center space-x-4">
         <div className="space-x-4 hidden md:block">
-          <a href="/" className="hover:text-[#4b2e13] hover:underline dark:hover:text-gray-300 transition-colors">Home</a>
-          <a href="/projects" className="hover:text-[#4b2e13] hover:underline dark:hover:text-gray-300 transition-colors">Projects</a>
-          <a href="/resume" className="hover:text-[#4b2e13] hover:underline dark:hover:text-gray-300 transition-colors">Resume</a>
+          <a href="/" className="hover:underline">Home</a>
+          <a href="/projects" className="hover:underline">Projects</a>
+          <a href="/resume" className="hover:underline">Resume</a>
         </div>
-        <button 
-          onClick={() => {
-            toggleDarkMode();
-          }}
-          aria-label="Toggle dark mode" 
+        <button
+          onClick={toggleDarkMode}
+          aria-label="Toggle dark mode"
           className="ml-4 p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
         >
-          {darkMode ? '☀️' : '🌙'}
+          🌓
         </button>
         <button aria-label="Open menu" className="md:hidden ml-4">☰</button>
       </div>
