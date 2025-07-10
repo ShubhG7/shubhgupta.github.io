@@ -1,17 +1,8 @@
-import { NextResponse } from "next/server";
-import { promises as fs } from "fs";
-import path from "path";
+import { NextRequest, NextResponse } from 'next/server';
+import projects from '@/data/projects.json';
 
-export async function GET(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
-  const filePath = path.join(process.cwd(), "src/data/projects.json");
-  const data = await fs.readFile(filePath, "utf-8");
-  const projects = JSON.parse(data);
+export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   const project = projects.find((p: any) => p.id === params.id);
-  if (!project) {
-    return NextResponse.json({ error: "Project not found" }, { status: 404 });
-  }
+  if (!project) return NextResponse.json({ error: 'Not found' }, { status: 404 });
   return NextResponse.json(project);
-} 
+}

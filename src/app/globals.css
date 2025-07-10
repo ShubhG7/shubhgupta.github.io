@@ -1,18 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-* {
-  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
-}
-
-:focus {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
+  --background: #f5e9da; /* beige */
+  --foreground: #2d1e13; /* dark brown */
 }
 
 @theme inline {
@@ -24,15 +14,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #111111; /* black */
+    --foreground: #fff;    /* white */
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  @apply bg-gray-50 dark:bg-black text-black dark:text-white;
+  font-family: Arial, Helvetica, sans-serif;
 }

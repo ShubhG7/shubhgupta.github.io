@@ -1,152 +1,110 @@
 [
   {
-    "id": "resumai",
-    "title": "ResumAI",
-    "summary": "AI-powered resume builder and analyzer.",
-    "description": "ResumAI leverages LLMs to generate, analyze, and optimize resumes for job seekers. Features include PDF export, keyword matching, and recruiter feedback simulation.",
-    "techStack": ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS", "Vercel"],
-    "githubUrl": "https://github.com/shubh/resumai",
-    "demoUrl": "https://resumai.shubhgupta.com",
-    "image": "https://ui-avatars.com/api/?name=ResumAI&background=random&size=256"
-  },
-  {
     "id": "cart-classifier",
     "title": "C(ART) Classifier",
-    "summary": "Art classification using deep learning.",
-    "description": "A deep learning model to classify artworks and styles. Built with CNNs and transfer learning for robust performance.",
-    "techStack": ["Python", "TensorFlow", "Keras", "Streamlit"],
-    "githubUrl": "",
-    "demoUrl": null,
-    "image": "https://ui-avatars.com/api/?name=C(ART)+Classifier&background=random&size=256"
+    "summary": "Image classification model trained on abstract art genres using deep learning.",
+    "image": "https://ui-avatars.com/api/?name=C(ART)+Classifier&background=4b2e13&color=fff",
+    "techStack": ["Python", "PyTorch", "TensorFlow", "OpenCV", "scikit-learn", "Streamlit"],
+    "github": "https://github.com/username/cart-classifier",
+    "demo": "https://cart-classifier.demo.com"
   },
   {
     "id": "asl-interpreter",
     "title": "ASL Interpreter",
-    "summary": "Real-time American Sign Language recognition app.",
-    "description": "A web app that uses TensorFlow.js and a webcam to interpret ASL gestures into text and speech, making communication more accessible.",
-    "techStack": ["React", "TensorFlow.js", "WebRTC", "Tailwind CSS"],
-    "githubUrl": "https://github.com/shubh/asl-interpreter",
-    "demoUrl": "https://asl.shubhgupta.com",
-    "image": "https://ui-avatars.com/api/?name=ASL+Interpreter&background=random&size=256"
+    "summary": "Real-time hand gesture interpreter converting ASL to text/speech via computer vision.",
+    "image": "https://ui-avatars.com/api/?name=ASL+Interpreter&background=a47551&color=fff",
+    "techStack": ["Python", "MediaPipe", "TensorFlow", "OpenCV", "Flask", "Streamlit"],
+    "github": "https://github.com/username/asl-interpreter",
+    "demo": "https://asl-interpreter.demo.com"
   },
   {
     "id": "llm-inference-optimization",
     "title": "LLM Inference Workload Optimization",
-    "summary": "Optimizing LLM inference on custom hardware.",
-    "description": "Research project focused on accelerating large language model inference using hardware-aware optimizations and quantization techniques.",
-    "techStack": ["Python", "CUDA", "FPGA", "PyTorch", "C++"],
-    "githubUrl": "",
-    "demoUrl": null,
-    "image": "https://ui-avatars.com/api/?name=LLM+Inference+Workload+Optimization&background=random&size=256"
+    "summary": "Optimizing model inference using batching, quantization, or model distillation techniques.",
+    "image": "https://ui-avatars.com/api/?name=LLM+Inference+Optimization&background=2d1e13&color=fff",
+    "techStack": ["Python", "ONNX Runtime", "Hugging Face Transformers", "Triton Inference Server", "PyTorch", "Docker"],
+    "github": "https://github.com/username/llm-inference-optimization",
+    "demo": "https://llm-inference-optimization.demo.com"
   },
   {
     "id": "car-price-prediction",
     "title": "Car Price Prediction",
-    "summary": "Predicting car prices using ML models.",
-    "description": "A regression-based machine learning project to estimate car prices from features like make, model, year, and mileage.",
-    "techStack": ["Python", "scikit-learn", "Pandas", "Streamlit"],
-    "githubUrl": "",
-    "demoUrl": null,
-    "image": "https://ui-avatars.com/api/?name=Car+Price+Prediction&background=random&size=256"
+    "summary": "Regression model estimating car prices based on attributes like brand, mileage, and age.",
+    "image": "https://ui-avatars.com/api/?name=Car+Price+Prediction&background=e2c9a0&color=2d1e13",
+    "techStack": ["Python", "scikit-learn", "XGBoost", "pandas", "NumPy", "Streamlit"],
+    "github": "https://github.com/username/car-price-prediction",
+    "demo": "https://car-price-prediction.demo.com"
   },
   {
     "id": "stroke-prediction",
     "title": "Stroke Prediction",
-    "summary": "ML model for predicting stroke risk.",
-    "description": "A healthcare analytics project using patient data to predict the risk of stroke. Includes data preprocessing and model evaluation.",
-    "techStack": ["Python", "scikit-learn", "Pandas", "Matplotlib"],
-    "githubUrl": "",
-    "demoUrl": null,
-    "image": "https://ui-avatars.com/api/?name=Stroke+Prediction&background=random&size=256"
+    "summary": "Health analytics model predicting stroke likelihood from patient data.",
+    "image": "https://ui-avatars.com/api/?name=Stroke+Prediction&background=4b2e13&color=fff",
+    "techStack": ["Python", "scikit-learn", "pandas", "NumPy", "seaborn", "Flask", "Streamlit"],
+    "github": "https://github.com/username/stroke-prediction",
+    "demo": "https://stroke-prediction.demo.com"
   },
   {
     "id": "house-price-prediction",
     "title": "House Price Prediction",
-    "summary": "Predicting house prices with ML.",
-    "description": "A regression project to estimate house prices based on location, size, and amenities. Visualized with interactive dashboards.",
-    "techStack": ["Python", "scikit-learn", "Pandas", "Streamlit"],
-    "githubUrl": "",
-    "demoUrl": null,
-    "image": "https://ui-avatars.com/api/?name=House+Price+Prediction&background=random&size=256"
+    "summary": "Model for forecasting real estate values based on location and property features.",
+    "image": "https://ui-avatars.com/api/?name=House+Price+Prediction&background=a47551&color=fff",
+    "techStack": ["Python", "XGBoost", "LightGBM", "scikit-learn", "pandas", "Streamlit"],
+    "github": "https://github.com/username/house-price-prediction",
+    "demo": "https://house-price-prediction.demo.com"
   },
   {
     "id": "stock-price-prediction",
     "title": "Stock Price Prediction",
-    "summary": "Forecasting stock prices using ML.",
-    "description": "A time series forecasting project for predicting stock prices using LSTM and ARIMA models. Includes data visualization.",
-    "techStack": ["Python", "TensorFlow", "Keras", "Matplotlib"],
-    "githubUrl": "",
-    "demoUrl": null,
-    "image": "https://ui-avatars.com/api/?name=Stock+Price+Prediction&background=random&size=256"
+    "summary": "Time-series forecasting for predicting future stock trends.",
+    "image": "https://ui-avatars.com/api/?name=Stock+Price+Prediction&background=2d1e13&color=fff",
+    "techStack": ["Python", "LSTM", "Keras", "TensorFlow", "pandas", "NumPy", "yfinance", "matplotlib"],
+    "github": "https://github.com/username/stock-price-prediction",
+    "demo": "https://stock-price-prediction.demo.com"
   },
   {
-    "id": "aco",
+    "id": "ant-colony-optimization",
     "title": "Ant Colony Optimization (ACO)",
-    "summary": "Metaheuristic optimization with ACO.",
-    "description": "Implementation of the Ant Colony Optimization algorithm for solving combinatorial problems like TSP and scheduling.",
-    "techStack": ["Python", "NumPy", "Matplotlib"],
-    "githubUrl": "",
-    "demoUrl": null,
-    "image": "https://ui-avatars.com/api/?name=Ant+Colony+Optimization+(ACO)&background=random&size=256"
+    "summary": "Solved pathfinding or scheduling problems using the ACO metaheuristic algorithm.",
+    "image": "https://ui-avatars.com/api/?name=ACO&background=e2c9a0&color=2d1e13",
+    "techStack": ["Python", "NumPy", "matplotlib", "PyGame"],
+    "github": "https://github.com/username/ant-colony-optimization",
+    "demo": "https://ant-colony-optimization.demo.com"
   },
   {
-    "id": "flight-delay-prediction",
-    "title": "Flight Delay Prediction",
-    "summary": "ML pipeline for predicting flight delays.",
-    "description": "End-to-end ML pipeline using PySpark and Airflow to predict flight delays based on weather, airline, and historical data. Includes dashboards and REST API.",
-    "techStack": ["PySpark", "Airflow", "FastAPI", "React", "Docker"],
-    "githubUrl": "https://github.com/shubh/flight-delay-prediction",
-    "demoUrl": null,
-    "image": "https://ui-avatars.com/api/?name=Flight+Delay+Prediction&background=random&size=256"
-  },
-  {
-    "id": "etl-airflow",
+    "id": "etl-pipeline-airflow",
     "title": "ETL Pipeline in Airflow",
-    "summary": "Building ETL pipelines with Airflow.",
-    "description": "A data engineering project demonstrating ETL pipeline orchestration using Apache Airflow for automation and monitoring.",
-    "techStack": ["Python", "Airflow", "Pandas", "Docker"],
-    "githubUrl": "",
-    "demoUrl": null,
-    "image": "https://ui-avatars.com/api/?name=ETL+Pipeline+in+Airflow&background=random&size=256"
+    "summary": "Scheduled and automated data ingestion, transformation, and loading to a data warehouse.",
+    "image": "https://ui-avatars.com/api/?name=ETL+Pipeline+Airflow&background=4b2e13&color=fff",
+    "techStack": ["Apache Airflow", "Python", "PostgreSQL", "MySQL", "AWS S3", "Docker"],
+    "github": "https://github.com/username/etl-pipeline-airflow",
+    "demo": "https://etl-pipeline-airflow.demo.com"
   },
   {
-    "id": "abstract-essence",
+    "id": "research-paper-abstract-essence",
     "title": "Research Paper: Abstract & Essence",
-    "summary": "Summarizing research papers with NLP.",
-    "description": "A natural language processing project to extract and summarize the abstract and essence of research papers automatically.",
-    "techStack": ["Python", "NLTK", "spaCy", "Streamlit"],
-    "githubUrl": "",
-    "demoUrl": null,
-    "image": "https://ui-avatars.com/api/?name=Research+Paper:+Abstract+%26+Essence&background=random&size=256"
-  },
-  {
-    "id": "pixelart-sdxl",
-    "title": "PixelArt SDXL",
-    "summary": "Pixel art generation with SDXL.",
-    "description": "A creative project using Stable Diffusion XL (SDXL) to generate pixel art from text prompts. Includes a web interface for user input.",
-    "techStack": ["Python", "Stable Diffusion", "Streamlit"],
-    "githubUrl": "",
-    "demoUrl": null,
-    "image": "https://ui-avatars.com/api/?name=PixelArt+SDXL&background=random&size=256"
+    "summary": "NLP model to summarize and extract key ideas from academic papers.",
+    "image": "https://ui-avatars.com/api/?name=Research+Paper&background=a47551&color=fff",
+    "techStack": ["Python", "Hugging Face Transformers", "BERT", "T5", "PyMuPDF", "pdfminer", "spaCy", "Streamlit"],
+    "github": "https://github.com/username/research-paper-abstract-essence",
+    "demo": "https://research-paper-abstract-essence.demo.com"
   },
   {
     "id": "orion",
     "title": "Orion",
-    "summary": "A platform for collaborative research.",
-    "description": "Orion is a web-based platform designed to facilitate collaborative research, sharing datasets, and running experiments in the cloud.",
-    "techStack": ["Next.js", "TypeScript", "Node.js", "MongoDB"],
-    "githubUrl": "",
-    "demoUrl": null,
-    "image": "https://ui-avatars.com/api/?name=Orion&background=random&size=256"
+    "summary": "[Placeholder project—possibly a dev tool, platform, or utility app.]",
+    "image": "https://ui-avatars.com/api/?name=Orion&background=2d1e13&color=fff",
+    "techStack": ["React", "Node.js", "Express", "PostgreSQL", "WebSocket", "Flask"],
+    "github": "https://github.com/username/orion",
+    "demo": "https://orion.demo.com"
   },
   {
     "id": "all-in-casino",
     "title": "All In Casino",
-    "summary": "Decentralized casino dApp on Ethereum.",
-    "description": "A provably fair, on-chain casino with games like Poker and Blackjack. Built with Solidity, React, and Chainlink VRF for randomness.",
-    "techStack": ["Solidity", "React", "Chainlink", "Ethers.js", "Next.js"],
-    "githubUrl": "https://github.com/shubh/all-in-casino",
-    "demoUrl": "https://casino.shubhgupta.com",
-    "image": "https://ui-avatars.com/api/?name=All+In+Casino&background=random&size=256"
+    "summary": "Multiplayer digital casino with games like poker and blackjack, possibly AI opponents.",
+    "image": "https://ui-avatars.com/api/?name=All+In+Casino&background=4b2e13&color=fff",
+    "techStack": ["React.js", "Node.js", "Socket.io", "MongoDB", "PostgreSQL", "Redux", "WebGL", "Three.js"],
+    "github": "https://github.com/username/all-in-casino",
+    "demo": "https://all-in-casino.demo.com"
   }
-] 
+]
