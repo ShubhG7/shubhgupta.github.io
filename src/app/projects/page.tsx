@@ -30,6 +30,7 @@ const tagColors: { [key: string]: string } = {
 
 const ProjectsPage = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [hoveredTag, setHoveredTag] = useState<string | null>(null);
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -84,28 +85,33 @@ const ProjectsPage = () => {
         <div className="w-full flex flex-wrap gap-2 justify-between mb-4" style={{ fontSize: '0.7rem' }}>
           {allTechStack.map((tag) => {
             const isSelected = selectedTags.includes(tag);
+            const isHovered = hoveredTag === tag;
+            let backgroundColor = isSelected ? '#4b2e13' : '#f5e9da';
+            let color = isSelected ? '#fff' : '#2d1e13';
+            let borderColor = isSelected ? '#4b2e13' : '#e2c9a0';
+            if (isHovered) {
+              if (isSelected) {
+                backgroundColor = '#2d1e13';
+                borderColor = '#2d1e13';
+              } else {
+                backgroundColor = '#e2c9a0';
+                borderColor = '#a47551';
+              }
+            }
             return (
               <button
                 key={tag}
                 onClick={() => toggleTag(tag)}
+                onMouseEnter={() => setHoveredTag(tag)}
+                onMouseLeave={() => setHoveredTag(null)}
+                className="transition-colors duration-150 flex-1 text-center min-w-[84px] mr-1 mb-1 font-semibold rounded-full border-2"
                 style={{
-                  backgroundColor: isSelected ? '#4b2e13' : '#f5e9da',
-                  color: isSelected ? '#fff' : '#2d1e13',
-                  borderColor: isSelected ? '#4b2e13' : '#e2c9a0',
+                  backgroundColor,
+                  color,
+                  borderColor,
                   padding: '0.35rem 0.9rem',
-                  fontWeight: 600,
                   fontSize: '0.7rem',
-                  borderWidth: 2,
-                  borderStyle: 'solid',
-                  borderRadius: '9999px',
                   boxShadow: isSelected ? '0 2px 8px 0 rgba(75,46,19,0.15)' : undefined,
-                  transition: 'all 0.15s',
-                  cursor: 'pointer',
-                  flex: 1,
-                  textAlign: 'center',
-                  minWidth: '84px',
-                  marginRight: '0.35rem',
-                  marginBottom: '0.35rem',
                 }}
               >
                 {tag}
@@ -117,9 +123,6 @@ const ProjectsPage = () => {
         {selectedTags.length > 0 && (
           <div className="mt-3 text-sm" style={{ color: 'var(--text-main)' }}>
             Showing {filteredProjects.length} of {projects.length} projects
-            <div className="mt-1 text-xs" style={{ color: 'var(--text-main)' }}>
-              Selected: {selectedTags.join(', ')}
-            </div>
           </div>
         )}
       </div>
