@@ -57,16 +57,17 @@ const ProjectsPage = () => {
 
   return (
     <div className="py-8">
-      <h1 className="text-3xl font-bold mb-6">Projects</h1>
+      <h1 className="text-3xl font-bold mb-6" style={{ color: 'var(--text-main)' }}>Projects</h1>
       
       {/* Filter UI */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold">Filter by Technology</h2>
+          <h2 className="text-lg font-semibold" style={{ color: 'var(--text-main)' }}>Filter by Technology</h2>
           {selectedTags.length > 0 && (
             <button
               onClick={clearFilters}
-              className="text-sm text-gray-600 hover:text-gray-800 underline"
+              className="text-sm underline"
+              style={{ color: 'var(--text-main)' }}
             >
               Clear all filters
             </button>
@@ -107,9 +108,9 @@ const ProjectsPage = () => {
         </div>
         
         {selectedTags.length > 0 && (
-          <div className="mt-3 text-sm text-gray-600">
+          <div className="mt-3 text-sm" style={{ color: 'var(--text-main)' }}>
             Showing {filteredProjects.length} of {projects.length} projects
-            <div className="mt-1 text-xs text-gray-500">
+            <div className="mt-1 text-xs" style={{ color: 'var(--text-main)' }}>
               Selected: {selectedTags.join(', ')}
             </div>
           </div>
@@ -125,7 +126,7 @@ const ProjectsPage = () => {
               alt={project.title} 
               className="w-full h-40 object-cover rounded mb-4" 
             />
-            <h2 className="text-xl font-semibold mb-4 mt-2">{project.title}</h2>
+            <h2 className="text-xl font-semibold mb-4 mt-2" style={{ color: '#2d1e13' }}>{project.title}</h2>
             <p className="text-sm text-gray-600 mb-4 line-clamp-3">{project.summary}</p>
             <div className="flex flex-wrap gap-2 mb-4 mt-2">
               {project.techStack.map((tech: string) => (
@@ -173,10 +174,11 @@ const ProjectsPage = () => {
       
       {filteredProjects.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-gray-500">No projects match the selected filters.</p>
+          <p style={{ color: 'var(--text-main)' }}>No projects match the selected filters.</p>
           <button
             onClick={clearFilters}
-            className="mt-2 text-blue-600 hover:text-blue-800 underline"
+            className="mt-2 underline"
+            style={{ color: 'var(--text-main)' }}
           >
             Clear filters
           </button>
