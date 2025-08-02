@@ -106,5 +106,14 @@
     "techStack": ["React.js", "Node.js", "Socket.io", "MongoDB", "PostgreSQL", "Redux", "WebGL", "Three.js"],
     "github": "https://github.com/username/all-in-casino",
     "demo": "https://all-in-casino.demo.com"
+  },
+  {
+    "id": "flight-delay-prediction",
+    "title": "Flight Delay Prediction at Scale with PySpark on Google Cloud",
+    "summary": "Built and deployed a scalable pipeline to predict airline departure delays using 65M+ records, PySpark, RandomForest, and cloud infrastructure; includes full preprocessing, modeling, and analysis.",
+    "image": "https://ui-avatars.com/api/?name=Flight+Delay+Prediction&background=a47551&color=fff",
+    "techStack": ["PySpark", "Big Data", "Machine Learning", "Google Cloud", "RandomForest", "Python", "Cloud Storage", "Compute Engine"],
+    "github": "https://github.com/username/flight-delay-prediction",
+    "demo": "https://flight-delay-prediction.demo.com"
   }
 ]

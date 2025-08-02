@@ -154,7 +154,7 @@ const ProjectsPage = () => {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] transition-all"
+                className="flex items-center gap-1 px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] active:bg-[#e2c9a0] active:scale-95 transition-all duration-200 touch-manipulation"
                 style={{ fontSize: '0.7rem', padding: '0.35rem 0.9rem' }}
               >
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" className="mr-1"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
@@ -164,7 +164,7 @@ const ProjectsPage = () => {
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] transition-all"
+                className="flex items-center gap-1 px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] active:bg-[#e2c9a0] active:scale-95 transition-all duration-200 touch-manipulation"
                 style={{ fontSize: '0.7rem', padding: '0.35rem 0.9rem' }}
               >
                 <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="mr-1"><path d="M14 3h7v7"/><path d="M5 19l16-16"/><path d="M21 21H3V3"/></svg>
@@ -172,7 +172,7 @@ const ProjectsPage = () => {
               </a>
               <a
                 href={`/projects/${project.id}/blog`}
-                className="flex items-center gap-1 px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] transition-all"
+                className="flex items-center gap-1 px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] active:bg-[#e2c9a0] active:scale-95 transition-all duration-200 touch-manipulation"
                 style={{ fontSize: '0.7rem', padding: '0.35rem 0.9rem' }}
               >
                 <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="mr-1"><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22h11a2.5 2.5 0 0 0 2.5-2.5v-15A2.5 2.5 0 0 0 17.5 2h-11A2.5 2.5 0 0 0 4 4.5v15z"/><path d="M8 6h8M8 10h8M8 14h6"/></svg>
