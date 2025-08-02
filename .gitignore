@@ -51,3 +51,4 @@ public/resume.pdf
 
 # Yarn Integrity file
 yarn.lock
+.vercel

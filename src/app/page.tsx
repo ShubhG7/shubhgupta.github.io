@@ -23,29 +23,29 @@ export default function Home() {
       <section className="relative flex flex-col items-start justify-center min-h-screen overflow-hidden px-16 py-20 w-full">
         <div className="relative z-10 flex flex-col items-start justify-start w-full max-w-7xl">
           <h2 className="text-2xl mb-6 text-left" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
-            Hi, I'm Shubh Gupta 👋
+            Hi, I&apos;m Shubh Gupta 👋
           </h2>
           <h1 className="text-8xl font-bold mb-8 text-left leading-tight" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
             a <span 
               className="transition-colors duration-300 hover:cursor-pointer" 
               style={{ color: 'var(--text-main)' }}
-              onMouseEnter={(e) => e.target.style.color = '#800000'}
-              onMouseLeave={(e) => e.target.style.color = 'var(--text-main)'}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#800000'}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'var(--text-main)'}
             >
               Software Engineer
             </span><br/>
             & <span 
               className="transition-colors duration-300 hover:cursor-pointer" 
               style={{ color: 'var(--text-main)' }}
-              onMouseEnter={(e) => e.target.style.color = '#800000'}
-              onMouseLeave={(e) => e.target.style.color = 'var(--text-main)'}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#800000'}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'var(--text-main)'}
             >
               Data Scientist
             </span><br/>
             based in Boston
           </h1>
           <p className="text-xl mb-12 max-w-3xl text-left leading-relaxed" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
-            I have a passion for building intelligent systems and solving complex problems. From ML pipelines to full-stack applications, I'm ready to bring my skills to your team.
+            I have a passion for building intelligent systems and solving complex problems. From ML pipelines to full-stack applications, I&apos;m ready to bring my skills to your team.
           </p>
           <div className="flex space-x-8 mb-16 text-2xl" style={{ fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
             <a href="https://github.com/username" aria-label="GitHub" target="_blank" rel="noopener noreferrer" className="hover:underline transition-colors" style={{ color: 'var(--text-main)' }}>GitHub</a>
