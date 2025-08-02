@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Josefin_Sans } from "next/font/google";
+import { Geist, Geist_Mono, Josefin_Sans, League_Spartan } from "next/font/google";
 import "./globals.css";
 import Layout from "@/components/Layout";
 
@@ -19,6 +19,12 @@ const josefin = Josefin_Sans({
   variable: "--font-josefin",
 });
 
+const leagueSpartan = League_Spartan({
+  subsets: ["latin"],
+  weight: ["400", "700", "800", "900"],
+  variable: "--font-league-spartan",
+});
+
 export const metadata: Metadata = {
   title: "Shubh Gupta Portfolio",
   description: "Portfolio of Shubh Gupta - Developer, Designer, and Creator.",
@@ -32,23 +38,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const dark = localStorage.getItem('darkMode');
-                if (dark === 'true') {
-                  document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.remove('dark');
-                }
-              } catch(e){}
-            `,
-          }}
-        />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${josefin.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${josefin.variable} ${leagueSpartan.variable} antialiased`}
       >
         <Layout>{children}</Layout>
       </body>

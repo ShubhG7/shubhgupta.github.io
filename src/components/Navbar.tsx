@@ -10,12 +10,17 @@ interface NavbarProps {
 const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
   return (
     <nav
-      className="w-full flex items-center justify-between p-2.5 transition-colors duration-300"
-      style={{ backgroundColor: 'var(--bg-main)', color: 'var(--text-main)' }}
+      className="w-full flex items-center justify-between p-2.5 transition-colors duration-300 z-50 relative backdrop-blur"
+      style={{ 
+        backgroundColor: darkMode 
+          ? 'rgba(24,24,27,0.4)' // dark: #18181b, 40% opacity
+          : 'rgba(245,233,218,0.4)', // light: #f5e9da, 40% opacity
+        color: 'var(--text-main)'
+      }}
     >
       <div
-        className="font-extrabold pt-8 pl-16"
-        style={{ fontFamily: 'var(--font-josefin), Arial, Helvetica, sans-serif', fontSize: '2.1rem', fontWeight: 800 }}
+        className="font-extrabold pt-8 pl-4"
+        style={{ fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif', fontSize: '2.8rem', fontWeight: 900 }}
       >
         Shubh Gupta
       </div>

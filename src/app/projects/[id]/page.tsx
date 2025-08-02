@@ -23,11 +23,12 @@ const tagColors: { [key: string]: string } = {
 };
 
 interface ProjectPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 const ProjectDetailPage = async ({ params }: ProjectPageProps) => {
-  const project = projects.find((p: any) => p.id === params.id);
+  const resolvedParams = await params;
+  const project = projects.find((p: any) => p.id === resolvedParams.id);
   if (!project) return notFound();
 
   return (

@@ -64,11 +64,11 @@ const ProjectsPage = () => {
   };
 
   return (
-    <div className="py-8">
+    <div className="py-8 relative z-10">
       <h1 className="text-3xl font-bold mb-6" style={{ color: 'var(--text-main)' }}>Projects</h1>
       
       {/* Filter UI */}
-      <div className="mb-8">
+      <div className="mb-8 relative z-10">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold" style={{ color: 'var(--text-main)' }}>Filter by Technology</h2>
           {selectedTags.length > 0 && (
@@ -82,7 +82,7 @@ const ProjectsPage = () => {
           )}
         </div>
         
-        <div className="w-full flex flex-wrap gap-2 justify-between mb-4" style={{ fontSize: '0.7rem' }}>
+        <div className="w-full flex flex-wrap gap-2 justify-start mb-4" style={{ fontSize: '0.84rem' }}>
           {allTechStack.map((tag) => {
             const isSelected = selectedTags.includes(tag);
             const isHovered = hoveredTag === tag;
@@ -104,13 +104,13 @@ const ProjectsPage = () => {
                 onClick={() => toggleTag(tag)}
                 onMouseEnter={() => setHoveredTag(tag)}
                 onMouseLeave={() => setHoveredTag(null)}
-                className="transition-colors duration-150 flex-1 text-center min-w-[84px] mr-1 mb-1 font-semibold rounded-full border-2"
+                className="transition-colors duration-150 text-center mr-1 mb-1 font-semibold rounded-full border-2"
                 style={{
                   backgroundColor,
                   color,
                   borderColor,
-                  padding: '0.35rem 0.9rem',
-                  fontSize: '0.7rem',
+                  padding: '0.42rem 1.08rem',
+                  fontSize: '0.84rem',
                   boxShadow: isSelected ? '0 2px 8px 0 rgba(75,46,19,0.15)' : undefined,
                 }}
               >
@@ -130,7 +130,7 @@ const ProjectsPage = () => {
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project: any) => (
-          <div key={project.id} className="border rounded-lg p-4 hover:shadow-lg transition-shadow bg-white">
+          <div key={project.id} className="border rounded-lg p-4 hover:shadow-lg transition-shadow bg-white relative z-10">
             <img 
               src={project.image} 
               alt={project.title} 

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => (
   <footer
-    className="w-full text-center p-4 border-t border-[#4b2e13] text-sm dark:border-gray-600 transition-colors duration-300"
+    className="w-full text-center p-4 text-sm transition-colors duration-300"
     style={{ backgroundColor: 'var(--bg-main)', color: 'var(--text-main)' }}
   >
     <div>© {new Date().getFullYear()} Shubh Gupta</div>
