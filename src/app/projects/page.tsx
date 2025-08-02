@@ -65,24 +65,24 @@ const ProjectsPage = () => {
 
   return (
     <div className="py-8 relative z-10">
-      <h1 className="text-3xl font-bold mb-6" style={{ color: 'var(--text-main)' }}>Projects</h1>
+      <h1 className="text-3xl font-bold mb-6" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>Projects</h1>
       
       {/* Filter UI */}
       <div className="mb-8 relative z-10">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold" style={{ color: 'var(--text-main)' }}>Filter by Technology</h2>
+          <h2 className="text-lg font-semibold" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>Filter by Technology</h2>
           {selectedTags.length > 0 && (
             <button
               onClick={clearFilters}
               className="text-sm underline"
-              style={{ color: 'var(--text-main)' }}
+              style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
             >
               Clear all filters
             </button>
           )}
         </div>
         
-        <div className="w-full flex flex-wrap gap-2 justify-start mb-4" style={{ fontSize: '0.84rem' }}>
+        <div className="w-full flex flex-wrap gap-2 justify-start mb-4" style={{ fontSize: '0.924rem' }}>
           {allTechStack.map((tag) => {
             const isSelected = selectedTags.includes(tag);
             const isHovered = hoveredTag === tag;
@@ -110,7 +110,8 @@ const ProjectsPage = () => {
                   color,
                   borderColor,
                   padding: '0.42rem 1.08rem',
-                  fontSize: '0.84rem',
+                  fontSize: '0.924rem',
+                  fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif',
                   boxShadow: isSelected ? '0 2px 8px 0 rgba(75,46,19,0.15)' : undefined,
                 }}
               >

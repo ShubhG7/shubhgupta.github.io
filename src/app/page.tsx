@@ -7,19 +7,15 @@ export default function Home() {
   const [filter, setFilter] = useState('programming');
 
   const timelineData = [
-    // Life events
-    { type: 'life', title: '2013–2016', description: 'At Thakur International School, I juggled football, tennis, and ICSE exams — learning early how to multitask (and how to fake understanding Shakespeare).' },
-    { type: 'life', title: '2016–2018', description: 'Joined Pace Junior Science College for HSC. It was all physics, chemistry, and caffeine. This is where I realized that solving problems felt more natural than memorizing them — a clue that engineering was the right path.' },
-    { type: 'life', title: '2018–2019', description: 'Took a dedicated gap year to prepare for JEE. It was one of the hardest, most formative years of my life. I learned not just math and coding basics, but also focus, failure, and persistence — the real kind that doesn\'t come with a progress bar.' },
-    // Programming events
-    { type: 'programming', title: 'Aug 2019', description: 'Entered Thadomal Shahani Engineering College (TSEC) with barely any coding experience, just curiosity and stubbornness. That changed quickly.' },
-    { type: 'programming', title: '2019–2023', description: 'My BE in Information Technology became a four-year bootcamp in classical ML and full-stack development. I built everything from stroke prediction models and ASL interpreters to a full-on e-commerce platform for artists (C(ART)). Along the way, I dove into neural networks, time series forecasting, and even published a research paper on crude oil price prediction using RNN, SVM, ARIMA, and GARCH-GED. I started as a noob. I left as an engineer.' },
-    { type: 'programming', title: 'Dec 2019 – Apr 2021', description: 'At Kings Expomedia, I built three magazine websites with React, Redux, and WebGL. I optimized page load times, automated content workflows, and got my first taste of production chaos — and loved it.' },
-    { type: 'programming', title: 'Jul – Sep 2022', description: 'Joined Ernst & Young LLP as an ML Intern. I optimized fraud detection models using PySpark, deployed them on AWS SageMaker, and actually saw my models used in the real world. That was a rush.' },
-    { type: 'programming', title: 'Aug 2023', description: 'Started my MS in Computer Science at Boston University. From advanced machine learning to distributed systems with Apache Spark, I got to work at the intersection of intelligent systems and engineering. As a TA, I mentored 300+ students in DSA and Python, which was its own kind of debugging challenge.' },
-    { type: 'programming', title: 'Aug – Dec 2024', description: 'Led the ResumeAI capstone — a full-stack AI-driven ATS. I worked on clean architecture, async queues, Keycloak auth, CI/CD, and API design. We cut recruiter workflow time by 35% and API latency by more than half. Felt like shipping a real startup.' },
-    { type: 'programming', title: '2024 – Present', description: 'Alongside school, I built a low-latency LLM inference stack, trained a credit risk model with ROC AUC 0.702, and deployed a flight delay prediction pipeline on 65M+ records. Oh, and I helped build a decentralized casino game on Substrate and Rust at a Polkadot hackathon, because... why not?' },
-    { type: 'programming', title: 'Jan 2025 (expected)', description: 'I’ll wrap up my MSCS at BU as a sharper, calmer, and more complete engineer. Comfortable in backend code, ML pipelines, cloud infra, and sometimes even CSS.' },
+    // Education
+    { type: 'life', title: '2017 – 2021', description: '🎓 Bachelor of Engineering in Information Technology at Thadomal Shahani Engineering College, Mumbai University. Developed foundational skills in software engineering, data structures, and algorithms.' },
+    { type: 'life', title: '2023 – 2025', description: '🎓 Master of Science in Computer Science at Boston University. Specialized in distributed systems, AI, and scalable application development. Graduated January 2025.' },
+    // Career Journey
+    { type: 'programming', title: '2020', description: '🛠 Intern at Ernst & Young (EY). Worked with deployment team to optimize fraud detection models using PySpark and helped automate AWS-based ML model deployments, reducing infrastructure costs.' },
+    { type: 'programming', title: '2021 – 2022', description: '💼 Software Engineer at Kings Expomedia. Migrated flagship website from legacy PHP to modern stack (Next.js/Node.js). Built automated proofreading and fact-checking pipelines. Led efforts during expo season launches and helped implement CI/CD post-event.' },
+    { type: 'programming', title: '2024', description: '🚀 Capstone Project – ResumeAI. Built an AI-powered ATS using React, Fastify, PostgreSQL, and Claude API. Implemented Keycloak for RBAC, used Redis for caching, and deployed on AWS ECS.' },
+    { type: 'programming', title: 'Jan 2025 – Present', description: '🧑‍💻 Web Scraper Developer (Part-time) at Changing the Present. Built a scalable scraper to collect university student body data across the U.S. Automated outreach and analytics for the nonprofit\'s campaigns.' },
+    { type: 'programming', title: '2025', description: '📜 Certified Azure AI Engineer Associate. Gained credentials in deploying AI models in production environments using Azure tools.' },
   ];
 
   return (
