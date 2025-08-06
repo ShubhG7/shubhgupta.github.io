@@ -50,7 +50,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       {/* <CursorGradient /> */}
       {showBlob && <LandingBlob />}
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <main className="flex-1 container mx-auto px-4">{children}</main>
+      <main className="flex-1 container mx-auto px-4 relative z-5">{children}</main>
       <Footer />
     </div>
   );

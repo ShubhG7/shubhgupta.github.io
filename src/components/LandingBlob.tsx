@@ -126,7 +126,7 @@ const LandingBlob = () => {
         borderRadius: '50%',
         background: `radial-gradient(circle, ${COLOR} 0%, transparent 70%)`,
         pointerEvents: 'none',
-        zIndex: 1,
+        zIndex: 0,
         transition: 'width 0.3s ease, height 0.3s ease, background 0.2s',
       }}
       aria-hidden

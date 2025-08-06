@@ -1,123 +1,23 @@
 "use client";
 
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import projects from '@/data/projects.json';
+import { getBlogContent } from '@/data/blogContent';
 import { notFound } from 'next/navigation';
 
 interface BlogPageProps {
   params: Promise<{ id: string }>;
 }
 
-const blogContent = {
-  sections: [
-    {
-      id: 'introduction',
-      title: 'Introduction',
-      content: `Airline delays ripple across operations, customer satisfaction, and logistics. This project leverages big data analytics with PySpark to predict flight departure delays over a decade of U.S. flight data (2009–2018), uncover the dominant drivers, and deliver a production-ready pipeline on cloud infrastructure.`
-    },
-    {
-      id: 'project-objective',
-      title: 'Project Objective & Scope',
-      content: `The primary goal was to ingest massive flight records, conduct deep exploratory analysis, engineer meaningful predictive features, train a robust model, and deploy it using cloud compute to provide delay estimates with quantified accuracy. Scope included large-scale data handling, machine learning within PySpark, and deployment on Google Cloud.`
-    },
-    {
-      id: 'dataset-description',
-      title: 'Dataset Description',
-      content: `The dataset contains extensive operational flight records from the U.S. Department of Transportation covering 2009–2018. Each row includes fields like scheduled and actual times, carrier, origin/destination, various delay breakdowns, cancellation/diversion flags, and more—allowing rich feature construction.
-
-Key fields used:
-- FL_DATE, CRS_DEP_TIME, DEP_TIME, DEP_DELAY, origin/destination, carrier, taxi times, arrival metrics, cancellation/diversion flags, and breakdowns like carrier/weather/NAS delays.`
-    },
-    {
-      id: 'pyspark-setup',
-      title: 'PySpark & Big Data Processing Setup',
-      content: `The environment was built on PySpark with careful configuration for large-scale execution. A SparkSession was initialized with resource-conscious parameters for dynamic allocation and memory management to avoid spillover.
-
-Cloud infrastructure:
-- Google Cloud Storage (GCS) for durable input/output storage.
-- Compute Engine cluster (one master + two worker nodes) enabling parallelism and efficiency.
-- Integration choices were made to balance scalability and cost.`
-    },
-    {
-      id: 'exploratory-analysis',
-      title: 'Exploratory Data Analysis (EDA)',
-      content: `EDA was performed to identify data quality issues and shape preprocessing decisions. Major steps: null-value quantification, data type verification, and transformation of misformatted time fields. The FL_DATE and CRS_DEP_TIME required conversion from numeric encodings to usable datetime formats to enable temporal feature derivation.
-
-Findings included critical data quality challenges around time fields, which informed strategy for imputation vs dropping and type correction to ensure accuracy downstream.`
-    },
-    {
-      id: 'data-preprocessing',
-      title: 'Data Preprocessing',
-      content: `### Cleaning & Type Corrections
-Nulls were identified and handled; time columns like CRS_DEP_TIME required formatting to strings and conversion to timestamps, ensuring accurate time-based analysis.
-
-### Feature Engineering
-Derived temporal features: day_of_week, hour_of_day, month. Categorical variables (OP_CARRIER, ORIGIN, DEST) were encoded and all inputs were assembled into a feature vector.
-
-### Imputation & Split
-DEP_DELAY nulls were filled with zeros, and the data was split 80/20 for training/testing to ensure robust evaluation.`
-    },
-    {
-      id: 'model-building',
-      title: 'Model Building & Hyperparameter Tuning',
-      content: `A RandomForestRegressor was selected for its robustness to overfitting and ability to model non-linear relationships without heavy manual transformations. Hyperparameters were chosen to balance expressiveness and compute cost: 100 trees, max depth of 10, and 400 bins to accommodate high-cardinality categorical features. These choices were informed by statistical considerations and available cloud resources.
-
-Evaluation metric: RMSE used to capture average prediction error in minutes.`
-    },
-    {
-      id: 'deployment-architecture',
-      title: 'Deployment Architecture',
-      content: `The pipeline ran on Google Cloud: data and diagnostics stored in GCS; compute orchestrated on a master-worker cluster enabling parallel data processing and scaling.`
-    },
-    {
-      id: 'results-analysis',
-      title: 'Results & Analysis',
-      content: `### Performance Metrics
-The model achieved an RMSE of 36.1102 on the test set, indicating predictions were on average within ~36 minutes of actual delays—a solid baseline given real-world variability.
-
-### Feature Importance Deep Dive
-Analysis revealed hour of the day as the most influential predictor, encapsulating patterns like peak traffic and scheduling dynamics. Secondary features like carrier and route contributed contextually.`
-    },
-    {
-      id: 'challenges',
-      title: 'Challenges Encountered',
-      content: `- Non-standard time representations required careful transformation and validation.
-- Handling missing values without biasing predictions needed conservative imputation.
-- Tuning hyperparameters under constrained compute to balance generalization and performance.`
-    },
-    {
-      id: 'lessons-learned',
-      title: 'Lessons Learned',
-      content: `- Early EDA prevents cascading failures from datatype issues.
-- Cloud parameter choices must reflect dataset scale for efficiency.
-- Thoughtfully tuned ensemble methods can yield strong performance on noisy data.`
-    },
-    {
-      id: 'future-work',
-      title: 'Future Work',
-      content: `- Integrate real-time flight data to transition toward streaming predictions.
-- Experiment with deeper temporal models and compare performance trade-offs.
-- Build a consumer-facing dashboard or API for broader utility.`
-    },
-    {
-      id: 'reproducibility',
-      title: 'Reproducibility & How to Run',
-      content: `- Clone the repository, configure cloud credentials, ensure the dataset is present in storage.
-- Initialize the Spark cluster, run preprocessing, train the model, and evaluate using RMSE.
-- Persist outputs and logs for traceability.`
-    },
-    {
-      id: 'references',
-      title: 'References',
-      content: `All internal notes, architecture decisions, and code derivations are drawn from the original project report and implementation analytics.`
-    }
-  ]
-};
-
 const ProjectBlogPage = ({ params }: BlogPageProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [resolvedParams, setResolvedParams] = useState<{ id: string } | null>(null);
   const [project, setProject] = useState<any>(null);
+  const [blogContent, setBlogContent] = useState<any>(null);
 
   React.useEffect(() => {
     const initPage = async () => {
@@ -125,11 +25,15 @@ const ProjectBlogPage = ({ params }: BlogPageProps) => {
       setResolvedParams(resolved);
       const foundProject = projects.find((p: any) => p.id === resolved.id);
       setProject(foundProject);
+      
+      // Get dynamic blog content based on project ID
+      const content = getBlogContent(resolved.id);
+      setBlogContent(content);
     };
     initPage();
   }, [params]);
 
-  if (!project) return null;
+  if (!project || !blogContent) return null;
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -140,7 +44,7 @@ const ProjectBlogPage = ({ params }: BlogPageProps) => {
   };
 
   return (
-    <div className="py-8 sm:py-12 md:py-16">
+    <div className="py-8 sm:py-12 md:py-16 overflow-x-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Title and GitHub Link */}
         <div className="flex items-center justify-between mb-6 mx-4 sm:mx-6 md:mx-8 relative z-20">
@@ -179,23 +83,23 @@ const ProjectBlogPage = ({ params }: BlogPageProps) => {
             <h3 className="text-lg font-semibold mb-3" style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
               Table of Contents
             </h3>
-            <div className="flex flex-col gap-2">
-              {blogContent.sections.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => scrollToSection(section.id)}
-                  className="text-left px-3 py-2 rounded-lg hover:bg-[#e2c9a0] transition-colors duration-200 text-sm"
-                  style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
-                >
-                  {section.title}
-                </button>
-              ))}
-            </div>
+                          <div className="flex flex-col gap-2">
+                {blogContent.sections.map((section: any) => (
+                  <button
+                    key={section.id}
+                    onClick={() => scrollToSection(section.id)}
+                    className="text-left px-3 py-2 rounded-lg hover:bg-[#e2c9a0] transition-colors duration-200 text-sm"
+                    style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
+                  >
+                    {section.title}
+                  </button>
+                ))}
+              </div>
           </div>
         )}
         
         {/* Desktop Layout */}
-        <div className="flex gap-8">
+        <div className="flex gap-8 min-w-0">
           {/* Desktop Navigation Sidebar */}
           <div className="hidden md:block w-64 flex-shrink-0">
             <div className="bg-[#f5e9da] rounded-3xl p-6 border-2 border-[#e2c9a0] sticky top-8 relative z-20">
@@ -203,7 +107,7 @@ const ProjectBlogPage = ({ params }: BlogPageProps) => {
                 Table of Contents
               </h3>
               <div className="flex flex-col gap-2">
-                {blogContent.sections.map((section) => (
+                {blogContent.sections.map((section: any) => (
                   <button
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
@@ -218,20 +122,52 @@ const ProjectBlogPage = ({ params }: BlogPageProps) => {
           </div>
           
           {/* Content Block */}
-          <div className="flex-1">
-            <div className="bg-[#f5e9da] rounded-3xl mx-4 sm:mx-6 md:mx-8 p-8 sm:p-10 md:p-12 relative z-20">
+          <div className="flex-1 min-w-0">
+            <div className="bg-[#f5e9da] rounded-3xl mx-4 sm:mx-6 md:mx-8 p-8 sm:p-10 md:p-12 relative z-20 overflow-hidden">
               <p className="mb-8 text-base sm:text-lg text-[#2d1e13] leading-relaxed" style={{ fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
                 {project.summary}
               </p>
-              <article className="prose prose-lg max-w-none" style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
+              <article className="prose prose-lg max-w-none overflow-hidden" style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
                 <div className="space-y-8">
-                  {blogContent.sections.map((section) => (
+                  {blogContent.sections.map((section: any) => (
                     <section key={section.id} id={section.id}>
-                      <h2 className="text-xl font-bold mb-4" style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
+                      <h2 className="text-xl font-bold mb-4 break-words" style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
                         {section.title}
                       </h2>
-                      <div className="text-base sm:text-lg leading-relaxed">
-                        {section.content}
+                      <div className="text-base sm:text-lg leading-relaxed prose prose-lg max-w-none overflow-hidden">
+                        <ReactMarkdown 
+                          remarkPlugins={[remarkGfm]}
+                          components={{
+                            h1: ({children}) => <h1 className="text-2xl font-bold mb-4 mt-6 break-words">{children}</h1>,
+                            h2: ({children}) => <h2 className="text-xl font-bold mb-3 mt-5 break-words">{children}</h2>,
+                            h3: ({children}) => <h3 className="text-lg font-semibold mb-2 mt-4 break-words">{children}</h3>,
+                            p: ({children}) => <p className="mb-4 leading-relaxed break-words">{children}</p>,
+                            ul: ({children}) => <ul className="list-disc list-inside mb-4 space-y-1 break-words">{children}</ul>,
+                            ol: ({children}) => <ol className="list-decimal list-inside mb-4 space-y-1 break-words">{children}</ol>,
+                            li: ({children}) => <li className="ml-4 break-words">{children}</li>,
+                            code: ({children, className}) => {
+                              const match = /language-(\w+)/.exec(className || '');
+                              const language = match ? match[1] : '';
+                              return !className ? (
+                                <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-sm font-mono text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-600 break-all">{children}</code>
+                              ) : (
+                                <SyntaxHighlighter
+                                  style={tomorrow}
+                                  language={language}
+                                  PreTag="div"
+                                  className="rounded-lg mb-4 overflow-x-auto"
+                                >
+                                  {String(children).replace(/\n$/, '')}
+                                </SyntaxHighlighter>
+                              );
+                            },
+                            blockquote: ({children}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic mb-4 break-words">{children}</blockquote>,
+                            strong: ({children}) => <strong className="font-bold break-words">{children}</strong>,
+                            em: ({children}) => <em className="italic break-words">{children}</em>,
+                          }}
+                        >
+                          {section.content}
+                        </ReactMarkdown>
                       </div>
                     </section>
                   ))}
