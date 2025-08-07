@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import HobbiesCarousel from '@/components/HobbiesCarousel';
 import ContactSection from '@/components/ContactSection';
 
@@ -78,10 +79,12 @@ export default function Home() {
           
           {/* Image positioned beside text */}
           <div className="relative z-10 flex items-center justify-center lg:justify-end lg:items-start pt-16 lg:pt-40">
-            <img 
+            <Image 
               src={profileImages[activeImage].src} 
               onClick={handleImageClick}
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 opacity-80 hover:opacity-100 transition-opacity duration-300 hover:scale-110 active:scale-95 touch-manipulation" 
+              width={160}
+              height={160}
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 opacity-80 hover:opacity-100 transition-opacity duration-300 hover:scale-110 active:scale-95 touch-manipulation cursor-pointer" 
               alt={profileImages[activeImage].alt}
             />
           </div>

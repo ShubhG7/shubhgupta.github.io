@@ -223,7 +223,7 @@ def sql_processing(spark):
             customer_id,
             amount,
             region
-        FROM parquet.`/data/sales/`
+        FROM parquet.\`/data/sales/\`
         WHERE date >= '2024-01-01'
     """)
     

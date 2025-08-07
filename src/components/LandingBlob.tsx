@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 
 const BLOB_SIZE_DESKTOP = 3600; // px, doubled for a larger blob
 const BLOB_SIZE_MOBILE = 1800; // px, smaller on mobile for more visible movement
@@ -16,7 +16,7 @@ const LandingBlob = () => {
   const scrollOffset = useRef({ x: 0, y: 0 });
   
   // Get current blob size based on device
-  const getBlobSize = () => isMobile ? BLOB_SIZE_MOBILE : BLOB_SIZE_DESKTOP;
+  const getBlobSize = useCallback(() => isMobile ? BLOB_SIZE_MOBILE : BLOB_SIZE_DESKTOP, [isMobile]);
 
   useEffect(() => {
     // Set to window center on client and detect mobile
@@ -114,7 +114,7 @@ const LandingBlob = () => {
     }
     animate();
     return () => { running = false; };
-  }, [isMobile]);
+  }, [isMobile, getBlobSize]);
 
   return (
     <div

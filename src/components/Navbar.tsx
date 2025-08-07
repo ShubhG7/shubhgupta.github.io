@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 interface NavbarProps {
   darkMode: boolean;
@@ -46,9 +47,9 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
         <div className="flex items-center space-x-4">
           {/* Desktop Navigation */}
           <div className="space-x-4 hidden md:block">
-            <a href="/" className="rounded-full font-semibold border-2 px-4 py-1 bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] dark:bg-[#f5e9da] dark:text-[#4b2e13] dark:border-[#f5e9da] dark:hover:bg-[#e2c9a0] dark:hover:border-[#e2c9a0] dark:active:bg-[#e2c9a0] dark:active:border-[#e2c9a0] transition-all duration-200 active:scale-95 touch-manipulation">Home</a>
-            <a href="/projects" className="rounded-full font-semibold border-2 px-4 py-1 bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] dark:bg-[#f5e9da] dark:text-[#4b2e13] dark:border-[#f5e9da] dark:hover:bg-[#e2c9a0] dark:hover:border-[#e2c9a0] dark:active:bg-[#e2c9a0] dark:active:border-[#e2c9a0] transition-all duration-200 active:scale-95 touch-manipulation">Projects</a>
-            <a href="/resume" className="rounded-full font-semibold border-2 px-4 py-1 bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] dark:bg-[#f5e9da] dark:text-[#4b2e13] dark:border-[#f5e9da] dark:hover:bg-[#e2c9a0] dark:hover:border-[#e2c9a0] dark:active:bg-[#e2c9a0] dark:active:border-[#e2c9a0] transition-all duration-200 active:scale-95 touch-manipulation">Resume</a>
+            <Link href="/" className="rounded-full font-semibold border-2 px-4 py-1 bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] dark:bg-[#f5e9da] dark:text-[#4b2e13] dark:border-[#f5e9da] dark:hover:bg-[#e2c9a0] dark:hover:border-[#e2c9a0] dark:active:bg-[#e2c9a0] dark:active:border-[#e2c9a0] transition-all duration-200 active:scale-95 touch-manipulation">Home</Link>
+            <Link href="/projects" className="rounded-full font-semibold border-2 px-4 py-1 bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] dark:bg-[#f5e9da] dark:text-[#4b2e13] dark:border-[#f5e9da] dark:hover:bg-[#e2c9a0] dark:hover:border-[#e2c9a0] dark:active:bg-[#e2c9a0] dark:active:border-[#e2c9a0] transition-all duration-200 active:scale-95 touch-manipulation">Projects</Link>
+            <Link href="/resume" className="rounded-full font-semibold border-2 px-4 py-1 bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] dark:bg-[#f5e9da] dark:text-[#4b2e13] dark:border-[#f5e9da] dark:hover:bg-[#e2c9a0] dark:hover:border-[#e2c9a0] dark:active:bg-[#e2c9a0] dark:active:border-[#e2c9a0] transition-all duration-200 active:scale-95 touch-manipulation">Resume</Link>
           </div>
           <button
             onClick={toggleDarkMode}
@@ -81,27 +82,27 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
           >
             <div className="p-6 pt-20">
               <div className="flex flex-col space-y-4">
-                <a 
+                <Link 
                   href="/" 
                   onClick={closeMobileMenu}
                   className="block rounded-full font-semibold border-2 px-4 py-3 text-center bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] dark:bg-[#f5e9da] dark:text-[#4b2e13] dark:border-[#f5e9da] dark:hover:bg-[#e2c9a0] dark:hover:border-[#e2c9a0] dark:active:bg-[#e2c9a0] dark:active:border-[#e2c9a0] transition-all duration-200 active:scale-95 touch-manipulation"
                 >
                   Home
-                </a>
-                <a 
+                </Link>
+                <Link 
                   href="/projects" 
                   onClick={closeMobileMenu}
                   className="block rounded-full font-semibold border-2 px-4 py-3 text-center bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] dark:bg-[#f5e9da] dark:text-[#4b2e13] dark:border-[#f5e9da] dark:hover:bg-[#e2c9a0] dark:hover:border-[#e2c9a0] dark:active:bg-[#e2c9a0] dark:active:border-[#e2c9a0] transition-all duration-200 active:scale-95 touch-manipulation"
                 >
                   Projects
-                </a>
-                <a 
+                </Link>
+                <Link 
                   href="/resume" 
                   onClick={closeMobileMenu}
                   className="block rounded-full font-semibold border-2 px-4 py-3 text-center bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] dark:bg-[#f5e9da] dark:text-[#4b2e13] dark:border-[#f5e9da] dark:hover:bg-[#e2c9a0] dark:hover:border-[#e2c9a0] dark:active:bg-[#e2c9a0] dark:active:border-[#e2c9a0] transition-all duration-200 active:scale-95 touch-manipulation"
                 >
                   Resume
-                </a>
+                </Link>
               </div>
             </div>
           </div>

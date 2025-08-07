@@ -3,7 +3,7 @@
     "id": "cart-classifier",
     "title": "C(ART) - Fullstack Ecommerce Website",
     "summary": "Comprehensive MERN stack e-commerce platform with user authentication, product management, payment processing, and admin dashboard.",
-    "image": "https://ui-avatars.com/api/?name=C(ART)+Ecommerce&background=4b2e13&color=fff",
+    "image": "https://ui-avatars.com/api/?name=CART&background=4b2e13&color=fff&size=500&font-size=0.5",
     "techStack": ["React.js", "Node.js", "Express.js", "MongoDB", "MERN Stack", "JWT", "Braintree", "Bootstrap"],
     "github": "https://github.com/username/cart-ecommerce",
     "demo": "https://cart-ecommerce.demo.com"
@@ -124,5 +124,14 @@
     "techStack": ["Python", "Tkinter", "SQLite", "Matplotlib", "tkcalendar", "Desktop Application", "GUI", "Data Visualization"],
     "github": "https://github.com/username/budget-tracker",
     "demo": "https://budget-tracker.demo.com"
+  },
+  {
+    "id": "resumai",
+    "title": "ResumAI - AI powered ATS",
+    "summary": "Modern Applicant Tracking System with AI-powered resume analysis, intelligent candidate matching, and role-based dashboards for applicants and recruiters.",
+    "image": "https://ui-avatars.com/api/?name=ResumAI&background=2d1e13&color=fff&size=500&font-size=0.5",
+    "techStack": ["React 18", "TypeScript", "Material-UI", "Redux Toolkit", "Fastify", "Prisma ORM", "PostgreSQL", "Redis", "Keycloak", "Docker"],
+    "github": "https://github.com/username/resumai",
+    "demo": "https://resumai.demo.com"
   }
 ]

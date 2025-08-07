@@ -10,6 +10,10 @@ import { budgetTrackerBlog } from './budget-tracker';
 import { orionVirtualAssistantBlog } from './orion-virtual-assistant';
 import { etlPipelineAirflowBlog } from './etl-pipeline-airflow';
 import { allInCasinoBlog } from './all-in-casino';
+import { llmInferenceOptimizationBlog } from './llm-inference-optimization';
+import { carPricePredictionBlog } from './car-price-prediction';
+import { researchPaperBlog } from './research-paper';
+import { resumaiBlog } from './resumai';
 
 // Export all blogs as a single object
 export const blogContents = {
@@ -21,9 +25,13 @@ export const blogContents = {
   'ant-colony-optimization': antColonyOptimizationBlog,
   'flight-delay-prediction': flightDelayPredictionBlog,
   'budget-tracker': budgetTrackerBlog,
-  'orion-virtual-assistant': orionVirtualAssistantBlog,
+  'orion': orionVirtualAssistantBlog,
   'etl-pipeline-airflow': etlPipelineAirflowBlog,
   'all-in-casino': allInCasinoBlog,
+  'llm-inference-optimization': llmInferenceOptimizationBlog,
+  'car-price-prediction': carPricePredictionBlog,
+  'research-paper-abstract-essence': researchPaperBlog,
+  'resumai': resumaiBlog,
   // Add more blogs as they are created
 };
 
@@ -40,4 +48,8 @@ export {
   orionVirtualAssistantBlog,
   etlPipelineAirflowBlog,
   allInCasinoBlog,
+  llmInferenceOptimizationBlog,
+  carPricePredictionBlog,
+  researchPaperBlog,
+  resumaiBlog,
 }; 

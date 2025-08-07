@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import projects from '@/data/projects.json';
 
@@ -34,7 +35,7 @@ const ProjectDetailPage = async ({ params }: ProjectPageProps) => {
   return (
     <div className="py-8">
       <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
-      <img src={project.image} alt={project.title} className="w-full h-60 object-cover rounded mb-4" />
+      <Image src={project.image} alt={project.title} width={800} height={240} className="w-full h-60 object-cover rounded mb-4" />
       <p className="mb-4 text-gray-700">{project.summary}</p>
       <div className="flex flex-wrap gap-2 mb-4">
         {project.techStack.map((tech: string) => (

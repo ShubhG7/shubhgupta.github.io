@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
+import Image from 'next/image';
 import projects from '@/data/projects.json';
 
 // Get all unique tech stack tags
@@ -236,9 +237,11 @@ const ProjectsPage = () => {
               backfaceVisibility: 'hidden'
             }}
           >
-            <img 
+            <Image 
               src={project.image} 
               alt={project.title} 
+              width={400}
+              height={160}
               className="w-full h-40 object-cover rounded mb-4 pointer-events-none" 
             />
             <h2 className="text-xl font-semibold mb-4 mt-2 pointer-events-none" style={{ color: '#2d1e13' }}>{project.title}</h2>

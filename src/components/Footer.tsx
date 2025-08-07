@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Footer = () => {
   const socialLinks = [
@@ -60,7 +61,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className={`flex items-center space-x-2 p-2 rounded-lg transition-all duration-300 ${link.color} hover:bg-gray-100 dark:hover:bg-gray-800`}
             >
-              <img
+              <Image
                 src={link.icon}
                 alt={link.name}
                 width={20}
@@ -83,7 +84,7 @@ const Footer = () => {
               rel={option.url.startsWith('mailto:') ? '' : 'noopener noreferrer'}
               className={`flex items-center space-x-2 p-2 rounded-lg transition-all duration-300 ${option.color} hover:bg-gray-100 dark:hover:bg-gray-800`}
             >
-              <img
+              <Image
                 src={option.icon}
                 alt={option.name}
                 width={20}
