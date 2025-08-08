@@ -128,6 +128,7 @@ const tagColors: { [key: string]: string } = {
 const ProjectsPage = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [hoveredTag, setHoveredTag] = useState<string | null>(null);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -166,7 +167,22 @@ const ProjectsPage = () => {
       
       {/* Filter UI */}
       <div className="mb-8 relative z-10">
-        <div className="flex items-center justify-between mb-4">
+        {/* Mobile Filter Toggle Button */}
+        <div className="md:hidden mb-4">
+          <button
+            onClick={() => setIsFilterOpen(!isFilterOpen)}
+            className="w-full flex items-center justify-between p-4 bg-[#f5e9da] rounded-lg border-2 border-[#a47551] hover:bg-[#e2c9a0] active:bg-[#e2c9a0] touch-manipulation active:scale-95 transition-all duration-200"
+            style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
+          >
+            <span className="font-semibold" style={{ color: '#2d1e13' }}>Filter by Technology</span>
+            <span className={`transform transition-all duration-300 ease-in-out ${isFilterOpen ? 'rotate-180' : ''}`} style={{ color: '#2d1e13' }}>
+              ▼
+            </span>
+          </button>
+        </div>
+
+        {/* Desktop Filter Header */}
+        <div className="hidden md:flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>Filter by Technology</h2>
           {selectedTags.length > 0 && (
             <button
@@ -179,50 +195,53 @@ const ProjectsPage = () => {
           )}
         </div>
         
-        <div className="w-full flex flex-wrap gap-2 justify-start mb-4" style={{ fontSize: '0.924rem' }}>
-          {allTechStack.map((tag) => {
-            const isSelected = selectedTags.includes(tag);
-            const isHovered = hoveredTag === tag;
-            let backgroundColor = isSelected ? '#4b2e13' : '#f5e9da';
-            let color = isSelected ? '#fff' : '#2d1e13';
-            let borderColor = isSelected ? '#4b2e13' : '#e2c9a0';
-            if (isHovered) {
-              if (isSelected) {
-                backgroundColor = '#2d1e13';
-                borderColor = '#2d1e13';
-              } else {
-                backgroundColor = '#e2c9a0';
-                borderColor = '#a47551';
+        {/* Filter Content - Hidden on mobile when closed */}
+        <div className={`${isFilterOpen ? 'block' : 'hidden'} md:block transform transition-all duration-300 ease-in-out`}>
+          <div className="w-full flex flex-wrap gap-2 justify-start mb-4" style={{ fontSize: '0.924rem' }}>
+            {allTechStack.map((tag) => {
+              const isSelected = selectedTags.includes(tag);
+              const isHovered = hoveredTag === tag;
+              let backgroundColor = isSelected ? '#4b2e13' : '#f5e9da';
+              let color = isSelected ? '#fff' : '#2d1e13';
+              let borderColor = isSelected ? '#4b2e13' : '#e2c9a0';
+              if (isHovered) {
+                if (isSelected) {
+                  backgroundColor = '#2d1e13';
+                  borderColor = '#2d1e13';
+                } else {
+                  backgroundColor = '#e2c9a0';
+                  borderColor = '#a47551';
+                }
               }
-            }
-            return (
-              <button
-                key={tag}
-                onClick={() => toggleTag(tag)}
-                onMouseEnter={() => setHoveredTag(tag)}
-                onMouseLeave={() => setHoveredTag(null)}
-                className="transition-colors duration-150 text-center mr-1 mb-1 font-semibold rounded-full border-2"
-                style={{
-                  backgroundColor,
-                  color,
-                  borderColor,
-                  padding: '0.42rem 1.08rem',
-                  fontSize: '0.924rem',
-                  fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif',
-                  boxShadow: isSelected ? '0 2px 8px 0 rgba(75,46,19,0.15)' : undefined,
-                }}
-              >
-                {tag}
-              </button>
-            );
-          })}
-        </div>
-        
-        {selectedTags.length > 0 && (
-          <div className="mt-3 text-sm" style={{ color: 'var(--text-main)' }}>
-            Showing {filteredProjects.length} of {projects.length} projects
+              return (
+                <button
+                  key={tag}
+                  onClick={() => toggleTag(tag)}
+                  onMouseEnter={() => setHoveredTag(tag)}
+                  onMouseLeave={() => setHoveredTag(null)}
+                  className="transition-colors duration-150 text-center mr-1 mb-1 font-semibold rounded-full border-2"
+                  style={{
+                    backgroundColor,
+                    color,
+                    borderColor,
+                    padding: '0.42rem 1.08rem',
+                    fontSize: '0.924rem',
+                    fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif',
+                    boxShadow: isSelected ? '0 2px 8px 0 rgba(75,46,19,0.15)' : undefined,
+                  }}
+                >
+                  {tag}
+                </button>
+              );
+            })}
           </div>
-        )}
+          
+          {selectedTags.length > 0 && (
+            <div className="mt-3 text-sm" style={{ color: 'var(--text-main)' }}>
+              Showing {filteredProjects.length} of {projects.length} projects
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Author's Note */}
