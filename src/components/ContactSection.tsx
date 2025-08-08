@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,11 @@ const ContactSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // Initialize EmailJS
+  React.useEffect(() => {
+    emailjs.init('public_key_xxxxxxx'); // Replace with your EmailJS public key
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -24,26 +30,33 @@ const ContactSection = () => {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      // EmailJS configuration
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: 'Shubh Gupta',
+        reply_to: formData.email,
+      };
 
-      const result = await response.json();
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        'service_xxxxxxx', // Replace with your EmailJS service ID
+        'template_xxxxxxx', // Replace with your EmailJS template ID
+        templateParams,
+        'public_key_xxxxxxx' // Replace with your EmailJS public key
+      );
 
-      if (response.ok) {
+      if (result.status === 200) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
       } else {
         setSubmitStatus('error');
-        console.error('Form submission error:', result.error);
+        console.error('Email sending failed:', result);
       }
     } catch (error) {
       setSubmitStatus('error');
-      console.error('Network error:', error);
+      console.error('Email sending error:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -121,8 +134,7 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4b2e13] focus:border-transparent bg-white dark:bg-gray-700"
-                  style={{ color: 'var(--text-main)' }}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4b2e13] focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                   placeholder="Your name"
                 />
               </div>
@@ -138,8 +150,7 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4b2e13] focus:border-transparent bg-white dark:bg-gray-700"
-                  style={{ color: 'var(--text-main)' }}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4b2e13] focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -155,8 +166,7 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4b2e13] focus:border-transparent bg-white dark:bg-gray-700 resize-none"
-                  style={{ color: 'var(--text-main)' }}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4b2e13] focus:border-transparent bg-white dark:bg-gray-700 resize-none text-gray-900 dark:text-white"
                   placeholder="Your message here..."
                 />
               </div>

@@ -62,52 +62,79 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
           <button 
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu" 
-            className="md:hidden ml-4 p-2 text-2xl touch-manipulation active:scale-95 transition-transform duration-150"
+            className="md:hidden ml-4 p-3 rounded-full bg-[#f5e9da] border-2 border-[#a47551] hover:bg-[#e2c9a0] active:bg-[#e2c9a0] touch-manipulation active:scale-95 transition-all duration-200"
           >
-            {isMobileMenuOpen ? '✕' : '☰'}
+            <div className="w-5 h-5 relative">
+              <span 
+                className={`absolute left-0 top-0 w-5 h-0.5 bg-[#2d1e13] transition-all duration-300 ${
+                  isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
+                }`}
+              />
+              <span 
+                className={`absolute left-0 top-2 w-5 h-0.5 bg-[#2d1e13] transition-all duration-300 ${
+                  isMobileMenuOpen ? 'opacity-0' : ''
+                }`}
+              />
+              <span 
+                className={`absolute left-0 top-4 w-5 h-0.5 bg-[#2d1e13] transition-all duration-300 ${
+                  isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                }`}
+              />
+            </div>
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-[9999] bg-black bg-opacity-30" onClick={closeMobileMenu}>
-          <div 
-            className="fixed top-0 right-0 h-full w-64 shadow-xl border-l-2 border-gray-300 dark:border-gray-600 transform transition-transform duration-300 ease-in-out z-[10000]"
-            style={{ 
-              backgroundColor: darkMode ? '#18181b' : '#f5e9da',
-              color: 'var(--text-main)'
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="p-6 pt-20">
+      {/* Mobile Menu Popup */}
+      <div className={`md:hidden fixed inset-0 z-[9999] backdrop-blur-sm flex items-center justify-center p-4 transition-all duration-300 ${
+        isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`} onClick={closeMobileMenu}>
+        <div 
+          className={`bg-[#f5e9da] rounded-3xl shadow-2xl border-4 border-[#a47551] max-w-sm w-full transform transition-all duration-300 ease-in-out z-[10000] ${
+            isMobileMenuOpen ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
+          }`}
+          style={{ 
+            color: 'var(--text-main)',
+            transformOrigin: 'top right'
+          }}
+          onClick={(e) => e.stopPropagation()}
+        >
+            <div className="p-8">
+
               <div className="flex flex-col space-y-4">
                 <Link 
                   href="/" 
                   onClick={closeMobileMenu}
-                  className="block rounded-full font-semibold border-2 px-4 py-3 text-center bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] dark:bg-[#f5e9da] dark:text-[#4b2e13] dark:border-[#f5e9da] dark:hover:bg-[#e2c9a0] dark:hover:border-[#e2c9a0] dark:active:bg-[#e2c9a0] dark:active:border-[#e2c9a0] transition-all duration-200 active:scale-95 touch-manipulation"
+                  className="block rounded-2xl font-semibold border-2 px-6 py-4 text-center bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] transition-all duration-200 active:scale-95 touch-manipulation shadow-lg"
                 >
-                  Home
+                  🏠 Home
                 </Link>
                 <Link 
                   href="/projects" 
                   onClick={closeMobileMenu}
-                  className="block rounded-full font-semibold border-2 px-4 py-3 text-center bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] dark:bg-[#f5e9da] dark:text-[#4b2e13] dark:border-[#f5e9da] dark:hover:bg-[#e2c9a0] dark:hover:border-[#e2c9a0] dark:active:bg-[#e2c9a0] dark:active:border-[#e2c9a0] transition-all duration-200 active:scale-95 touch-manipulation"
+                  className="block rounded-2xl font-semibold border-2 px-6 py-4 text-center bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] transition-all duration-200 active:scale-95 touch-manipulation shadow-lg"
                 >
-                  Projects
+                  💼 Projects
                 </Link>
                 <Link 
                   href="/resume" 
                   onClick={closeMobileMenu}
-                  className="block rounded-full font-semibold border-2 px-4 py-3 text-center bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] dark:bg-[#f5e9da] dark:text-[#4b2e13] dark:border-[#f5e9da] dark:hover:bg-[#e2c9a0] dark:hover:border-[#e2c9a0] dark:active:bg-[#e2c9a0] dark:active:border-[#e2c9a0] transition-all duration-200 active:scale-95 touch-manipulation"
+                  className="block rounded-2xl font-semibold border-2 px-6 py-4 text-center bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] transition-all duration-200 active:scale-95 touch-manipulation shadow-lg"
                 >
-                  Resume
+                  📄 Resume
                 </Link>
+              </div>
+              <div className="text-center mt-6">
+                <button 
+                  onClick={closeMobileMenu}
+                  className="text-[#a47551] hover:text-[#4b2e13] transition-colors duration-200 font-medium"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>
         </div>
-      )}
     </>
   );
 };
