@@ -24,16 +24,26 @@ const ContactSection = () => {
     setSubmitStatus('idle');
 
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Here you would typically send the data to your backend
-      console.log('Form submitted:', formData);
-      
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+        console.error('Form submission error:', result.error);
+      }
     } catch (error) {
       setSubmitStatus('error');
+      console.error('Network error:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -98,10 +108,10 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+          <div className="bg-[#f5e9da] rounded-lg p-6 shadow-lg border-2 border-[#e2c9a0]">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2 text-black dark:text-white">
+                <label htmlFor="name" className="block text-sm font-medium mb-2" style={{ color: '#2d1e13' }}>
                   Name
                 </label>
                 <input
@@ -111,12 +121,14 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4b2e13] focus:border-transparent bg-white dark:bg-gray-700 text-white"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4b2e13] focus:border-transparent bg-white dark:bg-gray-700"
+                  style={{ color: 'var(--text-main)' }}
+                  placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2 text-black dark:text-white">
+                <label htmlFor="email" className="block text-sm font-medium mb-2" style={{ color: '#2d1e13' }}>
                   Email
                 </label>
                 <input
@@ -126,12 +138,14 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4b2e13] focus:border-transparent bg-white dark:bg-gray-700 text-white"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4b2e13] focus:border-transparent bg-white dark:bg-gray-700"
+                  style={{ color: 'var(--text-main)' }}
+                  placeholder="your.email@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2 text-black dark:text-white">
+                <label htmlFor="message" className="block text-sm font-medium mb-2" style={{ color: '#2d1e13' }}>
                   Message
                 </label>
                 <textarea
@@ -141,7 +155,9 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4b2e13] focus:border-transparent bg-white dark:bg-gray-700 resize-none text-white"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4b2e13] focus:border-transparent bg-white dark:bg-gray-700 resize-none"
+                  style={{ color: 'var(--text-main)' }}
+                  placeholder="Your message here..."
                 />
               </div>
 
