@@ -225,6 +225,16 @@ const ProjectsPage = () => {
         )}
       </div>
 
+      {/* Author's Note */}
+      <div className="mb-6 text-center">
+          <h4 className="text-lg font-bold italic" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
+            Apologies for the spelling mistakes in the images, I haven't fixed GenAI, yet. xD
+          </h4>
+          <p className="text-base mt-1 font-bold italic" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
+            -ShubhGDev
+          </p>
+      </div>
+
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project: any) => (
