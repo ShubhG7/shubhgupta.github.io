@@ -38,12 +38,9 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
           color: 'var(--text-main)'
         }}
       >
-        <div
-          className="font-extrabold pt-4 sm:pt-6 md:pt-8 pl-2 sm:pl-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl transition-all duration-300"
-          style={{ fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif', fontWeight: 900 }}
-        >
+        <Link href="/" className="font-extrabold pt-4 sm:pt-6 md:pt-8 pl-2 sm:pl-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer touch-manipulation" style={{ fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif', fontWeight: 900 }}>
           {isScrolled ? 'sg' : 'Shubh Gupta'}
-        </div>
+        </Link>
         <div className="flex items-center space-x-4">
           {/* Desktop Navigation */}
           <div className="space-x-4 hidden md:block">

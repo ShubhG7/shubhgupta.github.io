@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -12,10 +11,7 @@ const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  // Initialize EmailJS
-  React.useEffect(() => {
-    emailjs.init('public_key_xxxxxxx'); // Replace with your EmailJS public key
-  }, []);
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -30,33 +26,19 @@ const ContactSection = () => {
     setSubmitStatus('idle');
 
     try {
-      // EmailJS configuration
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-        to_name: 'Shubh Gupta',
-        reply_to: formData.email,
-      };
-
-      // Send email using EmailJS
-      const result = await emailjs.send(
-        'service_xxxxxxx', // Replace with your EmailJS service ID
-        'template_xxxxxxx', // Replace with your EmailJS template ID
-        templateParams,
-        'public_key_xxxxxxx' // Replace with your EmailJS public key
-      );
-
-      if (result.status === 200) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        setSubmitStatus('error');
-        console.error('Email sending failed:', result);
-      }
+      // Create mailto link with form data
+      const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
+      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+      const mailtoLink = `mailto:shubhngupta7@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Open default email client
+      window.open(mailtoLink, '_blank');
+      
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       setSubmitStatus('error');
-      console.error('Email sending error:', error);
+      console.error('Email error:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -114,7 +96,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="font-medium" style={{ color: 'var(--text-main)' }}>Location</p>
-                  <p className="opacity-80" style={{ color: 'var(--text-main)' }}>Remote / Worldwide</p>
+                  <p className="opacity-80" style={{ color: 'var(--text-main)' }}>United States / Remote</p>
                 </div>
               </div>
             </div>

@@ -49,7 +49,7 @@ const ProjectBlogPage = ({ params }: BlogPageProps) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Title and GitHub Link */}
         <div className="flex items-center justify-between mb-6 mx-4 sm:mx-6 md:mx-8 relative z-20">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold" style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
             {project.title} Blog
           </h1>
           <a
@@ -95,7 +95,7 @@ const ProjectBlogPage = ({ params }: BlogPageProps) => {
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden mb-6 mx-4 sm:mx-6 md:mx-8 bg-[#f5e9da] rounded-lg p-4 border-2 border-[#e2c9a0] relative z-20">
-            <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
+            <h3 className="text-lg font-semibold mb-3" style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
               Table of Contents
             </h3>
                           <div className="flex flex-col gap-2">
@@ -104,7 +104,7 @@ const ProjectBlogPage = ({ params }: BlogPageProps) => {
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
                     className="text-left px-3 py-2 rounded-lg hover:bg-[#e2c9a0] transition-colors duration-200 text-sm"
-                    style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
+                    style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
                   >
                     {section.title}
                   </button>
@@ -118,7 +118,7 @@ const ProjectBlogPage = ({ params }: BlogPageProps) => {
           {/* Desktop Navigation Sidebar */}
           <div className="hidden md:block w-64 flex-shrink-0">
             <div className="bg-[#f5e9da] rounded-3xl p-6 border-2 border-[#e2c9a0] sticky top-8 relative z-20">
-              <h3 className="text-lg font-semibold mb-4" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
+              <h3 className="text-lg font-semibold mb-4" style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
                 Table of Contents
               </h3>
               <div className="flex flex-col gap-2">
@@ -127,7 +127,7 @@ const ProjectBlogPage = ({ params }: BlogPageProps) => {
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
                     className="text-left px-3 py-2 rounded-lg hover:bg-[#e2c9a0] transition-colors duration-200 text-sm"
-                    style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
+                    style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
                   >
                     {section.title}
                   </button>
@@ -139,27 +139,27 @@ const ProjectBlogPage = ({ params }: BlogPageProps) => {
           {/* Content Block */}
           <div className="flex-1 min-w-0">
             <div className="bg-[#f5e9da] rounded-3xl mx-4 sm:mx-6 md:mx-8 p-8 sm:p-10 md:p-12 relative z-20 overflow-hidden">
-              <p className="mb-8 text-base sm:text-lg leading-relaxed" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
+              <p className="mb-8 text-base sm:text-lg leading-relaxed" style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
                 {project.summary}
               </p>
-              <article className="prose prose-lg max-w-none overflow-hidden" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
+              <article className="prose prose-lg max-w-none overflow-hidden" style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
                 <div className="space-y-8">
                   {blogContent.sections.map((section: any) => (
                     <section key={section.id} id={section.id}>
-                      <h2 className="text-xl font-bold mb-4 break-words" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
+                      <h2 className="text-xl font-bold mb-4 break-words" style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
                         {section.title}
                       </h2>
                       <div className="text-base sm:text-lg leading-relaxed prose prose-lg max-w-none overflow-hidden">
                         <ReactMarkdown 
                           remarkPlugins={[remarkGfm]}
                           components={{
-                            h1: ({children}) => <h1 className="text-2xl font-bold mb-4 mt-6 break-words" style={{ color: 'var(--text-main)' }}>{children}</h1>,
-                            h2: ({children}) => <h2 className="text-xl font-bold mb-3 mt-5 break-words" style={{ color: 'var(--text-main)' }}>{children}</h2>,
-                            h3: ({children}) => <h3 className="text-lg font-semibold mb-2 mt-4 break-words" style={{ color: 'var(--text-main)' }}>{children}</h3>,
-                            p: ({children}) => <p className="mb-4 leading-relaxed break-words" style={{ color: 'var(--text-main)' }}>{children}</p>,
-                            ul: ({children}) => <ul className="list-disc list-inside mb-4 space-y-1 break-words" style={{ color: 'var(--text-main)' }}>{children}</ul>,
-                            ol: ({children}) => <ol className="list-decimal list-inside mb-4 space-y-1 break-words" style={{ color: 'var(--text-main)' }}>{children}</ol>,
-                            li: ({children}) => <li className="ml-4 break-words" style={{ color: 'var(--text-main)' }}>{children}</li>,
+                            h1: ({children}) => <h1 className="text-2xl font-bold mb-4 mt-6 break-words" style={{ color: '#2d1e13' }}>{children}</h1>,
+                            h2: ({children}) => <h2 className="text-xl font-bold mb-3 mt-5 break-words" style={{ color: '#2d1e13' }}>{children}</h2>,
+                            h3: ({children}) => <h3 className="text-lg font-semibold mb-2 mt-4 break-words" style={{ color: '#2d1e13' }}>{children}</h3>,
+                            p: ({children}) => <p className="mb-4 leading-relaxed break-words" style={{ color: '#2d1e13' }}>{children}</p>,
+                            ul: ({children}) => <ul className="list-disc list-inside mb-4 space-y-1 break-words" style={{ color: '#2d1e13' }}>{children}</ul>,
+                            ol: ({children}) => <ol className="list-decimal list-inside mb-4 space-y-1 break-words" style={{ color: '#2d1e13' }}>{children}</ol>,
+                            li: ({children}) => <li className="ml-4 break-words" style={{ color: '#2d1e13' }}>{children}</li>,
                             code: ({children, className}) => {
                               const match = /language-(\w+)/.exec(className || '');
                               const language = match ? match[1] : '';
@@ -176,9 +176,9 @@ const ProjectBlogPage = ({ params }: BlogPageProps) => {
                                 </SyntaxHighlighter>
                               );
                             },
-                            blockquote: ({children}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic mb-4 break-words" style={{ color: 'var(--text-main)' }}>{children}</blockquote>,
-                            strong: ({children}) => <strong className="font-bold break-words" style={{ color: 'var(--text-main)' }}>{children}</strong>,
-                            em: ({children}) => <em className="italic break-words" style={{ color: 'var(--text-main)' }}>{children}</em>,
+                            blockquote: ({children}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic mb-4 break-words" style={{ color: '#2d1e13' }}>{children}</blockquote>,
+                            strong: ({children}) => <strong className="font-bold break-words" style={{ color: '#2d1e13' }}>{children}</strong>,
+                            em: ({children}) => <em className="italic break-words" style={{ color: '#2d1e13' }}>{children}</em>,
                           }}
                         >
                           {section.content}
