@@ -6,6 +6,7 @@ import Link from 'next/link';
 interface NavbarProps {
   darkMode: boolean;
   toggleDarkMode: () => void;
+  isScrolled?: boolean;
 }
 
 const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
@@ -55,26 +56,34 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
           >
             🌓
           </button>
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Transitions to FAB when scrolled */}
           <button 
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu" 
-            className="md:hidden ml-4 p-3 rounded-full bg-[#f5e9da] border-2 border-[#a47551] hover:bg-[#e2c9a0] active:bg-[#e2c9a0] touch-manipulation active:scale-95 transition-all duration-200"
+            className={`md:hidden transition-all duration-700 ease-in-out touch-manipulation ${
+              isScrolled 
+                ? 'fixed bottom-6 right-6 z-[10002] p-4 rounded-full shadow-xl transform hover:scale-110 active:scale-95' 
+                : 'relative ml-4 p-3 z-[10002] rounded-full transform hover:scale-105 active:scale-95'
+            } ${
+              isMobileMenuOpen 
+                ? 'bg-gradient-to-br from-[#e2c9a0] to-[#d4b895] border-2 border-[#8b5f3f] shadow-2xl scale-110 rotate-90' 
+                : 'bg-gradient-to-br from-[#f5e9da] to-[#e2c9a0] border-2 border-[#a47551] hover:from-[#e2c9a0] hover:to-[#d4b895] hover:border-[#8b5f3f]'
+            }`}
           >
-            <div className="w-5 h-5 relative">
+            <div className="w-5 h-5 relative overflow-hidden">
               <span 
-                className={`absolute left-0 top-0 w-5 h-0.5 bg-[#2d1e13] transition-all duration-300 ${
-                  isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
+                className={`absolute left-0 w-5 h-0.5 bg-[#2d1e13] transition-all duration-500 ease-out ${
+                  isMobileMenuOpen ? 'rotate-45 top-2' : 'top-0'
                 }`}
               />
               <span 
-                className={`absolute left-0 top-2 w-5 h-0.5 bg-[#2d1e13] transition-all duration-300 ${
-                  isMobileMenuOpen ? 'opacity-0' : ''
+                className={`absolute left-0 top-2 w-5 h-0.5 bg-[#2d1e13] transition-all duration-300 ease-out ${
+                  isMobileMenuOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
                 }`}
               />
               <span 
-                className={`absolute left-0 top-4 w-5 h-0.5 bg-[#2d1e13] transition-all duration-300 ${
-                  isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                className={`absolute left-0 w-5 h-0.5 bg-[#2d1e13] transition-all duration-500 ease-out ${
+                  isMobileMenuOpen ? '-rotate-45 top-2' : 'top-4'
                 }`}
               />
             </div>
@@ -82,56 +91,81 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
         </div>
       </nav>
 
-      {/* Mobile Menu Popup */}
-      <div className={`md:hidden fixed inset-0 z-[9999] backdrop-blur-sm flex items-center justify-center p-4 transition-all duration-300 ${
-        isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-      }`} onClick={closeMobileMenu}>
-        <div 
-          className={`bg-[#f5e9da] rounded-3xl shadow-2xl border-4 border-[#a47551] max-w-sm w-full transform transition-all duration-300 ease-in-out z-[10000] ${
-            isMobileMenuOpen ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
-          }`}
-          style={{ 
-            color: 'var(--text-main)',
-            transformOrigin: 'top right'
-          }}
-          onClick={(e) => e.stopPropagation()}
-        >
-            <div className="p-8">
+      {/* FAB Menu Options */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden fixed z-[9999] pointer-events-none">
+          {/* Transparent background overlay for closing */}
+          <div 
+            className="fixed inset-0 pointer-events-auto"
+            onClick={closeMobileMenu}
+          />
+          
+          {/* FAB Menu Items - Each positioned independently */}
+          
+          {/* Resume Option - Closest to FAB */}
+          <div 
+            className={`fixed transition-all duration-[1200ms] ease-out pointer-events-auto ${
+              isMobileMenuOpen 
+                ? `${isScrolled ? 'bottom-28 right-6' : 'top-20 right-6'} opacity-100 scale-100 transform translate-y-0` 
+                : `${isScrolled ? 'bottom-6 right-6 transform translate-y-0' : 'top-20 right-6 transform translate-y-8'} opacity-0 scale-0`
+            }`}
+            style={{ 
+              transitionDelay: isMobileMenuOpen ? '150ms' : '0ms'
+            }}
+          >
+            <Link 
+              href="/resume" 
+              onClick={closeMobileMenu}
+              className="flex items-center bg-gradient-to-r from-[#f5e9da] to-[#e2c9a0] text-[#2d1e13] px-4 py-2 rounded-full shadow-md hover:shadow-lg active:scale-95 transition-all duration-150 touch-manipulation border-2 border-[#a47551]"
+            >
+              <span className="text-lg mr-2">📄</span>
+              <span className="font-semibold text-sm whitespace-nowrap">Resume</span>
+            </Link>
+          </div>
 
-              <div className="flex flex-col space-y-4">
-                <Link 
-                  href="/" 
-                  onClick={closeMobileMenu}
-                  className="block rounded-2xl font-semibold border-2 px-6 py-4 text-center bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] transition-all duration-200 active:scale-95 touch-manipulation shadow-lg"
-                >
-                  🏠 Home
-                </Link>
-                <Link 
-                  href="/projects" 
-                  onClick={closeMobileMenu}
-                  className="block rounded-2xl font-semibold border-2 px-6 py-4 text-center bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] transition-all duration-200 active:scale-95 touch-manipulation shadow-lg"
-                >
-                  💼 Projects
-                </Link>
-                <Link 
-                  href="/resume" 
-                  onClick={closeMobileMenu}
-                  className="block rounded-2xl font-semibold border-2 px-6 py-4 text-center bg-[#4b2e13] text-white border-[#4b2e13] hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] transition-all duration-200 active:scale-95 touch-manipulation shadow-lg"
-                >
-                  📄 Resume
-                </Link>
-              </div>
-              <div className="text-center mt-6">
-                <button 
-                  onClick={closeMobileMenu}
-                  className="text-[#a47551] hover:text-[#4b2e13] transition-colors duration-200 font-medium"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
+          {/* Projects Option - Middle */}
+          <div 
+            className={`fixed transition-all duration-[1200ms] ease-out pointer-events-auto ${
+              isMobileMenuOpen 
+                ? `${isScrolled ? 'bottom-44 right-6' : 'top-36 right-6'} opacity-100 scale-100 transform translate-y-0` 
+                : `${isScrolled ? 'bottom-6 right-6 transform translate-y-0' : 'top-20 right-6 transform translate-y-16'} opacity-0 scale-0`
+            }`}
+            style={{ 
+              transitionDelay: isMobileMenuOpen ? '300ms' : '0ms'
+            }}
+          >
+            <Link 
+              href="/projects" 
+              onClick={closeMobileMenu}
+              className="flex items-center bg-gradient-to-r from-[#f5e9da] to-[#e2c9a0] text-[#2d1e13] px-4 py-2 rounded-full shadow-md hover:shadow-lg active:scale-95 transition-all duration-150 touch-manipulation border-2 border-[#a47551]"
+            >
+              <span className="text-lg mr-2">💼</span>
+              <span className="font-semibold text-sm whitespace-nowrap">Projects</span>
+            </Link>
+          </div>
+
+          {/* Home Option - Farthest from FAB */}
+          <div 
+            className={`fixed transition-all duration-[1200ms] ease-out pointer-events-auto ${
+              isMobileMenuOpen 
+                ? `${isScrolled ? 'bottom-60 right-6' : 'top-52 right-6'} opacity-100 scale-100 transform translate-y-0` 
+                : `${isScrolled ? 'bottom-6 right-6 transform translate-y-0' : 'top-20 right-6 transform translate-y-32'} opacity-0 scale-0`
+            }`}
+            style={{ 
+              transitionDelay: isMobileMenuOpen ? '450ms' : '0ms'
+            }}
+          >
+            <Link 
+              href="/" 
+              onClick={closeMobileMenu}
+              className="flex items-center bg-gradient-to-r from-[#f5e9da] to-[#e2c9a0] text-[#2d1e13] px-4 py-2 rounded-full shadow-md hover:shadow-lg active:scale-95 transition-all duration-150 touch-manipulation border-2 border-[#a47551]"
+            >
+              <span className="text-lg mr-2">🏠</span>
+              <span className="font-semibold text-sm whitespace-nowrap">Home</span>
+            </Link>
           </div>
         </div>
+      )}
     </>
   );
 };

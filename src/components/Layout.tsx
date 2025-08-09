@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import LandingBlob from './LandingBlob';
+
 // import CursorGradient from './CursorGradient';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -18,6 +19,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     return false;
   });
   const [hasMounted, setHasMounted] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   
   // Show blob on all pages except resume
   const showBlob = pathname !== '/resume';
@@ -38,6 +40,15 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     localStorage.setItem('darkMode', darkMode ? 'true' : 'false');
   }, [darkMode]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const toggleDarkMode = () => setDarkMode((prev) => !prev);
 
   if (!hasMounted) return null;
@@ -49,7 +60,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     >
       {/* <CursorGradient /> */}
       {showBlob && <LandingBlob />}
-      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} isScrolled={isScrolled} />
       <main className="flex-1 container mx-auto px-4 relative z-5">{children}</main>
       <Footer />
     </div>
