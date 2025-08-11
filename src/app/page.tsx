@@ -145,6 +145,50 @@ export default function Home() {
         </div>
       </section>
       
+      {/* Projects Banner */}
+      <section className="w-full py-8 sm:py-12 md:py-16 relative z-10 max-w-7xl mx-auto px-4 sm:px-8 md:px-16">
+        <div className="bg-gradient-to-r from-[#f5e9da] to-[#e2c9a0] rounded-3xl p-8 sm:p-12 md:p-16 relative overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-4 right-4 w-32 h-32 border-4 border-[#a47551] rounded-full"></div>
+            <div className="absolute bottom-8 left-8 w-24 h-24 border-4 border-[#a47551] rounded-full"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 border-4 border-[#a47551] rounded-full"></div>
+          </div>
+          
+          <div className="relative z-10 text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8" style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
+              Checkout my projects! 🚀
+            </h2>
+            
+            <div className="flex items-center justify-center mb-8">
+              {/* Projects Button */}
+              <a
+                href="/projects"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-[#4b2e13] text-white rounded-full font-bold text-lg sm:text-xl shadow-lg hover:bg-[#a47551] hover:shadow-xl active:bg-[#a47551] active:scale-95 transition-all duration-300 touch-manipulation border-2 border-[#4b2e13] hover:border-[#a47551]"
+                style={{ fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
+              >
+                <span>View Projects</span>
+                <svg 
+                  width="24" 
+                  height="24" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2"
+                  className="transform group-hover:translate-x-1 transition-transform duration-200"
+                >
+                  <path d="M5 12h14M12 5l7 7-7"/>
+                </svg>
+              </a>
+            </div>
+            
+            <p className="text-lg sm:text-xl text-[#2d1e13] max-w-2xl mx-auto opacity-90" style={{ fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
+              Explore my portfolio of machine learning, web development, and data science projects
+            </p>
+          </div>
+        </div>
+      </section>
+      
       {/* Contact Section */}
       <ContactSection />
     </>
