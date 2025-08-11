@@ -121,7 +121,7 @@ class Ant:
             prob = (pheromone ** alpha) * (heuristic ** beta)
             probabilities.append((city, prob))
         
-        # Roulette wheel selection
+        # Selection mechanism
         total = sum(prob for _, prob in probabilities)
         rand = random.random() * total
         cumulative = 0

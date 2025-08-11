@@ -118,12 +118,12 @@
   },
   {
     "id": "all-in-casino",
-    "title": "All In Casino",
-    "summary": "Multiplayer digital casino with games like poker and blackjack, possibly AI opponents.",
+    "title": "All In Gaming",
+    "summary": "Multiplayer digital entertainment platform with interactive games and activities, featuring AI-powered experiences.",
     "image": "/images/projects/All-in-Casino.png",
     "techStack": ["React.js", "Node.js", "Socket.io", "MongoDB", "PostgreSQL", "Redux", "WebGL", "Three.js"],
     "github": "https://github.com/ShubhG7?tab=repositories",
-    "demo": "https://all-in-casino.demo.com"
+    "demo": "https://all-in-gaming.demo.com"
   },
   {
     "id": "budget-tracker",
