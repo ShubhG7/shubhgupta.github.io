@@ -1,5 +1,50 @@
 [
   {
+    "id": "resumai",
+    "title": "ResumAI - AI powered ATS",
+    "summary": "Modern Applicant Tracking System with AI-powered resume analysis, intelligent candidate matching, and role-based dashboards for applicants and recruiters.",
+    "image": "/images/projects/ResumAI.png",
+    "techStack": ["React 18", "TypeScript", "Material-UI", "Redux Toolkit", "Fastify", "Prisma ORM", "PostgreSQL", "Redis", "Keycloak", "Docker"],
+    "github": "https://github.com/username/resumai",
+    "demo": "https://resumai.demo.com"
+  },
+  {
+    "id": "flight-delay-prediction",
+    "title": "Flight Delay Prediction at Scale with PySpark on Google Cloud",
+    "summary": "Built and deployed a scalable pipeline to predict airline departure delays using 65M+ records, PySpark, RandomForest, and cloud infrastructure; includes full preprocessing, modeling, and analysis.",
+    "image": "/images/projects/Flight Delay Prediction.png",
+    "techStack": ["PySpark", "Big Data", "Machine Learning", "Google Cloud", "RandomForest", "Python", "Cloud Storage", "Compute Engine"],
+    "github": "https://github.com/ShubhG7/Flight-Time-Delay-Prediction-Big-Data-",
+    "demo": "https://flight-delay-prediction.demo.com"
+  },
+  {
+    "id": "research-paper-abstract-essence",
+    "title": "Research Paper - Comparative Analysis of Crude Oil Price Prediction Using SVM, ANN and GARCH-GED",
+    "summary": "Comparative study evaluating SVM, ANN, and GARCH-GED models for forecasting volatile crude oil prices using WTI dataset, published in Springer ICICC 2022.",
+    "image": "/images/projects/Research Paper.png",
+    "techStack": ["Machine Learning", "SVM", "ANN", "GARCH-GED", "Time Series", "Forecasting", "Python", "Springer Publication"],
+    "springer": "https://link.springer.com/chapter/10.1007/978-981-99-1588-0_45",
+    "demo": "https://link.springer.com/chapter/10.1007/978-981-99-1588-0_45"
+  },
+  {
+    "id": "llm-inference-optimization",
+    "title": "LLM Inference Workload Optimization",
+    "summary": "Optimizing model inference using batching, quantization, or model distillation techniques.",
+    "image": "/images/projects/LLM Inference Optimization.png",
+    "techStack": ["Python", "ONNX Runtime", "Hugging Face Transformers", "Triton Inference Server", "PyTorch", "Docker"],
+    "github": "https://github.com/username/llm-inference-optimization",
+    "demo": "https://llm-inference-optimization.demo.com"
+  },
+  {
+    "id": "stock-price-prediction",
+    "title": "Exploring ML Models while predicting stock prices",
+    "summary": "Comprehensive journey through classical machine learning algorithms applied to financial prediction, covering 10+ models from kNN to ensemble methods with trading strategy implementation.",
+    "image": "/images/projects/stock price prediction.png",
+    "techStack": ["Python", "scikit-learn", "pandas", "NumPy", "matplotlib", "seaborn", "Machine Learning", "kNN", "SVM", "Random Forest", "AdaBoost", "LSTM", "Keras", "TensorFlow", "yfinance"],
+    "github": "https://github.com/ShubhG7/Exploring-ML-models-while-Predicting-Stock-Prices",
+    "demo": "https://stock-price-prediction.demo.com"
+  },
+  {
     "id": "cart-classifier",
     "title": "C(ART) - Fullstack Ecommerce Website",
     "summary": "Comprehensive MERN stack e-commerce platform with user authentication, product management, payment processing, and admin dashboard.",
@@ -16,15 +61,6 @@
     "techStack": ["Python", "MediaPipe", "TensorFlow", "OpenCV", "Flask", "Streamlit"],
     "github": "https://github.com/ShubhG7/American-Sign-Language-Interpreter",
     "demo": "https://asl-interpreter.demo.com"
-  },
-  {
-    "id": "llm-inference-optimization",
-    "title": "LLM Inference Workload Optimization",
-    "summary": "Optimizing model inference using batching, quantization, or model distillation techniques.",
-    "image": "/images/projects/LLM Inference Optimization.png",
-    "techStack": ["Python", "ONNX Runtime", "Hugging Face Transformers", "Triton Inference Server", "PyTorch", "Docker"],
-    "github": "https://github.com/username/llm-inference-optimization",
-    "demo": "https://llm-inference-optimization.demo.com"
   },
   {
     "id": "car-price-prediction",
@@ -54,15 +90,6 @@
     "demo": "https://mumbai-house-price-prediction.demo.com"
   },
   {
-    "id": "stock-price-prediction",
-    "title": "Exploring ML Models while predicting stock prices",
-    "summary": "Comprehensive journey through classical machine learning algorithms applied to financial prediction, covering 10+ models from kNN to ensemble methods with trading strategy implementation.",
-    "image": "/images/projects/stock price prediction.png",
-    "techStack": ["Python", "scikit-learn", "pandas", "NumPy", "matplotlib", "seaborn", "Machine Learning", "kNN", "SVM", "Random Forest", "AdaBoost", "LSTM", "Keras", "TensorFlow", "yfinance"],
-    "github": "https://github.com/ShubhG7/Exploring-ML-models-while-Predicting-Stock-Prices",
-    "demo": "https://stock-price-prediction.demo.com"
-  },
-  {
     "id": "ant-colony-optimization",
     "title": "Ant Colony Optimization (ACO)",
     "summary": "Solved pathfinding or scheduling problems using the ACO metaheuristic algorithm.",
@@ -79,15 +106,6 @@
     "techStack": ["Apache Airflow", "Python", "PostgreSQL", "MySQL", "AWS S3", "Docker"],
     "github": "https://github.com/ShubhG7/ETL-Using-Apache-AIrflow",
     "demo": "https://etl-pipeline-airflow.demo.com"
-  },
-  {
-    "id": "research-paper-abstract-essence",
-    "title": "Research Paper - Comparative Analysis of Crude Oil Price Prediction Using SVM, ANN and GARCH-GED",
-    "summary": "Comparative study evaluating SVM, ANN, and GARCH-GED models for forecasting volatile crude oil prices using WTI dataset, published in Springer ICICC 2022.",
-    "image": "/images/projects/Research Paper.png",
-    "techStack": ["Machine Learning", "SVM", "ANN", "GARCH-GED", "Time Series", "Forecasting", "Python", "Springer Publication"],
-    "springer": "https://link.springer.com/chapter/10.1007/978-981-99-1588-0_45",
-    "demo": "https://link.springer.com/chapter/10.1007/978-981-99-1588-0_45"
   },
   {
     "id": "orion",
@@ -108,15 +126,6 @@
     "demo": "https://all-in-casino.demo.com"
   },
   {
-    "id": "flight-delay-prediction",
-    "title": "Flight Delay Prediction at Scale with PySpark on Google Cloud",
-    "summary": "Built and deployed a scalable pipeline to predict airline departure delays using 65M+ records, PySpark, RandomForest, and cloud infrastructure; includes full preprocessing, modeling, and analysis.",
-    "image": "/images/projects/Flight Delay Prediction.png",
-    "techStack": ["PySpark", "Big Data", "Machine Learning", "Google Cloud", "RandomForest", "Python", "Cloud Storage", "Compute Engine"],
-    "github": "https://github.com/ShubhG7/Flight-Time-Delay-Prediction-Big-Data-",
-    "demo": "https://flight-delay-prediction.demo.com"
-  },
-  {
     "id": "budget-tracker",
     "title": "Budget Tracker - Personal Finance Management",
     "summary": "Comprehensive desktop application for personal finance management with user authentication, budget tracking, expense management, and data visualization using Python, Tkinter, and SQLite.",
@@ -124,14 +133,5 @@
     "techStack": ["Python", "Tkinter", "SQLite", "Matplotlib", "tkcalendar", "Desktop Application", "GUI", "Data Visualization"],
     "github": "https://github.com/ShubhG7/Budget-Tracker---Personal-Finance-Management",
     "demo": "https://budget-tracker.demo.com"
-  },
-  {
-    "id": "resumai",
-    "title": "ResumAI - AI powered ATS",
-    "summary": "Modern Applicant Tracking System with AI-powered resume analysis, intelligent candidate matching, and role-based dashboards for applicants and recruiters.",
-    "image": "/images/projects/ResumAI.png",
-    "techStack": ["React 18", "TypeScript", "Material-UI", "Redux Toolkit", "Fastify", "Prisma ORM", "PostgreSQL", "Redis", "Keycloak", "Docker"],
-    "github": "https://github.com/username/resumai",
-    "demo": "https://resumai.demo.com"
   }
 ]

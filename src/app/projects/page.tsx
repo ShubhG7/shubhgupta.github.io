@@ -244,22 +244,14 @@ const ProjectsPage = () => {
         </div>
       </div>
 
-      {/* Author's Note */}
-      <div className="mb-6 text-center">
-          <h4 className="text-lg font-bold italic" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
-            Apologies for the spelling mistakes in the images, I haven&apos;t fixed GenAI, yet. xD
-          </h4>
-          <p className="text-base mt-1 font-bold italic" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
-            -ShubhGDev
-          </p>
-      </div>
+
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project: any) => (
           <div 
             key={project.id} 
-            className="border rounded-lg p-4 hover:shadow-lg transition-all duration-200 bg-white relative z-10 cursor-pointer active:scale-95 touch-manipulation"
+            className="border rounded-lg p-4 hover:shadow-lg transition-all duration-200 bg-white relative z-10 cursor-pointer active:scale-95 touch-manipulation flex flex-col h-full"
             onClick={() => window.location.href = `/projects/${project.id}/blog`}
             style={{ 
               transform: 'translateZ(0)',
@@ -274,7 +266,7 @@ const ProjectsPage = () => {
               className="w-full h-40 object-cover rounded mb-4 pointer-events-none" 
             />
             <h2 className="text-xl font-semibold mb-4 mt-2 pointer-events-none" style={{ color: '#2d1e13' }}>{project.title}</h2>
-            <p className="text-sm text-gray-600 mb-4 line-clamp-3 pointer-events-none">{project.summary}</p>
+            <p className="text-sm text-gray-600 mb-4 line-clamp-3 pointer-events-none flex-grow">{project.summary}</p>
             <div className="flex flex-wrap gap-2 mb-4 mt-2 pointer-events-none">
               {project.techStack.map((tech: string) => (
                 <span 
@@ -285,7 +277,7 @@ const ProjectsPage = () => {
                 </span>
               ))}
             </div>
-            <div className="flex gap-4 mt-4 justify-between">
+            <div className="flex gap-4 mt-auto justify-between">
               {project.id === 'research-paper-abstract-essence' ? (
                 <a
                   href={project.springer}
