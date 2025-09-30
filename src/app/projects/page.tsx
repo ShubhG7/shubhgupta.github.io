@@ -40,6 +40,7 @@ const ProjectsPage = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [hoveredTag, setHoveredTag] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   // Filter projects based on selected tags and search term
   const filteredProjects = useMemo(() => {
@@ -96,7 +97,22 @@ const ProjectsPage = () => {
       
       {/* Filter UI */}
       <div className="mb-8 relative z-10">
-        <div className="flex items-center justify-between mb-4">
+        {/* Mobile Filter Toggle Button */}
+        <div className="md:hidden mb-4">
+          <button
+            onClick={() => setIsFilterOpen(!isFilterOpen)}
+            className="w-full flex items-center justify-between p-3 bg-[#f5e9da] rounded-lg border-2 border-[#e2c9a0] hover:bg-[#e2c9a0] transition-colors duration-200"
+            style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
+          >
+            <span className="font-semibold">Filter By Tech</span>
+            <span className={`transform transition-transform duration-200 ${isFilterOpen ? 'rotate-180' : ''}`}>
+              ▼
+            </span>
+          </button>
+        </div>
+
+        {/* Desktop Filter Header */}
+        <div className="hidden md:flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>Filter by Technology</h2>
           {selectedTags.length > 0 && (
             <button
@@ -109,7 +125,9 @@ const ProjectsPage = () => {
           )}
         </div>
         
-        <div className="w-full flex flex-wrap gap-2 justify-start mb-4" style={{ fontSize: '0.924rem' }}>
+        {/* Filter Content - Hidden on mobile when closed */}
+        <div className={`${isFilterOpen ? 'block' : 'hidden'} md:block transition-all duration-200`}>
+          <div className="w-full flex flex-wrap gap-2 justify-start mb-4" style={{ fontSize: '0.924rem' }}>
           {allTechStack.map((tag) => {
             const isSelected = selectedTags.includes(tag);
             const isHovered = hoveredTag === tag;
@@ -148,23 +166,24 @@ const ProjectsPage = () => {
           })}
         </div>
 
-        {(selectedTags.length > 0 || searchTerm) && (
-          <div className="mt-4 p-3 bg-[#f5e9da] rounded-lg border border-[#e2c9a0]">
-            <div className="text-sm font-semibold mb-2" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
-              Showing {filteredProjects.length} of {projects.length} projects
+          {(selectedTags.length > 0 || searchTerm) && (
+            <div className="mt-4 p-3 bg-[#f5e9da] rounded-lg border border-[#e2c9a0]">
+              <div className="text-sm font-semibold mb-2" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
+                Showing {filteredProjects.length} of {projects.length} projects
+              </div>
+              {searchTerm && (
+                <div className="text-xs mb-1" style={{ color: 'var(--text-main)' }}>
+                  Search: &ldquo;{searchTerm}&rdquo;
+                </div>
+              )}
+              {selectedTags.length > 0 && (
+                <div className="text-xs" style={{ color: 'var(--text-main)' }}>
+                  Active filters: {selectedTags.join(', ')}
+                </div>
+              )}
             </div>
-            {searchTerm && (
-              <div className="text-xs mb-1" style={{ color: 'var(--text-main)' }}>
-                Search: &ldquo;{searchTerm}&rdquo;
-              </div>
-            )}
-            {selectedTags.length > 0 && (
-              <div className="text-xs" style={{ color: 'var(--text-main)' }}>
-                Active filters: {selectedTags.join(', ')}
-              </div>
-            )}
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       {/* Projects Grid */}
