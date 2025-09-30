@@ -155,7 +155,7 @@ const ProjectsPage = () => {
             </div>
             {searchTerm && (
               <div className="text-xs mb-1" style={{ color: 'var(--text-main)' }}>
-                Search: "{searchTerm}"
+                Search: &ldquo;{searchTerm}&rdquo;
               </div>
             )}
             {selectedTags.length > 0 && (
@@ -199,11 +199,11 @@ const ProjectsPage = () => {
                 GitHub
               </a>
               <a
-                href={`/projects/${project.id}`}
+                href={`/projects/${project.id}/blog`}
                 className="px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] transition-colors"
                 style={{ fontSize: '0.7rem', padding: '0.35rem 0.9rem' }}
               >
-                View Details
+                Read More
               </a>
             </div>
           </div>
