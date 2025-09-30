@@ -19,60 +19,35 @@ const ResumePage = () => (
       <hr className="my-4" />
       <h2 className="text-lg font-semibold mb-2">💼 Experience</h2>
       <div className="mb-4">
-        <h3 className="font-bold">ResumeAI <span className="font-normal italic">– Software Development Engineer - Capstone</span></h3>
-        <div className="text-sm mb-1">Boston, MA | August 2024 – December 2024</div>
+        <h3 className="font-bold">BNY Mellon <span className="font-normal italic">– Software Developer</span></h3>
+        <div className="text-sm mb-1">Remote, USA | February 2024 – Present</div>
         <ul className="list-disc ml-6">
-          <li>Improved recruiter workflow speed by <b>35%</b> by building a full-stack ATS using <b>React, Fastify, PostgreSQL, and AWS SQS</b></li>
-          <li>Reduced setup issues by <b>80%</b> via secure multi-role authentication with <b>Keycloak</b> and auto-provisioning</li>
-          <li>Cut API latency from <b>180ms to 80ms</b> using <b>Redis caching</b>, Docker async queues</li>
-          <li>Defined system architecture and roles through team-led planning and documentation</li>
+          <li>Building scalable backend services and platform features for financial applications serving millions of users in a heavily regulated environment</li>
+          <li>Collaborating with cross-functional teams including DevOps, QA, and Product to ship production services with <b>99.9%+ uptime</b></li>
+          <li>Implementing robust API designs and microservices architecture using modern technologies and best practices</li>
+          <li>Contributing to compliance and security initiatives while maintaining high development velocity</li>
         </ul>
       </div>
       <div className="mb-4">
-        <h3 className="font-bold">Ernst and Young LLP <span className="font-normal italic">– Machine Learning Intern</span></h3>
-        <div className="text-sm mb-1">Mumbai, India | July 2022 – September 2022</div>
+        <h3 className="font-bold">Ernst & Young LLP <span className="font-normal italic">– AI/ML & Software Engineer</span></h3>
+        <div className="text-sm mb-1">Mumbai, India | July 2021 – July 2023</div>
         <ul className="list-disc ml-6">
-          <li>Sped up model training by <b>40%</b> on large-scale financial data using <b>PySpark MLlib</b></li>
-          <li>Reduced false positives by <b>25%</b> through predictive fraud detection models</li>
-          <li>Enabled real-time ML inference via <b>AWS SageMaker</b> with REST API integration</li>
+          <li>Optimized fraud detection models using <b>PySpark MLlib</b>, improving model accuracy by <b>25%</b> and reducing false positives</li>
+          <li>Automated AWS-based ML model deployments with <b>SageMaker</b>, reducing infrastructure costs by <b>40%</b> and deployment time by <b>60%</b></li>
+          <li>Built end-to-end ML pipelines processing large-scale financial datasets with <b>Apache Spark</b> and <b>Apache Airflow</b></li>
+          <li>Developed real-time inference APIs serving fraud detection models with sub-100ms latency using <b>Redis caching</b></li>
+          <li>Collaborated with data scientists and business analysts to translate requirements into production ML systems</li>
         </ul>
       </div>
       <div className="mb-4">
-        <h3 className="font-bold">Kings Expomedia LTD <span className="font-normal italic">– Software Engineer</span></h3>
+        <h3 className="font-bold">Kings Expomedia Ltd <span className="font-normal italic">– Software Engineer</span></h3>
         <div className="text-sm mb-1">Mumbai, India | December 2019 – April 2021</div>
         <ul className="list-disc ml-6">
-          <li>Increased session time by <b>30%</b> by building 3 production-grade websites with <b>React, Redux, WebGL</b></li>
-          <li>Improved page performance by <b>40%</b> with lazy loading, asset bundling, and code splitting</li>
-          <li>Cut content publishing time by <b>50%</b> via CMS automation using <b>Strapi</b></li>
-          <li>Drove full SDLC from requirements to post-launch support</li>
-        </ul>
-      </div>
-      <hr className="my-4" />
-      <h2 className="text-lg font-semibold mb-2">🚀 Projects</h2>
-      <div className="mb-4">
-        <h3 className="font-bold">LLM Inference Optimization</h3>
-        <div className="text-sm mb-1">Linux perf, PyTorch, Hugging Face, bitsandbytes, Colab, Matplotlib</div>
-        <ul className="list-disc ml-6">
-          <li>Reduced RAM by <b>25%</b> and increased throughput by <b>30%</b> with <b>8-bit quantization</b> and <b>KV-cache tuning</b></li>
-          <li>Profiled hardware with <b>Linux perf</b> and visualized TLB/cache metrics using <b>Matplotlib</b></li>
-        </ul>
-      </div>
-      <div className="mb-4">
-        <h3 className="font-bold">Credit Risk Modeling (Lending Club Data)</h3>
-        <div className="text-sm mb-1">Python, pandas, NumPy, scikit-learn, matplotlib</div>
-        <ul className="list-disc ml-6">
-          <li>Trained a <b>Probability of Default (PD)</b> model (ROC AUC: <b>0.702</b>)</li>
-          <li>Built <b>CECL-aligned scorecard</b> to map credit risk across scores 300–850</li>
-          <li>ETL’d and preprocessed <b>900k rows / 75 columns</b> spanning 2007–2015</li>
-        </ul>
-      </div>
-      <div className="mb-4">
-        <h3 className="font-bold">Flight Delay Prediction</h3>
-        <div className="text-sm mb-1">PySpark, MLlib, Pandas, NumPy, Google Cloud</div>
-        <ul className="list-disc ml-6">
-          <li>Achieved RMSE <b>36.11</b> on 65M+ records via <b>Random Forest</b> with <b>PySpark MLlib</b></li>
-          <li>Engineered 20+ temporal and categorical features</li>
-          <li>Reduced preprocessing time by <b>50%</b> using optimized Spark pipelines</li>
+          <li>Led migration of flagship magazine website from legacy PHP to modern stack (<b>Next.js, Node.js, React</b>), improving page load times by <b>40%</b></li>
+          <li>Built automated proofreading and fact-checking pipelines using <b>NLP libraries</b>, reducing editorial review time by <b>50%</b></li>
+          <li>Implemented <b>CI/CD pipelines</b> and deployment automation, enabling rapid feature releases during high-traffic expo seasons</li>
+          <li>Developed <b>WebGL-based</b> interactive content features, increasing user session time by <b>30%</b></li>
+          <li>Optimized database queries and implemented caching strategies, improving overall application performance</li>
         </ul>
       </div>
       <hr className="my-4" />
@@ -94,14 +69,11 @@ const ResumePage = () => (
       <h2 className="text-lg font-semibold mb-2">🎓 Education</h2>
       <div className="mb-2">
         <b>Boston University</b> – <span className="italic">MS in Computer Science</span><br />
-        Boston, MA | August 2023 – January 2025<br />
-        <span className="text-sm"><b>Specialization:</b> AI & Big Data</span><br />
-        <span className="text-sm"><b>Teaching Assistant:</b> Mentored 300+ students in Python, DSA, and ML fundamentals</span>
+        Boston, MA | August 2023 – January 2025
       </div>
-      <div>
+      <div className="mb-2">
         <b>University of Mumbai</b> – <span className="italic">BE in Information Technology</span><br />
-        Mumbai, India | August 2019 – July 2023<br />
-        <span className="text-sm"><b>Coursework:</b> Data Mining, Business Intelligence, Image Processing, OOP, DBMS</span>
+        Mumbai, India | August 2019 – July 2023
       </div>
     </div>
   </div>

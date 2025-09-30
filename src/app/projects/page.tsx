@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useEffect } from 'react';
-import Image from 'next/image';
+import React, { useState, useMemo } from 'react';
 import projects from '@/data/projects.json';
 
 // Get all unique tech stack tags
@@ -9,152 +8,70 @@ const allTechStack = Array.from(
   new Set(projects.flatMap((project: any) => project.techStack))
 ).sort();
 
-// Color mapping for tech stack tags - Organized by meaningful categories
+// Color mapping for tech stack tags
 const tagColors: { [key: string]: string } = {
-  // 🟢 Machine Learning & AI (Green)
-  'Python': 'bg-green-100 text-green-800 border-green-200',
-  'PyTorch': 'bg-green-100 text-green-800 border-green-200',
-  'TensorFlow': 'bg-green-100 text-green-800 border-green-200',
-  'RAGs': 'bg-green-100 text-green-800 border-green-200',
-  'LLMs': 'bg-green-100 text-green-800 border-green-200',
-  'GANs': 'bg-green-100 text-green-800 border-green-200',
-  'VAEs': 'bg-green-100 text-green-800 border-green-200',
-  'MLOps': 'bg-green-100 text-green-800 border-green-200',
-  'XGBoost': 'bg-green-100 text-green-800 border-green-200',
-  'LightGBM': 'bg-green-100 text-green-800 border-green-200',
-  'LSTM': 'bg-green-100 text-green-800 border-green-200',
-  'RandomForest': 'bg-green-100 text-green-800 border-green-200',
-  'Gradient Boosting': 'bg-green-100 text-green-800 border-green-200',
-  'Random Forest': 'bg-green-100 text-green-800 border-green-200',
-  'SVM': 'bg-green-100 text-green-800 border-green-200',
-  'NumPy': 'bg-green-100 text-green-800 border-green-200',
-  'pandas': 'bg-green-100 text-green-800 border-green-200',
-  'numpy': 'bg-green-100 text-green-800 border-green-200',
-  'Machine Learning': 'bg-green-100 text-green-800 border-green-200',
-  'AI': 'bg-green-100 text-green-800 border-green-200',
-  'NLP': 'bg-green-100 text-green-800 border-green-200',
-  'Hugging Face Transformers': 'bg-green-100 text-green-800 border-green-200',
-  'T5': 'bg-green-100 text-green-800 border-green-200',
-  'spaCy': 'bg-green-100 text-green-800 border-green-200',
-  'ONNX Runtime': 'bg-green-100 text-green-800 border-green-200',
-  'Triton Inference Server': 'bg-green-100 text-green-800 border-green-200',
-  'Matplotlib': 'bg-green-100 text-green-800 border-green-200',
-  'Data Visualization': 'bg-green-100 text-green-800 border-green-200',
-  'Big Data': 'bg-green-100 text-green-800 border-green-200',
-  'Spark': 'bg-green-100 text-green-800 border-green-200',
-  'Tkinter': 'bg-green-100 text-green-800 border-green-200',
-  'tkcalendar': 'bg-green-100 text-green-800 border-green-200',
-  'Desktop Application': 'bg-green-100 text-green-800 border-green-200',
-  'GUI': 'bg-green-100 text-green-800 border-green-200',
-  'PyGame': 'bg-green-100 text-green-800 border-green-200',
-  'MongoDB': 'bg-green-100 text-green-800 border-green-200',
-  'SQLite': 'bg-green-100 text-green-800 border-green-200',
-  'Web APIs': 'bg-green-100 text-green-800 border-green-200',
-  'REST API': 'bg-green-100 text-green-800 border-green-200',
-  'Express.js': 'bg-green-100 text-green-800 border-green-200',
-  'Node.js': 'bg-green-100 text-green-800 border-green-200',
-  'Django': 'bg-green-100 text-green-800 border-green-200',
-  'MERN Stack': 'bg-green-100 text-green-800 border-green-200',
-  'Speech Recognition': 'bg-green-100 text-green-800 border-green-200',
-  'Text-to-Speech': 'bg-green-100 text-green-800 border-green-200',
-  'Springer Publication': 'bg-green-100 text-green-800 border-green-200',
-  
-  // 🔵 Software Development & Deployment (Blue)
-  'Java': 'bg-blue-100 text-blue-800 border-blue-200',
-  'C++': 'bg-blue-100 text-blue-800 border-blue-200',
-  'C#': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Go': 'bg-blue-100 text-blue-800 border-blue-200',
-  'JavaScript': 'bg-blue-100 text-blue-800 border-blue-200',
-  'TypeScript': 'bg-blue-100 text-blue-800 border-blue-200',
-  'React': 'bg-blue-100 text-blue-800 border-blue-200',
   'Next.js': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Microservices': 'bg-blue-100 text-blue-800 border-blue-200',
-  'gRPC': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Docker': 'bg-blue-100 text-blue-800 border-blue-200',
-  'CI/CD': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Git': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Agile': 'bg-blue-100 text-blue-800 border-blue-200',
-  'GCP': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Google Cloud': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Cloud Storage': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Compute Engine': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Airflow': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Kafka': 'bg-blue-100 text-blue-800 border-blue-200',
-  'GraphQL': 'bg-blue-100 text-blue-800 border-blue-200',
-  'HTML': 'bg-blue-100 text-blue-800 border-blue-200',
-  'CSS': 'bg-blue-100 text-blue-800 border-blue-200',
-  'CSS3': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Tailwind CSS': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Bootstrap': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Three.js': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Socket.io': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Braintree': 'bg-blue-100 text-blue-800 border-blue-200',
-  'NextAuth': 'bg-blue-100 text-blue-800 border-blue-200',
-  'OpenWeather API': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Chart.js': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Firebase': 'bg-blue-100 text-blue-800 border-blue-200',
-  'MySQL': 'bg-blue-100 text-blue-800 border-blue-200',
+  'React': 'bg-cyan-100 text-cyan-800 border-cyan-200',
+  'TypeScript': 'bg-blue-100 text-blue-800 border-blue-200',
+  'JavaScript': 'bg-yellow-100 text-yellow-800 border-yellow-200',
+  'Tailwind CSS': 'bg-teal-100 text-teal-800 border-teal-200',
+  'Node.js': 'bg-green-100 text-green-800 border-green-200',
+  'MongoDB': 'bg-green-100 text-green-800 border-green-200',
   'PostgreSQL': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Data Structures': 'bg-blue-100 text-blue-800 border-blue-200',
-  'OOP': 'bg-blue-100 text-blue-800 border-blue-200',
-  'JWT': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Redux': 'bg-blue-100 text-blue-800 border-blue-200',
-  'WebGL': 'bg-blue-100 text-blue-800 border-blue-200',
-  'framer-motion': 'bg-blue-100 text-blue-800 border-blue-200',
-  'Linux': 'bg-blue-100 text-blue-800 border-blue-200',
-  
-  // 🟡 Cloud & Infrastructure (Yellow/Orange)
-  'AWS': 'bg-yellow-100 text-yellow-800 border-yellow-200',
-  'Rust': 'bg-yellow-100 text-yellow-800 border-yellow-200',
-  'Stripe': 'bg-yellow-100 text-yellow-800 border-yellow-200',
-  
-  // 🟣 Specialized Tools & Libraries (Purple)
-  'seaborn': 'bg-purple-100 text-purple-800 border-purple-200',
-  'PyMuPDF': 'bg-purple-100 text-purple-800 border-purple-200',
-  
-  // 🔴 High-Performance & Critical Systems (Red)
-  'Keras': 'bg-red-100 text-red-800 border-red-200',
-  'Streamlit': 'bg-red-100 text-red-800 border-red-200',
-  'BERT': 'bg-red-100 text-red-800 border-red-200',
-  'yfinance': 'bg-red-100 text-red-800 border-red-200',
-  
-  // ⚫ System & Infrastructure (Gray)
-  'C': 'bg-gray-100 text-gray-800 border-gray-200',
+  'Python': 'bg-yellow-100 text-yellow-800 border-yellow-200',
   'Flask': 'bg-gray-100 text-gray-800 border-gray-200',
-  'Prisma': 'bg-gray-100 text-gray-800 border-gray-200',
-  'pdfminer': 'bg-gray-100 text-gray-800 border-gray-200',
+  'Express': 'bg-green-100 text-green-800 border-green-200',
+  'Socket.io': 'bg-purple-100 text-purple-800 border-purple-200',
+  'JWT': 'bg-orange-100 text-orange-800 border-orange-200',
+  'Three.js': 'bg-indigo-100 text-indigo-800 border-indigo-200',
+  'WebGL': 'bg-pink-100 text-pink-800 border-pink-200',
+  'Redux': 'bg-purple-100 text-purple-800 border-purple-200',
+  'Firebase': 'bg-orange-100 text-orange-800 border-orange-200',
+  'Chart.js': 'bg-green-100 text-green-800 border-green-200',
+  'CSS3': 'bg-blue-100 text-blue-800 border-blue-200',
+  'HTML': 'bg-orange-100 text-orange-800 border-orange-200',
+  'Braintree': 'bg-green-100 text-green-800 border-green-200',
+  'NextAuth': 'bg-blue-100 text-blue-800 border-blue-200',
+  'OpenWeather API': 'bg-cyan-100 text-cyan-800 border-cyan-200',
+  'framer-motion': 'bg-pink-100 text-pink-800 border-pink-200',
 };
 
 const ProjectsPage = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [hoveredTag, setHoveredTag] = useState<string | null>(null);
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setDarkMode(document.documentElement.classList.contains('dark'));
-    }
-  }, []);
-
-  // Filter projects based on selected tags
+  // Filter projects based on selected tags and search term
   const filteredProjects = useMemo(() => {
-    if (selectedTags.length === 0) return projects;
+    let filtered = projects;
     
-    return projects.filter((project: any) => 
-      selectedTags.every(tag => project.techStack.includes(tag))
-    );
-  }, [selectedTags]);
+    // Filter by search term
+    if (searchTerm) {
+      filtered = filtered.filter((project: any) => 
+        project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        project.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        project.techStack.some((tech: string) => 
+          tech.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
+    }
+    
+    // Filter by selected tags
+    if (selectedTags.length > 0) {
+      filtered = filtered.filter((project: any) => 
+        selectedTags.every(tag => project.techStack.includes(tag))
+      );
+    }
+    
+    return filtered;
+  }, [selectedTags, searchTerm]);
 
   const toggleTag = (tag: string) => {
-    console.log('Toggling tag:', tag, 'Current selectedTags:', selectedTags);
-    setSelectedTags(prev => {
-      const newTags = prev.includes(tag) 
+    setSelectedTags(prev => 
+      prev.includes(tag) 
         ? prev.filter(t => t !== tag)
-        : [...prev, tag];
-      console.log('New selectedTags:', newTags);
-      return newTags;
-    });
+        : [...prev, tag]
+    );
   };
 
   const clearFilters = () => {
@@ -165,24 +82,21 @@ const ProjectsPage = () => {
     <div className="py-8 relative z-10">
       <h1 className="text-3xl font-bold mb-6" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>Projects</h1>
       
+      {/* Search Bar */}
+      <div className="mb-6">
+        <input
+          type="text"
+          placeholder="Search projects, technologies, or descriptions..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full px-4 py-3 border-2 border-[#e2c9a0] rounded-lg bg-[#f5e9da] text-[#2d1e13] placeholder-[#a47551] focus:outline-none focus:border-[#a47551] transition-colors duration-200 text-lg"
+          style={{ fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
+        />
+      </div>
+      
       {/* Filter UI */}
       <div className="mb-8 relative z-10">
-        {/* Mobile Filter Toggle Button */}
-        <div className="md:hidden mb-4">
-          <button
-            onClick={() => setIsFilterOpen(!isFilterOpen)}
-            className="w-full flex items-center justify-between p-4 bg-[#f5e9da] rounded-lg border-2 border-[#a47551] hover:bg-[#e2c9a0] active:bg-[#e2c9a0] touch-manipulation active:scale-95 transition-all duration-200"
-            style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
-          >
-            <span className="font-semibold" style={{ color: '#2d1e13' }}>Filter by Technology</span>
-            <span className={`transform transition-all duration-300 ease-in-out ${isFilterOpen ? 'rotate-180' : ''}`} style={{ color: '#2d1e13' }}>
-              ▼
-            </span>
-          </button>
-        </div>
-
-        {/* Desktop Filter Header */}
-        <div className="hidden md:flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>Filter by Technology</h2>
           {selectedTags.length > 0 && (
             <button
@@ -195,79 +109,76 @@ const ProjectsPage = () => {
           )}
         </div>
         
-        {/* Filter Content - Hidden on mobile when closed */}
-        <div className={`${isFilterOpen ? 'block' : 'hidden'} md:block transform transition-all duration-300 ease-in-out`}>
-          <div className="w-full flex flex-wrap gap-2 justify-start mb-4" style={{ fontSize: '0.924rem' }}>
-            {allTechStack.map((tag) => {
-              const isSelected = selectedTags.includes(tag);
-              const isHovered = hoveredTag === tag;
-              let backgroundColor = isSelected ? '#4b2e13' : '#f5e9da';
-              let color = isSelected ? '#fff' : '#2d1e13';
-              let borderColor = isSelected ? '#4b2e13' : '#e2c9a0';
-              if (isHovered) {
-                if (isSelected) {
-                  backgroundColor = '#2d1e13';
-                  borderColor = '#2d1e13';
-                } else {
-                  backgroundColor = '#e2c9a0';
-                  borderColor = '#a47551';
-                }
+        <div className="w-full flex flex-wrap gap-2 justify-start mb-4" style={{ fontSize: '0.924rem' }}>
+          {allTechStack.map((tag) => {
+            const isSelected = selectedTags.includes(tag);
+            const isHovered = hoveredTag === tag;
+            let backgroundColor = isSelected ? '#4b2e13' : '#f5e9da';
+            let color = isSelected ? '#fff' : '#2d1e13';
+            let borderColor = isSelected ? '#4b2e13' : '#e2c9a0';
+            if (isHovered) {
+              if (isSelected) {
+                backgroundColor = '#2d1e13';
+                borderColor = '#2d1e13';
+              } else {
+                backgroundColor = '#e2c9a0';
+                borderColor = '#a47551';
               }
-              return (
-                <button
-                  key={tag}
-                  onClick={() => toggleTag(tag)}
-                  onMouseEnter={() => setHoveredTag(tag)}
-                  onMouseLeave={() => setHoveredTag(null)}
-                  className="transition-colors duration-150 text-center mr-1 mb-1 font-semibold rounded-full border-2"
-                  style={{
-                    backgroundColor,
-                    color,
-                    borderColor,
-                    padding: '0.42rem 1.08rem',
-                    fontSize: '0.924rem',
-                    fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif',
-                    boxShadow: isSelected ? '0 2px 8px 0 rgba(75,46,19,0.15)' : undefined,
-                  }}
-                >
-                  {tag}
-                </button>
-              );
-            })}
-          </div>
-          
-          {selectedTags.length > 0 && (
-            <div className="mt-3 text-sm" style={{ color: 'var(--text-main)' }}>
+            }
+            return (
+              <button
+                key={tag}
+                onClick={() => toggleTag(tag)}
+                onMouseEnter={() => setHoveredTag(tag)}
+                onMouseLeave={() => setHoveredTag(null)}
+                className="transition-colors duration-150 text-center mr-1 mb-1 font-semibold rounded-full border-2"
+                style={{
+                  backgroundColor,
+                  color,
+                  borderColor,
+                  padding: '0.42rem 1.08rem',
+                  fontSize: '0.924rem',
+                  fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif',
+                  boxShadow: isSelected ? '0 2px 8px 0 rgba(75,46,19,0.15)' : undefined,
+                }}
+              >
+                {tag}
+              </button>
+            );
+          })}
+        </div>
+
+        {(selectedTags.length > 0 || searchTerm) && (
+          <div className="mt-4 p-3 bg-[#f5e9da] rounded-lg border border-[#e2c9a0]">
+            <div className="text-sm font-semibold mb-2" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
               Showing {filteredProjects.length} of {projects.length} projects
             </div>
-          )}
-        </div>
+            {searchTerm && (
+              <div className="text-xs mb-1" style={{ color: 'var(--text-main)' }}>
+                Search: "{searchTerm}"
+              </div>
+            )}
+            {selectedTags.length > 0 && (
+              <div className="text-xs" style={{ color: 'var(--text-main)' }}>
+                Active filters: {selectedTags.join(', ')}
+              </div>
+            )}
+          </div>
+        )}
       </div>
-
-
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project: any) => (
-          <div 
-            key={project.id} 
-            className="border rounded-lg p-4 hover:shadow-lg transition-all duration-200 bg-white relative z-10 cursor-pointer active:scale-95 touch-manipulation flex flex-col h-full"
-            onClick={() => window.location.href = `/projects/${project.id}/blog`}
-            style={{ 
-              transform: 'translateZ(0)',
-              backfaceVisibility: 'hidden'
-            }}
-          >
-            <Image 
+          <div key={project.id} className="border rounded-lg p-4 hover:shadow-lg transition-shadow bg-white relative z-10">
+            <img 
               src={project.image} 
               alt={project.title} 
-              width={400}
-              height={160}
-              className="w-full h-40 object-cover rounded mb-4 pointer-events-none" 
+              className="w-full h-40 object-cover rounded mb-4" 
             />
-            <h2 className="text-xl font-semibold mb-4 mt-2 pointer-events-none" style={{ color: '#2d1e13' }}>{project.title}</h2>
-            <p className="text-sm text-gray-600 mb-4 line-clamp-3 pointer-events-none flex-grow">{project.summary}</p>
-            <div className="flex flex-wrap gap-2 mb-4 mt-2 pointer-events-none">
+            <h2 className="text-xl font-semibold mb-4 mt-2" style={{ color: '#2d1e13' }}>{project.title}</h2>
+            <p className="text-sm text-gray-600 mb-4 line-clamp-3">{project.summary}</p>
+            <div className="flex flex-wrap gap-2 mb-4 mt-2">
               {project.techStack.map((tech: string) => (
                 <span 
                   key={tech} 
@@ -277,42 +188,22 @@ const ProjectsPage = () => {
                 </span>
               ))}
             </div>
-            <div className="flex gap-4 mt-auto justify-between">
-              {project.id === 'research-paper-abstract-essence' ? (
-                <a
-                  href={project.springer}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] active:bg-[#e2c9a0] active:scale-95 transition-all duration-200 touch-manipulation"
-                  style={{ fontSize: '0.7rem', padding: '0.35rem 0.9rem' }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" className="mr-1">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
-                  Springer
-                </a>
-              ) : (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] active:bg-[#e2c9a0] active:scale-95 transition-all duration-200 touch-manipulation"
-                  style={{ fontSize: '0.7rem', padding: '0.35rem 0.9rem' }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" className="mr-1"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                  GitHub
-                </a>
-              )}
+            <div className="flex gap-4 mt-auto">
               <a
-                href={`/projects/${project.id}/blog`}
-                className="flex items-center gap-1 px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] active:bg-[#e2c9a0] active:scale-95 transition-all duration-200 touch-manipulation"
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] transition-colors"
                 style={{ fontSize: '0.7rem', padding: '0.35rem 0.9rem' }}
-                onClick={(e) => e.stopPropagation()}
               >
-                <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="mr-1"><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22h11a2.5 2.5 0 0 0 2.5-2.5v-15A2.5 2.5 0 0 0 17.5 2h-11A2.5 2.5 0 0 0 4 4.5v15z"/><path d="M8 6h8M8 10h8M8 14h6"/></svg>
-                Read More
+                GitHub
+              </a>
+              <a
+                href={`/projects/${project.id}`}
+                className="px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] transition-colors"
+                style={{ fontSize: '0.7rem', padding: '0.35rem 0.9rem' }}
+              >
+                View Details
               </a>
             </div>
           </div>

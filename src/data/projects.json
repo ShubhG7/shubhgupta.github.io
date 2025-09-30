@@ -4,7 +4,7 @@
     "title": "ResumAI - AI powered ATS",
     "summary": "Modern Applicant Tracking System with AI-powered resume analysis, intelligent candidate matching, and role-based dashboards for applicants and recruiters.",
     "image": "/images/projects/ResumAI.png",
-    "techStack": ["React 18", "TypeScript", "Material-UI", "Redux Toolkit", "Fastify", "Prisma ORM", "PostgreSQL", "Redis", "Keycloak", "Docker"],
+    "techStack": ["React", "TypeScript", "Material-UI", "Redux", "Fastify", "Prisma", "PostgreSQL", "Redis", "Keycloak", "Docker"],
     "github": "https://github.com/username/resumai",
     "demo": "https://resumai.demo.com"
   },
@@ -49,7 +49,7 @@
     "title": "C(ART) - Fullstack Ecommerce Website",
     "summary": "Comprehensive MERN stack e-commerce platform with user authentication, product management, payment processing, and admin dashboard.",
     "image": "/images/projects/cart.png",
-    "techStack": ["React.js", "Node.js", "Express.js", "MongoDB", "MERN Stack", "JWT", "Braintree", "Bootstrap"],
+    "techStack": ["React", "Node.js", "Express.js", "MongoDB", "MERN Stack", "JWT", "Braintree", "Bootstrap"],
     "github": "https://github.com/ShubhG7/C-ART-",
     "demo": "https://cart-ecommerce.demo.com"
   },
@@ -67,7 +67,7 @@
     "title": "Automobile Price Prediction",
     "summary": "Machine learning models to predict automobile prices using 1985 dataset with 29 features, achieving RMSE of $2,343 with Gradient Boosting.",
     "image": "/images/projects/car price prediction.png",
-    "techStack": ["Python", "scikit-learn", "Gradient Boosting", "Random Forest", "SVM", "pandas", "numpy", "matplotlib"],
+    "techStack": ["Python", "scikit-learn", "Gradient Boosting", "Random Forest", "SVM", "pandas", "NumPy", "matplotlib"],
     "github": "https://github.com/ShubhG7/Car-Price-Prediction",
     "demo": "https://automobile-price-prediction.demo.com"
   },
@@ -100,12 +100,12 @@
   },
   {
     "id": "etl-pipeline-airflow",
-    "title": "ETL using Apache Airflow",
-    "summary": "Scheduled and automated data ingestion, transformation, and loading to a data warehouse.",
+    "title": "Coffee Sales Analytics Platform",
+    "summary": "Built an enterprise-grade coffee sales analytics platform using Apache Airflow, transforming raw transaction data into actionable business insights with real-time processing and ML capabilities.",
     "image": "/images/projects/ETL using Apache Airflow.png",
-    "techStack": ["Apache Airflow", "Python", "PostgreSQL", "MySQL", "AWS S3", "Docker"],
+    "techStack": ["Apache Airflow", "Python", "Pandas", "PostgreSQL", "Redis", "Docker", "Kubernetes", "Prometheus", "Grafana", "ELK Stack"],
     "github": "https://github.com/ShubhG7/ETL-Using-Apache-AIrflow",
-    "demo": "https://etl-pipeline-airflow.demo.com"
+    "demo": "https://coffee-analytics.demo.com"
   },
   {
     "id": "orion",
@@ -121,7 +121,7 @@
     "title": "All In Gaming",
     "summary": "Multiplayer digital entertainment platform with interactive games and activities, featuring AI-powered experiences.",
     "image": "/images/projects/All-in-Casino.png",
-    "techStack": ["React.js", "Node.js", "Socket.io", "MongoDB", "PostgreSQL", "Redux", "WebGL", "Three.js"],
+    "techStack": ["React", "Node.js", "Socket.io", "MongoDB", "PostgreSQL", "Redux", "WebGL", "Three.js"],
     "github": "https://github.com/ShubhG7?tab=repositories",
     "demo": "https://all-in-gaming.demo.com"
   },
