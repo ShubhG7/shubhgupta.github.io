@@ -14,9 +14,18 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 
-# Env
+# Environment variables
 .env
 .env.*
+.env.local
+.env.development
+.env.staging
+.env.production
+
+# API keys and secrets
+*.key
+*.pem
+secrets/
 
 # Editor directories and files
 .vscode/

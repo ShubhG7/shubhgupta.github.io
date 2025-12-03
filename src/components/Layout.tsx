@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import LandingBlob from './LandingBlob';
+import ChatBot from './ChatBot';
 
 // import CursorGradient from './CursorGradient';
 
@@ -63,6 +64,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} isScrolled={isScrolled} />
       <main className="flex-1 container mx-auto px-4 relative z-5">{children}</main>
       <Footer />
+      <ChatBot />
     </div>
   );
 };
