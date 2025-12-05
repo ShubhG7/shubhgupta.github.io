@@ -3,8 +3,15 @@ import { NextRequest, NextResponse } from 'next/server';
 import { shubhKnowledgeBase } from '@/data/shubhKnowledgeBase';
 import projects from '@/data/projects.json';
 
-// Initialize Gemini AI
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
+// Lazy initialization of Gemini AI to avoid build-time issues
+let genAI: GoogleGenerativeAI | null = null;
+
+function getGenAI(): GoogleGenerativeAI {
+  if (!genAI) {
+    genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
+  }
+  return genAI;
+}
 
 // Create project name to URL mapping
 const projectNameMap: { [key: string]: string } = {};
@@ -185,7 +192,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Get the generative model
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+    const model = getGenAI().getGenerativeModel({ model: 'gemini-2.0-flash' });
 
     // Create the prompt with context about Shubh
     const prompt = `

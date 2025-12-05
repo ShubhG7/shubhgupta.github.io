@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import Image from 'next/image';
 import projects from '@/data/projects.json';
 
 // Get all unique tech stack tags
@@ -190,9 +191,11 @@ const ProjectsPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project: any) => (
           <div key={project.id} className="border rounded-lg p-4 hover:shadow-lg transition-shadow bg-white relative z-10">
-            <img 
+            <Image 
               src={project.image} 
               alt={project.title} 
+              width={400}
+              height={160}
               className="w-full h-40 object-cover rounded mb-4" 
             />
             <h2 className="text-xl font-semibold mb-4 mt-2" style={{ color: '#2d1e13' }}>{project.title}</h2>
