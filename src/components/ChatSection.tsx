@@ -11,12 +11,18 @@ interface Message {
   timestamp: Date;
 }
 
+// Constants for text content to avoid ESLint unescaped entities warnings
+const INITIAL_MESSAGE = "Hi! I&apos;m ShubhGPT 🤖 Ask me anything about Shubh&apos;s background, projects, experience, or skills. I&apos;m here to help you learn more about him!";
+const ERROR_MESSAGE = "Sorry, I&apos;m having trouble connecting right now. Please try again later!";
+const CHAT_DESCRIPTION = "Ask me anything about Shubh&apos;s background, projects, experience, or skills. I&apos;m powered by AI and have comprehensive knowledge about him!";
+const EDUCATION_DESC = "Learn about Shubh&apos;s academic background and professional journey";
+
 const ChatSection = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hi! I'm ShubhGPT 🤖 Ask me anything about Shubh's background, projects, experience, or skills. I'm here to help you learn more about him!",
+      text: INITIAL_MESSAGE,
       isUser: false,
       timestamp: new Date(),
     },
@@ -91,7 +97,7 @@ const ChatSection = () => {
       console.error('Chat error:', error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "Sorry, I'm having trouble connecting right now. Please try again later!",
+        text: ERROR_MESSAGE,
         isUser: false,
         timestamp: new Date(),
       };
@@ -118,13 +124,15 @@ const ChatSection = () => {
   };
 
   const suggestedQuestions = [
-    "Tell me about Shubh's experience",
+    "Tell me about Shubh&apos;s experience",
     "What projects has he worked on?",
     "What are his technical skills?",
     "Tell me about his education",
-    "What's his background in AI/ML?",
+    "What&apos;s his background in AI/ML?",
     "How can I contact Shubh?"
   ];
+  
+  // Note: These strings are in arrays, not JSX, so apostrophes are fine
 
   const quickActions = [
     "Tell me more",
@@ -146,7 +154,7 @@ const ChatSection = () => {
             🤖 Chat with ShubhGPT
           </h2>
             <p className="text-lg sm:text-xl text-[#2d1e13] opacity-90 max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
-              Ask me anything about Shubh's background, projects, experience, or skills. I'm powered by AI and have comprehensive knowledge about him!
+              {CHAT_DESCRIPTION}
             </p>
         </div>
 
@@ -260,7 +268,7 @@ const ChatSection = () => {
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask me anything about Shubh..."
+                placeholder="Ask me anything about Shubh&hellip;"
                 className="flex-1 px-4 py-3 border border-[#e2c9a0] rounded-full focus:outline-none focus:ring-2 focus:ring-[#4b2e13] focus:border-transparent text-[#2d1e13] bg-[#faf7f2] text-base"
                 disabled={isLoading}
               />
@@ -288,7 +296,7 @@ const ChatSection = () => {
               <span className="text-white text-xl">🎓</span>
             </div>
             <h3 className="font-semibold text-[#2d1e13] mb-2">Education & Experience</h3>
-            <p className="text-sm text-[#2d1e13] opacity-80">Learn about Shubh's academic background and professional journey</p>
+            <p className="text-sm text-[#2d1e13] opacity-80">{EDUCATION_DESC}</p>
           </div>
           <div className="text-center p-4">
             <div className="w-12 h-12 bg-[#4b2e13] rounded-full flex items-center justify-center mx-auto mb-3">
