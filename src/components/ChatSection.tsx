@@ -43,16 +43,16 @@ const ChatSection = () => {
     scrollToBottom();
   }, [messages]);
 
-  // Focus input when loading completes
+  // Focus input when loading completes - only if user has interacted with chat
   useEffect(() => {
-    if (!isLoading && inputRef.current) {
-      // Small delay to ensure DOM is ready
+    if (!isLoading && inputRef.current && messages.length > 1) {
+      // Only auto-focus if user has sent a message (not on initial load)
       const timer = setTimeout(() => {
         inputRef.current?.focus();
       }, 100);
       return () => clearTimeout(timer);
     }
-  }, [isLoading]);
+  }, [isLoading, messages.length]);
 
   const sendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return;

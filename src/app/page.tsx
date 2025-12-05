@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import HobbiesCarousel from '@/components/HobbiesCarousel';
@@ -9,6 +9,11 @@ import ChatSection from '@/components/ChatSection';
 
 export default function Home() {
   const [activeTitle, setActiveTitle] = useState<string | null>(null);
+
+  // Ensure page scrolls to top on initial load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const profileImages = [
     {src: '/images/profile/46ff3466-6b0e-46e0-abe5-0e4c0c80412f-removebg-preview.png', alt: 'Shubh Gupta'},

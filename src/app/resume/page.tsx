@@ -6,7 +6,9 @@ const ResumePage = () => (
       <h1 className="font-bold" style={{ fontSize: '2.6rem' }}>Resume</h1>
       <a
         href="/resume.pdf"
-        download
+        download="Shubh_Gupta_Resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
         className="px-4 py-2 rounded-full shadow font-semibold border-2
           bg-[#2d1e13] text-white border-[#2d1e13] hover:bg-[#4b2e13] hover:border-[#4b2e13]
           dark:bg-[#f5e9da] dark:text-[#4b2e13] dark:border-[#f5e9da] dark:hover:bg-[#e2c9a0] dark:hover:border-[#e2c9a0]
