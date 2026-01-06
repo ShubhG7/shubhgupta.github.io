@@ -48,22 +48,36 @@ const ProjectDetailPage = async ({ params }: ProjectPageProps) => {
         ))}
       </div>
       <div className="flex gap-4 mt-6">
-        <a 
-          href={project.github} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="text-blue-600 hover:text-blue-800 underline font-medium"
-        >
-          View on GitHub
-        </a>
-        <a 
-          href={project.demo} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="text-green-600 hover:text-green-800 underline font-medium"
-        >
-          Live Demo
-        </a>
+        {project.github && (
+          <a 
+            href={project.github} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-blue-600 hover:text-blue-800 underline font-medium"
+          >
+            View on GitHub
+          </a>
+        )}
+        {(project as any).springer && (
+          <a 
+            href={(project as any).springer} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-purple-600 hover:text-purple-800 underline font-medium"
+          >
+            Read Paper on Springer
+          </a>
+        )}
+        {project.demo && !(project as any).springer && (
+          <a 
+            href={project.demo} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-green-600 hover:text-green-800 underline font-medium"
+          >
+            Live Demo
+          </a>
+        )}
         <a
           href={`/projects/${project.id}/blog`}
           className="ml-auto px-4 py-2 rounded bg-[#4b2e13] text-white font-semibold hover:bg-[#2d1e13] transition-colors"
