@@ -97,6 +97,61 @@ export const shubhKnowledgeBase = `
 
 ### 🤖 AI & Machine Learning Projects
 
+#### **DocEdit AI - AI-Powered Document Editor**
+- **Description**: Notion-like document editor with an AI assistant that proposes and applies structured edits directly into the document. Built in 24 hours with streaming AI, version history, and inline suggestion blocks. The core idea is to combine a familiar rich-text editing experience with an AI workflow that feels actionable (structured edits, suggestion blocks, one-click apply), not just conversational.
+- **Key Features**: 
+  - Document dashboard: create, rename, delete, and open documents
+  - Rich-text editing with TipTap editor
+  - AI chat sidebar with real-time streaming responses
+  - Structured AI edits via tool-calling: insert at cursor, replace selection, append, find-and-replace, delete
+  - Inline suggestion blocks with Accept/Reject
+  - Auto-save with debouncing
+  - Chat persistence per document
+  - Version history and rollback capability
+  - Google OAuth authentication via Supabase
+- **Complete Tech Stack**: 
+  - Frontend: Next.js (App Router), React, TypeScript
+  - Editor: TipTap (ProseMirror-based)
+  - AI: Anthropic Claude via ai SDK (streaming + tool calling)
+  - Auth/Database: Supabase (Postgres + Row Level Security, Google OAuth)
+  - State Management: Zustand
+  - UI/Styling: Tailwind CSS, shadcn/ui
+- **Architecture**: Server/client split with Next.js App Router. Server components handle auth checks and data fetching. Client components handle editor rendering, chat UI, and AI edit application. AI layer designed around tool calling rather than plain text parsing.
+- **Database Model**: Three tables (documents, chats, document_versions) all protected by Row Level Security
+- **Innovation**: Treats AI outputs as structured actions, not just text. Tool calling + edit-application pipeline creates smoother UX than prompt-only parsing.
+- **Build Time**: ~24 hours as a fast prototype focusing on end-to-end functionality
+- **Impact**: Reduces copy/paste loop in AI writing tools by turning AI output into actionable edit operations
+- **GitHub**: https://github.com/ShubhG7/Doc-Edit-AI
+- **Live Demo**: https://doc-edit-ai.vercel.app/
+- **Demo Video**: https://www.loom.com/share/5ebccf6d931b4140b6175065e5f9a81b
+
+#### **LegAIlity - AI Copilot for Legal Documents**
+- **Description**: Split-screen legal document assistant that detects placeholders in .docx files, explains legal terms via AI, and generates filled documents while preserving formatting. Built in 48 hours. Upload a .docx legal document (SAFE agreements, contracts, etc.), the system detects everything that needs to be filled, then complete it using a split-screen experience with AI assistance.
+- **Key Features**: 
+  - Split-screen UX: Left panel (focused field + progress + navigation), Right panel (always-on conversational AI)
+  - AI-powered placeholder detection with regex fallback
+  - One-click help buttons: "Explain this field" and "Give example"
+  - Systematic progress tracking with progress bar and remaining fields badge
+  - Document analysis explaining what the document is
+  - .docx filling that preserves formatting (merge fields, template rendering, content controls, signature blocks)
+  - Value normalization (money, dates, email, name casing)
+  - JWT authentication with optional Google sign-in
+- **Complete Tech Stack**: 
+  - Frontend: Next.js 14 (App Router), React, TypeScript, Tailwind CSS, shadcn/ui, Zustand, Axios, Framer Motion
+  - Backend: FastAPI, python-docx, docxtpl, mailmerge
+  - AI: Google Gemini (gemini-2.5-flash) for placeholder extraction, document summary, conversational assistance, value normalization
+- **Architecture**: 
+  - Frontend components: UploadZone, SplitScreenChat, DocumentPreview
+  - Backend: Parses uploaded .docx, serves generated documents via /static directory
+  - Two-layer placeholder detection: AI-first extraction + regex fallback for reliability
+- **Key Innovation**: Treats AI as a pair-programmer for legal comprehension, not just an autocomplete engine. Users can learn and complete the document in the same screen without losing momentum.
+- **Build Time**: 48 hours as a hackathon-style project
+- **Impact**: Solves the painful part of legal paperwork - understanding what the blanks mean while filling them
+- **GitHub (Frontend)**: https://github.com/ShubhG7/leg-ai-lity-frontend
+- **GitHub (Backend)**: https://github.com/ShubhG7/leg-ai-lity
+- **Live Demo**: https://leg-ai-lity-frontend.vercel.app/
+- **Demo Video**: https://www.loom.com/share/2350029197e149fba373f11cf00143b5?sid=fa3a12ac-c6c6-4d4a-b5b9-39a9e57179ef
+
 #### **ResumAI - AI-Powered ATS Platform**
 - **Description**: Modern Applicant Tracking System with AI-powered resume analysis, intelligent candidate matching, and role-based dashboards for applicants and recruiters. Full-stack web application designed to revolutionize the hiring process through intelligent resume analysis and automated candidate matching.
 - **Key Features**: 
