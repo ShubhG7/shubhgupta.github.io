@@ -124,15 +124,13 @@ const ChatSection = () => {
   };
 
   const suggestedQuestions = [
-    "Tell me about Shubh&apos;s experience",
+    "Tell me about Shubh's experience",
     "What projects has he worked on?",
     "What are his technical skills?",
     "Tell me about his education",
-    "What&apos;s his background in AI/ML?",
+    "What's his background in AI/ML?",
     "How can I contact Shubh?"
   ];
-  
-  // Note: These strings are in arrays, not JSX, so apostrophes are fine
 
   const quickActions = [
     "Tell me more",
