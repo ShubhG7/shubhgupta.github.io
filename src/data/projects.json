@@ -5,8 +5,9 @@
     "summary": "Notion-like document editor with an AI assistant that proposes and applies structured edits directly into the document. Built in 24 hours with streaming AI, version history, and inline suggestion blocks.",
     "image": "/images/projects/DocEditAI.png",
     "techStack": ["Next.js", "React", "TipTap", "Anthropic Claude", "Supabase", "Zustand", "Tailwind CSS", "shadcn/ui", "TypeScript"],
-    "github": "https://github.com/ShubhG7/DocEditAI",
-    "demo": "https://doceditai.demo.com"
+    "github": "https://github.com/ShubhG7/Doc-Edit-AI",
+    "demo": "https://doc-edit-ai.vercel.app/",
+    "loom": "https://www.loom.com/share/5ebccf6d931b4140b6175065e5f9a81b"
   },
   {
     "id": "legailty",
