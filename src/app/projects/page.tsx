@@ -210,16 +210,40 @@ const ProjectsPage = () => {
                 </span>
               ))}
             </div>
-            <div className="flex gap-4 mt-auto">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] transition-colors"
-                style={{ fontSize: '0.7rem', padding: '0.35rem 0.9rem' }}
-              >
-                GitHub
-              </a>
+            <div className="flex flex-wrap gap-2 mt-auto">
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] transition-colors"
+                  style={{ fontSize: '0.7rem', padding: '0.35rem 0.9rem' }}
+                >
+                  GitHub
+                </a>
+              )}
+              {project.demo && !project.springer && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 rounded-full border-2 border-[#22c55e] bg-[#dcfce7] text-[#166534] text-xs font-semibold shadow-sm hover:bg-[#bbf7d0] transition-colors"
+                  style={{ fontSize: '0.7rem', padding: '0.35rem 0.9rem' }}
+                >
+                  Live Demo
+                </a>
+              )}
+              {project.loom && (
+                <a
+                  href={project.loom}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 rounded-full border-2 border-[#ec4899] bg-[#fce7f3] text-[#9d174d] text-xs font-semibold shadow-sm hover:bg-[#fbcfe8] transition-colors"
+                  style={{ fontSize: '0.7rem', padding: '0.35rem 0.9rem' }}
+                >
+                  Video
+                </a>
+              )}
               <a
                 href={`/projects/${project.id}/blog`}
                 className="px-3 py-1 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-xs font-semibold shadow-sm hover:bg-[#e2c9a0] transition-colors"
