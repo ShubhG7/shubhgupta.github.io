@@ -47,7 +47,7 @@ const ProjectDetailPage = async ({ params }: ProjectPageProps) => {
           </span>
         ))}
       </div>
-      <div className="flex gap-4 mt-6">
+      <div className="flex flex-wrap gap-4 mt-6">
         {project.github && (
           <a 
             href={project.github} 
@@ -55,7 +55,17 @@ const ProjectDetailPage = async ({ params }: ProjectPageProps) => {
             rel="noopener noreferrer" 
             className="text-blue-600 hover:text-blue-800 underline font-medium"
           >
-            View on GitHub
+            {(project as any).githubBackend ? 'Frontend Repo' : 'View on GitHub'}
+          </a>
+        )}
+        {(project as any).githubBackend && (
+          <a 
+            href={(project as any).githubBackend} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-blue-600 hover:text-blue-800 underline font-medium"
+          >
+            Backend Repo
           </a>
         )}
         {(project as any).springer && (
@@ -76,6 +86,16 @@ const ProjectDetailPage = async ({ params }: ProjectPageProps) => {
             className="text-green-600 hover:text-green-800 underline font-medium"
           >
             Live Demo
+          </a>
+        )}
+        {(project as any).loom && (
+          <a 
+            href={(project as any).loom} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-pink-600 hover:text-pink-800 underline font-medium"
+          >
+            Watch Demo Video
           </a>
         )}
         <a

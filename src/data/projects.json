@@ -14,8 +14,10 @@
     "summary": "Split-screen legal document assistant that detects placeholders in .docx files, explains legal terms via AI, and generates filled documents while preserving formatting. Built in 48 hours.",
     "image": "/images/projects/LegAIlity.png",
     "techStack": ["Next.js", "React", "TypeScript", "FastAPI", "Google Gemini", "Zustand", "Tailwind CSS", "shadcn/ui", "python-docx", "Framer Motion"],
-    "github": "https://github.com/ShubhG7/LegAIlity",
-    "demo": "https://legailty.demo.com"
+    "github": "https://github.com/ShubhG7/leg-ai-lity-frontend",
+    "githubBackend": "https://github.com/ShubhG7/leg-ai-lity",
+    "demo": "https://leg-ai-lity-frontend.vercel.app/",
+    "loom": "https://www.loom.com/share/2350029197e149fba373f11cf00143b5?sid=fa3a12ac-c6c6-4d4a-b5b9-39a9e57179ef"
   },
   {
     "id": "resumai",
