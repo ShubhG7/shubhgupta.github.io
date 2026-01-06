@@ -16,7 +16,7 @@ export default function Home() {
   }, []);
 
   const profileImages = [
-    {src: '/images/profile/Gemini_Generated_Image_xdveioxdveioxdve-removebg-preview.png', alt: 'Shubh Gupta'},
+    {src: '/images/profile/DSC08855-removebg-preview.png', alt: 'Shubh Gupta'},
   ]
 
   const [activeImage, setActiveImage] = useState(0);
