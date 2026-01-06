@@ -37,7 +37,6 @@ secrets/
 coverage/
 
 # Misc
-public/resume.pdf
 
 # Mac system files
 .AppleDouble
