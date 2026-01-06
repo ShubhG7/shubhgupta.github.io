@@ -74,9 +74,9 @@ export default function Home() {
             <Image 
               src={profileImages[activeImage].src} 
               onClick={handleImageClick}
-              width={240}
-              height={240}
-              className="w-40 h-40 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-36 lg:h-36 xl:w-44 xl:h-44 opacity-80 hover:opacity-100 transition-opacity duration-300 hover:scale-110 active:scale-95 touch-manipulation cursor-pointer border-4 border-[#a47551] rounded-full bg-[#f5e9da]" 
+              width={300}
+              height={300}
+              className="w-52 h-52 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 xl:w-56 xl:h-56 opacity-80 hover:opacity-100 transition-opacity duration-300 hover:scale-110 active:scale-95 touch-manipulation cursor-pointer border-4 border-[#a47551] rounded-full bg-[#f5e9da]" 
               alt={profileImages[activeImage].alt}
             />
           </div>
