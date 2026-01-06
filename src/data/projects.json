@@ -1,5 +1,23 @@
 [
   {
+    "id": "doceditai",
+    "title": "DocEdit AI - AI-Powered Document Editor",
+    "summary": "Notion-like document editor with an AI assistant that proposes and applies structured edits directly into the document. Built in 24 hours with streaming AI, version history, and inline suggestion blocks.",
+    "image": "/images/projects/DocEditAI.png",
+    "techStack": ["Next.js", "React", "TipTap", "Anthropic Claude", "Supabase", "Zustand", "Tailwind CSS", "shadcn/ui", "TypeScript"],
+    "github": "https://github.com/ShubhG7/DocEditAI",
+    "demo": "https://doceditai.demo.com"
+  },
+  {
+    "id": "legailty",
+    "title": "LegAIlity - AI Copilot for Legal Documents",
+    "summary": "Split-screen legal document assistant that detects placeholders in .docx files, explains legal terms via AI, and generates filled documents while preserving formatting. Built in 48 hours.",
+    "image": "/images/projects/LegAIlity.png",
+    "techStack": ["Next.js", "React", "TypeScript", "FastAPI", "Google Gemini", "Zustand", "Tailwind CSS", "shadcn/ui", "python-docx", "Framer Motion"],
+    "github": "https://github.com/ShubhG7/LegAIlity",
+    "demo": "https://legailty.demo.com"
+  },
+  {
     "id": "resumai",
     "title": "ResumAI - AI powered ATS",
     "summary": "Modern Applicant Tracking System with AI-powered resume analysis, intelligent candidate matching, and role-based dashboards for applicants and recruiters.",

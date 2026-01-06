@@ -14,6 +14,8 @@ import { llmInferenceOptimizationBlog } from './llm-inference-optimization';
 import { carPricePredictionBlog } from './car-price-prediction';
 import { researchPaperBlog } from './research-paper';
 import { resumaiBlog } from './resumai';
+import { doceditaiBlog } from './doceditai';
+import { legailtyBlog } from './legailty';
 
 // Export all blogs as a single object
 export const blogContents = {
@@ -32,6 +34,8 @@ export const blogContents = {
   'car-price-prediction': carPricePredictionBlog,
   'research-paper-abstract-essence': researchPaperBlog,
   'resumai': resumaiBlog,
+  'doceditai': doceditaiBlog,
+  'legailty': legailtyBlog,
   // Add more blogs as they are created
 };
 
@@ -52,4 +56,6 @@ export {
   carPricePredictionBlog,
   researchPaperBlog,
   resumaiBlog,
+  doceditaiBlog,
+  legailtyBlog,
 }; 
