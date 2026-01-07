@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import projects from '@/data/projects.json';
 
 // Get all unique tech stack tags
@@ -38,6 +39,7 @@ const tagColors: { [key: string]: string } = {
 };
 
 const ProjectsPage = () => {
+  const router = useRouter();
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [hoveredTag, setHoveredTag] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -190,7 +192,11 @@ const ProjectsPage = () => {
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project: any) => (
-          <div key={project.id} className="border rounded-lg p-4 hover:shadow-lg transition-shadow bg-white relative z-10">
+          <div 
+            key={project.id} 
+            className="border rounded-lg p-4 hover:shadow-lg transition-shadow bg-white relative z-10 cursor-pointer"
+            onClick={() => router.push(`/projects/${project.id}/blog`)}
+          >
             <Image 
               src={project.image} 
               alt={project.title} 
@@ -210,7 +216,7 @@ const ProjectsPage = () => {
                 </span>
               ))}
             </div>
-            <div className="flex flex-wrap gap-2 mt-auto">
+            <div className="flex flex-wrap gap-2 mt-auto" onClick={(e) => e.stopPropagation()}>
               {project.github && (
                 <a
                   href={project.github}
