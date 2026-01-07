@@ -129,7 +129,7 @@ export const shubhKnowledgeBase = `
   - documents/document_chunks with vector embeddings for RAG
 - **Innovation**: Interest-based learning that tailors explanations to stick - a sports fan gets algorithms explained like team tryouts, a gamer gets AI concepts like training game opponents
 - **Observability**: Production-grade from day one with Prometheus metrics, Grafana dashboards, Jaeger distributed tracing
-- **GitHub**: https://github.com/ShubhG7/Tubot
+- **GitHub**: https://github.com/ShubhG7/AI-Tutor
 
 #### **DocEdit AI - AI-Powered Document Editor**
 - **Description**: Notion-like document editor with an AI assistant that proposes and applies structured edits directly into the document. Built in 24 hours with streaming AI, version history, and inline suggestion blocks. The core idea is to combine a familiar rich-text editing experience with an AI workflow that feels actionable (structured edits, suggestion blocks, one-click apply), not just conversational.

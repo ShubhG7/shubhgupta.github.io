@@ -78,7 +78,7 @@ const ProjectDetailPage = async ({ params }: ProjectPageProps) => {
             Read Paper on Springer
           </a>
         )}
-        {project.demo && !(project as any).springer && (
+        {project.demo && !(project as any).springer && !project.demo.includes('.demo.com') && (
           <a 
             href={project.demo} 
             target="_blank" 

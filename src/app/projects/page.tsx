@@ -222,7 +222,7 @@ const ProjectsPage = () => {
                   GitHub
                 </a>
               )}
-              {project.demo && !project.springer && (
+              {project.demo && !project.springer && !project.demo.includes('.demo.com') && (
                 <a
                   href={project.demo}
                   target="_blank"
