@@ -16,6 +16,7 @@ import { researchPaperBlog } from './research-paper';
 import { resumaiBlog } from './resumai';
 import { doceditaiBlog } from './doceditai';
 import { legailtyBlog } from './legailty';
+import { tubotBlog } from './tubot';
 
 // Export all blogs as a single object
 export const blogContents = {
@@ -36,6 +37,7 @@ export const blogContents = {
   'resumai': resumaiBlog,
   'doceditai': doceditaiBlog,
   'legailty': legailtyBlog,
+  'tubot': tubotBlog,
   // Add more blogs as they are created
 };
 
@@ -58,4 +60,5 @@ export {
   resumaiBlog,
   doceditaiBlog,
   legailtyBlog,
+  tubotBlog,
 }; 

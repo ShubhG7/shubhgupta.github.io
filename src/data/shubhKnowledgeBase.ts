@@ -97,6 +97,40 @@ export const shubhKnowledgeBase = `
 
 ### 🤖 AI & Machine Learning Projects
 
+#### **Tubot - Microservices-Powered Tutor Backend**
+- **Description**: Microservices-based tutoring backend designed to deliver personalized learning with quizzes, progress tracking, and explanations tailored to learner interests (sports, music, gaming, etc.). A modern microservices stack with observability and pluggable AI inference.
+- **Key Features**: 
+  - Interest-based personalized learning (analogies framed by user interests)
+  - HTTP Gateway for client apps
+  - gRPC Quiz Service for assessments and progress updates
+  - LLM Inference service for content generation (with fallbacks)
+  - Placement and practice quizzes with progress tracking
+  - Personalized analogies based on user interests
+  - RAG-ready with pgvector for document embeddings
+  - Full observability stack (metrics, tracing, dashboards)
+- **Complete Tech Stack**: 
+  - Backend: Go (Gateway, Quiz Service), Python (Inference)
+  - Communication: gRPC, Protocol Buffers, HTTP REST
+  - Database: PostgreSQL with pgvector for embeddings
+  - Caching: Redis
+  - Storage: MinIO (S3-compatible)
+  - Messaging: NATS
+  - Auth: Keycloak (OIDC)
+  - Observability: Prometheus, Grafana, Jaeger, OpenTelemetry
+  - Infrastructure: Docker, Docker Compose
+- **Architecture**: 
+  - Client → Gateway (HTTP) → Quiz Service (gRPC) → Postgres
+  - Quiz Service → Inference (gRPC) for LLM-powered question generation
+  - Full microservices layout with Compose orchestration
+- **Database Design**: 
+  - user_interests: categories (sports/music/gaming) with levels
+  - analogies: tagged by subject, topic, concept, and interest_category
+  - analogy_feedback: user ratings for improvement
+  - documents/document_chunks with vector embeddings for RAG
+- **Innovation**: Interest-based learning that tailors explanations to stick - a sports fan gets algorithms explained like team tryouts, a gamer gets AI concepts like training game opponents
+- **Observability**: Production-grade from day one with Prometheus metrics, Grafana dashboards, Jaeger distributed tracing
+- **GitHub**: https://github.com/ShubhG7/Tubot
+
 #### **DocEdit AI - AI-Powered Document Editor**
 - **Description**: Notion-like document editor with an AI assistant that proposes and applies structured edits directly into the document. Built in 24 hours with streaming AI, version history, and inline suggestion blocks. The core idea is to combine a familiar rich-text editing experience with an AI workflow that feels actionable (structured edits, suggestion blocks, one-click apply), not just conversational.
 - **Key Features**: 

@@ -1,5 +1,14 @@
 [
   {
+    "id": "tubot",
+    "title": "Tubot - Microservices-Powered Tutor Backend",
+    "summary": "Microservices-based tutoring backend with interest-based personalized learning, gRPC quiz service, LLM inference, and full observability stack (Prometheus, Grafana, Jaeger).",
+    "image": "/images/projects/Tubot.png",
+    "techStack": ["Go", "Python", "gRPC", "PostgreSQL", "pgvector", "Redis", "Docker", "Keycloak", "Prometheus", "Grafana", "Jaeger", "MinIO", "NATS"],
+    "github": "https://github.com/ShubhG7/Tubot",
+    "demo": "https://tubot.demo.com"
+  },
+  {
     "id": "doceditai",
     "title": "DocEdit AI - AI-Powered Document Editor",
     "summary": "Notion-like document editor with an AI assistant that proposes and applies structured edits directly into the document. Built in 24 hours with streaming AI, version history, and inline suggestion blocks.",
