@@ -48,22 +48,73 @@ const ProjectBlogPage = ({ params }: BlogPageProps) => {
     <div className="py-8 sm:py-12 md:py-16 overflow-x-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Title and GitHub Link */}
-        <div className="flex items-center justify-between mb-6 mx-4 sm:mx-6 md:mx-8 relative z-20">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold" style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}>
-            {project.title} Blog
-          </h1>
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-[#4b2e13] bg-[#4b2e13] text-white hover:bg-[#a47551] hover:border-[#a47551] active:bg-[#a47551] active:border-[#a47551] transition-all duration-200 active:scale-95 touch-manipulation"
-            style={{ fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
-          >
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" className="mr-1">
-              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-            </svg>
-            GitHub
-          </a>
+        <div className="mb-6 mx-4 sm:mx-6 md:mx-8 relative z-20">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <h1
+              className="text-2xl sm:text-3xl md:text-4xl font-bold"
+              style={{ color: '#2d1e13', fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
+            >
+              {project.title} Blog
+            </h1>
+
+            {/* Project Links (same buttons as project cards + any extra links this project has) */}
+            <div className="flex flex-wrap gap-2 md:justify-end">
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-2 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-sm font-semibold shadow-sm hover:bg-[#e2c9a0] transition-colors"
+                >
+                  GitHub
+                </a>
+              )}
+
+              {(project as any).githubBackend && (
+                <a
+                  href={(project as any).githubBackend}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-2 rounded-full border-2 border-[#e2c9a0] bg-[#f5e9da] text-[#2d1e13] text-sm font-semibold shadow-sm hover:bg-[#e2c9a0] transition-colors"
+                >
+                  Backend Repo
+                </a>
+              )}
+
+              {(project as any).springer && (
+                <a
+                  href={(project as any).springer}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-2 rounded-full border-2 border-[#a855f7] bg-[#f3e8ff] text-[#6b21a8] text-sm font-semibold shadow-sm hover:bg-[#e9d5ff] transition-colors"
+                >
+                  Read Paper
+                </a>
+              )}
+
+              {project.demo && !(project as any).springer && !project.demo.includes('.demo.com') && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-2 rounded-full border-2 border-[#22c55e] bg-[#dcfce7] text-[#166534] text-sm font-semibold shadow-sm hover:bg-[#bbf7d0] transition-colors"
+                >
+                  Live Demo
+                </a>
+              )}
+
+              {(project as any).loom && (
+                <a
+                  href={(project as any).loom}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-2 rounded-full border-2 border-[#ec4899] bg-[#fce7f3] text-[#9d174d] text-sm font-semibold shadow-sm hover:bg-[#fbcfe8] transition-colors"
+                >
+                  Video
+                </a>
+              )}
+            </div>
+          </div>
         </div>
         
         {/* Project Image */}
