@@ -17,9 +17,11 @@ import { resumaiBlog } from './resumai';
 import { doceditaiBlog } from './doceditai';
 import { legailtyBlog } from './legailty';
 import { tubotBlog } from './tubot';
+import { patchpilotBlog } from './patchpilot';
 
 // Export all blogs as a single object
 export const blogContents = {
+  'patchpilot': patchpilotBlog,
   'cart-classifier': cartClassifierBlog,
   'stock-price-prediction': stockPricePredictionBlog,
   'asl-interpreter': aslInterpreterBlog,
@@ -43,6 +45,7 @@ export const blogContents = {
 
 // Export individual blogs for direct access
 export {
+  patchpilotBlog,
   cartClassifierBlog,
   stockPricePredictionBlog,
   aslInterpreterBlog,

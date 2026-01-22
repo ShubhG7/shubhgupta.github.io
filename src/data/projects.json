@@ -1,5 +1,13 @@
 [
   {
+    "id": "patchpilot",
+    "title": "PatchPilot - Autonomous Code Maintenance Agent",
+    "summary": "Production-ready autonomous maintenance agent that reads GitHub issues, generates validated patches, runs ruff/pytest, and opens pull requests via GitHub Actions—end-to-end bug fixing with guardrails and retries.",
+    "image": "/images/projects/PatchPilot.png",
+    "techStack": ["Python", "LangGraph", "Google Gemini", "GitHub Actions", "pytest", "ruff", "Pydantic", "YAML", "GitHub REST API"],
+    "github": "https://github.com/ShubhG7"
+  },
+  {
     "id": "tubot",
     "title": "Tubot - Microservices-Powered Tutor Backend",
     "summary": "Microservices-based tutoring backend with interest-based personalized learning, gRPC quiz service, LLM inference, and full observability stack (Prometheus, Grafana, Jaeger).",
