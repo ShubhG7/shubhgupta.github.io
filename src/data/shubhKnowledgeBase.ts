@@ -97,6 +97,26 @@ export const shubhKnowledgeBase = `
 
 ### 🤖 AI & Machine Learning Projects
 
+#### **PatchPilot - Autonomous Code Maintenance Agent**
+- **Description**: Production-ready, GitHub-integrated autonomous maintenance agent. When an issue is labeled \`agent:fix\`, PatchPilot runs in GitHub Actions, reads the issue + comments, proposes a plan, generates a unified diff, validates it with guardrails, runs lint/tests, and opens a pull request automatically.
+- **Key Features**:
+  - LangGraph state machine orchestration with retries and conditional routing
+  - Guardrails via YAML policy (allowed/blocked paths, diff limits, attempt limits)
+  - Patch validation using \`git apply --check\` before applying
+  - Automated CI loop: \`ruff\` + \`pytest\` with repair attempts on failure
+  - GitHub REST API integration for issues, comments, branches, and PR creation
+  - JSONL logging + Actions artifacts for observability/debugging
+- **Complete Tech Stack**:
+  - Language: Python 3.11
+  - Orchestration: LangGraph
+  - LLM: Google Gemini
+  - CI/CD: GitHub Actions
+  - Testing/Linting: pytest, ruff
+  - Modeling: Pydantic v2
+  - Config: YAML
+  - Platform: GitHub REST API, Git
+- **GitHub**: https://github.com/ShubhG7/Patch-Pilot
+
 #### **Tubot - Microservices-Powered Tutor Backend**
 - **Description**: Microservices-based tutoring backend designed to deliver personalized learning with quizzes, progress tracking, and explanations tailored to learner interests (sports, music, gaming, etc.). A modern microservices stack with observability and pluggable AI inference.
 - **Key Features**: 

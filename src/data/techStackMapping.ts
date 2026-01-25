@@ -100,6 +100,18 @@ export const techStackMappings: TechStackMapping[] = [
     description: "Artificial intelligence technologies"
   },
   {
+    canonicalName: "Google Gemini",
+    aliases: ["Gemini", "Gemini API", "Google Generative AI"],
+    category: "AI/ML",
+    description: "Google Gemini large language models and API"
+  },
+  {
+    canonicalName: "LangGraph",
+    aliases: ["Langgraph", "LangGraph Orchestration"],
+    category: "AI/ML",
+    description: "State machine / graph-based orchestration for LLM agents"
+  },
+  {
     canonicalName: "NLP",
     aliases: ["Natural Language Processing", "Text Processing"],
     category: "AI/ML",
@@ -146,6 +158,12 @@ export const techStackMappings: TechStackMapping[] = [
     description: "Containerization platform"
   },
   {
+    canonicalName: "GitHub Actions",
+    aliases: ["Actions", "Github Actions", "CI/CD", "GitHub Workflow"],
+    category: "CI/CD",
+    description: "GitHub-native CI/CD automation and workflows"
+  },
+  {
     canonicalName: "Kubernetes",
     aliases: ["K8s", "Kubernetes 1.21", "Kubernetes 1.22"],
     category: "Container Orchestration",
@@ -188,6 +206,38 @@ export const techStackMappings: TechStackMapping[] = [
     aliases: ["Bootstrap 4", "Bootstrap 5"],
     category: "CSS Framework",
     description: "CSS framework for responsive design"
+  },
+
+  // Testing & Quality
+  {
+    canonicalName: "pytest",
+    aliases: ["Pytest", "pytest -q", "pytest -v"],
+    category: "Testing",
+    description: "Python testing framework"
+  },
+  {
+    canonicalName: "ruff",
+    aliases: ["Ruff", "ruff check", "ruff format"],
+    category: "Linting/Formatting",
+    description: "Fast Python linter/formatter"
+  },
+  {
+    canonicalName: "Pydantic",
+    aliases: ["Pydantic v2", "Pydantic 2", "Pydantic v1"],
+    category: "Data Modeling",
+    description: "Python data validation and settings management"
+  },
+  {
+    canonicalName: "YAML",
+    aliases: ["yml", "yaml", ".yml", ".yaml"],
+    category: "Configuration",
+    description: "Human-readable configuration format"
+  },
+  {
+    canonicalName: "GitHub REST API",
+    aliases: ["GitHub API", "GitHub REST", "REST API"],
+    category: "API",
+    description: "GitHub REST API for issues, PRs, and repository automation"
   },
 
   // Data Processing
