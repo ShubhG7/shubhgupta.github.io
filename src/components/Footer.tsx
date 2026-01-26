@@ -32,7 +32,7 @@ const Footer = () => {
   const contactOptions = [
     {
       name: 'Email',
-      url: 'mailto:shubhngupta7@gmail.com',
+      url: 'mailto:shubhguptasg07@gmail.com',
       icon: '/icons/email.svg',
       color: 'hover:text-red-600 dark:hover:text-red-400'
     },

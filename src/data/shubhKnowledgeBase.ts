@@ -4,7 +4,7 @@ export const shubhKnowledgeBase = `
 ## Personal Information
 - Name: Shubh Gupta
 - Location: United States (Remote)
-- Email: shubhngupta7@gmail.com
+- Email: shubhguptasg07@gmail.com
 - Role: Software Engineer & Data Scientist
 - Current Position: Software Developer at BNY Mellon (February 2024 - Present)
 - GitHub: https://github.com/ShubhG7
@@ -557,7 +557,7 @@ export const shubhKnowledgeBase = `
 - **Results-Oriented**: Focused on delivering measurable business impact through technology solutions
 
 ## Contact Information
-- Primary Email: shubhngupta7@gmail.com
+- Primary Email: shubhguptasg07@gmail.com
 - Available for remote work and collaborations
 - Open to discussing new opportunities, projects, and technical challenges
 

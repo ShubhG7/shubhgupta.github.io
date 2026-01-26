@@ -29,7 +29,7 @@ const ContactSection = () => {
       // Create mailto link with form data
       const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
       const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-      const mailtoLink = `mailto:shubhngupta7@gmail.com?subject=${subject}&body=${body}`;
+      const mailtoLink = `mailto:shubhguptasg07@gmail.com?subject=${subject}&body=${body}`;
       
       // Open default email client
       window.open(mailtoLink, '_blank');
@@ -80,10 +80,10 @@ const ContactSection = () => {
                 <div>
                   <p className="font-medium" style={{ color: 'var(--text-main)' }}>Email</p>
                   <a 
-                    href="mailto:shubhngupta7@gmail.com" 
+                    href="mailto:shubhguptasg07@gmail.com" 
                     className="text-black hover:underline dark:text-white"
                   >
-                    shubhngupta7@gmail.com
+                    shubhguptasg07@gmail.com
                   </a>
                 </div>
               </div>
