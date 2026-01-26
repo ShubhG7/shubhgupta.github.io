@@ -123,12 +123,15 @@ const ChatBot = () => {
       {/* Chat Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-[86px] right-6 z-[10003] p-4 rounded-full border-2 shadow-xl transition-all duration-700 ease-in-out touch-manipulation transform hover:scale-110 active:scale-95 flex items-center justify-center ${
+        className={`fixed right-6 z-[10003] p-4 rounded-full border-2 shadow-xl transition-all duration-700 ease-in-out touch-manipulation transform hover:scale-110 active:scale-95 flex items-center justify-center ${
           isOpen 
             ? 'bg-gradient-to-br from-[#e2c9a0] to-[#d4b895] border-[#8b5f3f] shadow-2xl scale-110 rotate-45' 
             : 'bg-gradient-to-br from-[#f5e9da] to-[#e2c9a0] border-[#a47551] hover:from-[#e2c9a0] hover:to-[#d4b895] hover:border-[#8b5f3f]'
         }`}
-        style={{ fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif' }}
+        style={{
+          fontFamily: 'var(--font-league-spartan), Arial, Helvetica, sans-serif',
+          bottom: 'var(--chat-fab-bottom, 86px)',
+        }}
       >
         <div className="w-5 h-5 relative flex items-center justify-center">
           {isOpen ? (
@@ -143,7 +146,10 @@ const ChatBot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-[148px] right-6 z-[10001] w-96 h-[500px] bg-white rounded-2xl shadow-2xl border-2 border-[#e2c9a0] flex flex-col overflow-hidden">
+        <div
+          className="fixed right-6 z-[10001] w-96 h-[500px] bg-white rounded-2xl shadow-2xl border-2 border-[#e2c9a0] flex flex-col overflow-hidden"
+          style={{ bottom: 'calc(var(--chat-fab-bottom, 86px) + 62px)' }}
+        >
           {/* Header */}
           <div className="bg-gradient-to-r from-[#4b2e13] to-[#a47551] text-white p-4 flex items-center justify-between">
             <div className="flex items-center space-x-3">

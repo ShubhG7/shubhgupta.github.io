@@ -31,6 +31,25 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // When the mobile FAB nav is open (and we're in "scrolled" FAB mode),
+  // lift the chat FAB so it doesn't overlap the floating nav pills.
+  useEffect(() => {
+    const root = document.documentElement;
+    const defaultFabBottom = '86px';
+
+    if (isMobileMenuOpen && isScrolled) {
+      // Above the highest menu item (bottom-60) + a little breathing room.
+      root.style.setProperty('--chat-fab-bottom', '320px');
+    } else {
+      root.style.setProperty('--chat-fab-bottom', defaultFabBottom);
+    }
+
+    return () => {
+      // Ensure we don't leave the variable in a bad state on unmount.
+      root.style.setProperty('--chat-fab-bottom', defaultFabBottom);
+    };
+  }, [isMobileMenuOpen, isScrolled]);
+
   return (
     <>
       <nav
