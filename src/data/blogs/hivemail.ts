@@ -3,74 +3,52 @@ import { BlogContent } from '../blogContent';
 export const hivemailBlog: BlogContent = {
   sections: [
     {
-      id: 'overview',
-      title: 'Overview',
-      content: `HiveMail is built around a simple idea: your inbox already contains everything you need — it’s just scattered across a thousand threads like puzzle pieces thrown in the air.
-
-I built it to feel like a **hive mind for your email**, where every message contributes to shared context and the system gets smarter the more it sees, **without becoming creepy or invasive**.`
+      id: 'title',
+      title: 'Building Hivemail: An Agentic AI Email CRM with Privacy at its Core',
+      content: `Email management is a universal problem. Most solutions either compromise on privacy, become prohibitively expensive to scale, or lack the intelligence users expect. We built Hivemail to solve all three constraints simultaneously. Here's how we engineered a privacy-first, cost-effective email management system powered by agentic AI orchestration.`
     },
     {
-      id: 'hive-mind-concept',
-      title: 'The “Hive Mind” Concept',
-      content: `The “hive mind” part means HiveMail doesn’t treat emails as isolated documents. It understands them as **connected conversations**.
+      id: 'architecture',
+      title: 'The Architecture: Microservices Meets Agentic Orchestration',
+      content: `We split the system into two services: a Next.js frontend on Vercel for the UI and authentication, and a Python worker on GCP Cloud Run for email processing and AI operations. This separation allows us to scale the worker independently and keep sensitive operations isolated from the web layer.
 
-A receipt links to a shipment update, which links to a return policy thread, which links to your follow-up. HiveMail organizes those relationships, remembers what matters, and helps you pull the right context instantly — whether you’re searching or chatting.
+The core innovation is our **agentic email processing pipeline** built with LangGraph. Each email flows through a stateful, orchestrated workflow: fetch from Gmail → parse → detect sensitive content → classify (hybrid rules + LLM) → extract entities → generate embeddings → persist. LangGraph provides explicit state management, visualizable workflows, and error handling at each step. This agentic orchestration makes the pipeline debuggable, testable, and easy to extend with new processing steps.
 
-Instead of you being the brain that holds everything together, HiveMail becomes the **memory layer**: it can answer questions like:
-
-- “What did I decide?”
-- “Where is that invoice?”
-- “Which threads need a reply?”
-
-…using your inbox as the source of truth.`
+**Key engineering decisions:**
+- **Agentic orchestration with LangGraph**: Stateful workflows that maintain context across processing steps, enabling complex multi-step reasoning
+- **Hybrid classification**: Rule-based heuristics handle ~70% of emails (newsletters, receipts, shipping) instantly at zero cost, with LLMs only for ambiguous cases
+- **Privacy controls**: Three redaction modes (OFF, REDACT_BEFORE_LLM, SUMMARIES_ONLY) let users control what data is sent to LLMs
+- **BYOK architecture**: Users bring their own LLM API keys (Gemini, OpenAI, Anthropic, or custom), giving them cost control and provider choice while we avoid LLM costs
+- **Graceful degradation**: If LLM calls fail, the system falls back to rule-based classification so emails are still processed`
     },
     {
-      id: 'when-to-think',
-      title: 'Rules First, AI When It Matters',
-      content: `Most emails are predictable, so HiveMail uses **quick rules** for the obvious stuff and saves AI for the moments where understanding actually matters.
+      id: 'rag-chat-agent',
+      title: 'The RAG-Powered Chat Agent',
+      content: `Our chat agent uses retrieval-augmented generation (RAG) to answer questions about emails. It combines text search (SQL) for exact matches with vector search (pgvector) for semantic similarity. Thread embeddings stored in PostgreSQL enable fast similarity queries without a separate vector database. The agent orchestrates context assembly from relevant threads, messages, email statistics, and chat history, then sends it to the LLM with structured prompts to produce answers with citations and suggested actions.
 
-Then it stores helpful signals like **categories**, **participants**, **summaries**, and meaning-based “fingerprints” (**embeddings**) so future queries are faster and more accurate.`
+**Technical highlights:**
+- **Hybrid search**: SQL for precision, vector similarity for recall
+- **Multi-provider support**: Unified interface supporting Gemini, OpenAI, Anthropic, and OpenAI-compatible custom APIs
+- **Error resilience**: Comprehensive error classification (rate limits, invalid keys, quota exceeded) with user-friendly messages and automatic retries`
     },
     {
-      id: 'privacy',
-      title: 'Privacy + BYOK (Bring Your Own Key)',
-      content: `Privacy is core. You stay in control of what gets shared with an AI provider:
+      id: 'performance-analytics',
+      title: 'Performance and Analytics: Inspired by msgvault',
+      content: `We were inspired by Wes McKinney's [msgvault](https://wesmckinney.com/blog/announcing-msgvault/) approach to email analytics. While we didn't adopt its local-first architecture (we're a hosted service), we borrowed key techniques: DuckDB for fast analytics queries and Parquet for efficient columnar storage. Email metadata is exported to Parquet files (cached hourly), and DuckDB queries these files for sub-second analytics on large datasets. This separates analytics workloads from the transactional PostgreSQL database, keeping both fast.
 
-- Full content
-- Redacted content
-- Summaries only
-
-The hive mind stays inside your walls. BYOK also keeps **cost** and **data** under your control.`
+**Why this matters:**
+- Analytics queries that took 5-30 seconds now complete in under 1 second
+- No additional infrastructure—DuckDB reads Parquet files directly
+- PostgreSQL stays focused on transactional operations`
     },
     {
-      id: 'what-makes-it-real',
-      title: 'What Makes the “Hive Mind of Emails” Real',
-      content: `A few things that make the concept practical:
+      id: 'security-deployment',
+      title: 'Security and Deployment',
+      content: `Everything sensitive is encrypted: LLM API keys (AES-256), email bodies (at rest), and OAuth tokens. We hash email bodies for deduplication without storing plaintext. The system is deployed serverless-first: Vercel for the frontend (automatic scaling, edge network) and Cloud Run for the worker (scales to zero, pay-per-request). Email processing is asynchronously orchestrated via Cloud Tasks queues, enabling non-blocking user experience, automatic retries, and scheduled periodic syncs.
 
-- Threads become shared memory, not scattered messages
-- Chat + search use both keywords and meaning, so you can ask naturally
-- Summaries + entities make long conversations digestible
-- Rules-first intelligence keeps it fast and cost-efficient
-- BYOK + privacy modes keep data and cost under your control
-- Resilient fallbacks keep the hive working even when AI fails`
-    },
-    {
-      id: 'tech-stack',
-      title: 'Tech Stack (High-Level)',
-      content: `- **Frontend**: Next.js (TypeScript) on Vercel
-- **Worker**: Python on GCP Cloud Run
-- **Queue / async jobs**: Cloud Tasks
-- **Database**: PostgreSQL + pgvector (Prisma ORM)
-- **Agent pipeline**: LangGraph
-- **Analytics**: DuckDB + Parquet exports
-- **Security**: Encrypted storage for OAuth tokens, API keys, and email content`
-    },
-    {
-      id: 'conclusion',
-      title: 'Conclusion',
-      content: `HiveMail turns your inbox into a structured memory system: connected threads, fast retrieval, and privacy-first intelligence that only “thinks hard” when it needs to.
+The result is a privacy-first, cost-effective email management system that scales. Every technology choice—from LangGraph's agentic orchestration to BYOK to pgvector's semantic search—was made to balance functionality, privacy, cost, and scalability. The architecture is designed to evolve, with LangGraph making it easy to add new processing steps and the multi-provider system supporting new LLM providers as they emerge.
 
-It’s a practical take on augmenting email — not by replacing your workflow, but by making the *context* instantly available when you need it.`
+*Hivemail is open source. Check out the code on [GitHub](https://github.com/ShubhG7/HiveMail).*`
     }
   ]
 };
