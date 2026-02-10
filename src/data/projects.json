@@ -1,5 +1,12 @@
 [
   {
+    "id": "hivemail",
+    "title": "HiveMail - Hive Mind for Your Inbox",
+    "summary": "AI-assisted email memory layer that connects threads into shared context, enabling natural chat + meaning-based search with privacy modes, rules-first intelligence, and resilient fallbacks.",
+    "image": "/images/projects/HiveMail.png",
+    "techStack": ["Next.js", "TypeScript", "Python", "Google Cloud Run", "Google Cloud Tasks", "PostgreSQL", "pgvector", "Prisma", "LangGraph", "DuckDB", "Parquet", "Vercel"]
+  },
+  {
     "id": "patchpilot",
     "title": "PatchPilot - Autonomous Code Maintenance Agent",
     "summary": "Production-ready autonomous maintenance agent that reads GitHub issues, generates validated patches, runs ruff/pytest, and opens pull requests via GitHub Actions—end-to-end bug fixing with guardrails and retries.",
