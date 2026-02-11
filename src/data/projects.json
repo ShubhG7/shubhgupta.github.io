@@ -4,7 +4,8 @@
     "title": "HiveMail - Hive Mind for Your Inbox",
     "summary": "AI-assisted email memory layer that connects threads into shared context, enabling natural chat + meaning-based search with privacy modes, rules-first intelligence, and resilient fallbacks.",
     "image": "/images/projects/HiveMail.png",
-    "techStack": ["Next.js", "TypeScript", "Python", "Google Cloud Run", "Google Cloud Tasks", "PostgreSQL", "pgvector", "Prisma", "LangGraph", "DuckDB", "Parquet", "Vercel"]
+    "techStack": ["Next.js", "TypeScript", "Python", "Google Cloud Run", "Google Cloud Tasks", "PostgreSQL", "pgvector", "Prisma", "LangGraph", "DuckDB", "Parquet", "Vercel"],
+    "github": "https://github.com/ShubhG7/HiveMail"
   },
   {
     "id": "patchpilot",
