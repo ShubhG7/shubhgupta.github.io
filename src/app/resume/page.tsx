@@ -51,11 +51,10 @@ const ResumePage = () => (
       <hr className="my-4" />
       <h2 className="text-lg font-semibold mb-2">🛠 Skills</h2>
       <ul className="list-disc ml-6">
-        <li><b>Languages:</b> Python, Java, Rust, C, C++, C#, Go, JavaScript/TypeScript</li>
-        <li><b>ML & Databases:</b> PyTorch, TensorFlow, RAGs, LLMs, MLOps, GANs, VAEs, MySQL, PostgreSQL</li>
-        <li><b>Frameworks & Deployment:</b> React, Flask, Django, HTML/CSS, gRPC, Microservices, GraphQL</li>
-        <li><b>Cloud & Infra:</b> AWS, GCP, Docker, Apache Spark, Airflow, Kafka</li>
-        <li><b>Dev Tools:</b> Linux, Windows, REST APIs, Git, Agile, Scrum</li>
+        <li><b>Languages:</b> Python, Java, Rust, C, C++, C#, Go (Golang), Kotlin, JavaScript/TypeScript</li>
+        <li><b>ML & DB:</b> PyTorch, TensorFlow, vLLM, LoRA, RAGs, LLMs, GANs, VAEs, MLOps, MySQL, PostgreSQL/pgvector</li>
+        <li><b>Systems & DevOps:</b> React, Microservices, gRPC, Protocol Buffers, CI/CD, Docker, Kubernetes, REST API, Git</li>
+        <li><b>Cloud/Big Data:</b> GCP, AWS, Spark, Airflow, Kafka, GraphQL, MinIO/S3, NATS, Prometheus, Data Structures, OOP</li>
       </ul>
       <hr className="my-4" />
       <h2 className="text-lg font-semibold mb-2">📜 Certifications & Publications</h2>
