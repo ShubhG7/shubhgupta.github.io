@@ -20,34 +20,32 @@ const ResumePage = () => (
       <h2 className="text-lg font-semibold mb-2">💼 Experience</h2>
       <div className="mb-4">
         <h3 className="font-bold">BNY Mellon <span className="font-normal italic">– Software Developer</span></h3>
-        <div className="text-sm mb-1">Remote, USA | February 2024 – Present</div>
+        <div className="text-sm mb-1">Remote, USA | Jun 2024 – Present</div>
         <ul className="list-disc ml-6">
-          <li>Building scalable backend services and platform features for financial applications serving millions of users in a heavily regulated environment</li>
-          <li>Collaborating with cross-functional teams including DevOps, QA, and Product to ship production services with <b>99.9%+ uptime</b></li>
-          <li>Implementing robust API designs and microservices architecture using modern technologies and best practices</li>
-          <li>Contributing to compliance and security initiatives while maintaining high development velocity</li>
+          <li>Engineered a <b>Kafka + Spring Boot</b> monitoring pipeline to flag unusual payments, taking detection from minutes to seconds, boosting speed by <b>40%</b>, and lowering false positives</li>
+          <li>Developed event-driven settlement and reconciliation services (<b>Spring Boot, JPA/Hibernate</b>), exposing secure APIs through <b>AWS API Gateway</b> and <b>WAF</b> for high-reliability transaction flows</li>
+          <li>Implemented <b>GPT-4 workflows</b> with <b>LangChain</b> and <b>Pinecone</b> to summarize emails, chats, and documents for compliance, saving hours per week and improving audit readiness by <b>50%</b></li>
+          <li>Deployed services on <b>AWS EKS/Fargate</b> with <b>Docker</b> and <b>Helm</b>; added <b>CloudWatch</b>, <b>X-Ray</b>, and <b>SNS</b> alerts to shorten detection time and reduce on-call overhead</li>
         </ul>
       </div>
       <div className="mb-4">
-        <h3 className="font-bold">Ernst & Young LLP <span className="font-normal italic">– AI/ML & Software Engineer</span></h3>
-        <div className="text-sm mb-1">Mumbai, India | July 2021 – July 2023</div>
+        <h3 className="font-bold">Ernst & Young LLP <span className="font-normal italic">– Software Engineer</span></h3>
+        <div className="text-sm mb-1">Mumbai, India | Jul 2021 – Jul 2023</div>
         <ul className="list-disc ml-6">
-          <li>Optimized fraud detection models using <b>PySpark MLlib</b>, improving model accuracy by <b>25%</b> and reducing false positives</li>
-          <li>Automated AWS-based ML model deployments with <b>SageMaker</b>, reducing infrastructure costs by <b>40%</b> and deployment time by <b>60%</b></li>
-          <li>Built end-to-end ML pipelines processing large-scale financial datasets with <b>Apache Spark</b> and <b>Apache Airflow</b></li>
-          <li>Developed real-time inference APIs serving fraud detection models with sub-100ms latency using <b>Redis caching</b></li>
-          <li>Collaborated with data scientists and business analysts to translate requirements into production ML systems</li>
+          <li>Streamlined fraud pipelines to reduce training time by <b>40%</b> and lower false positives by <b>25%</b>, speeding reviews</li>
+          <li>Lowered cloud spend by <b>20%</b> with tagging, auto-shutdown, and cleanup automation, removing idle resources</li>
+          <li>Automated ML deployments on <b>AWS EC2</b> with scripted rollouts, reducing release time and lowering launch by <b>30%</b></li>
+          <li>Established <b>Splunk</b> dashboards and alerts to surface failures earlier, improving detection by <b>35%</b> and speeding triage</li>
         </ul>
       </div>
       <div className="mb-4">
-        <h3 className="font-bold">Kings Expomedia Ltd <span className="font-normal italic">– Software Engineer</span></h3>
-        <div className="text-sm mb-1">Mumbai, India | December 2019 – April 2021</div>
+        <h3 className="font-bold">Kings Expomedia Ltd. <span className="font-normal italic">– Software Engineer</span></h3>
+        <div className="text-sm mb-1">Mumbai, India | Dec 2019 – Apr 2021</div>
         <ul className="list-disc ml-6">
-          <li>Led migration of flagship magazine website from legacy PHP to modern stack (<b>Next.js, Node.js, React</b>), improving page load times by <b>40%</b></li>
-          <li>Built automated proofreading and fact-checking pipelines using <b>NLP libraries</b>, reducing editorial review time by <b>50%</b></li>
-          <li>Implemented <b>CI/CD pipelines</b> and deployment automation, enabling rapid feature releases during high-traffic expo seasons</li>
-          <li>Developed <b>WebGL-based</b> interactive content features, increasing user session time by <b>30%</b></li>
-          <li>Optimized database queries and implemented caching strategies, improving overall application performance</li>
+          <li>Re-platformed the flagship site from <b>PHP</b> to <b>Next.js</b> with a mobile-first redesign, increasing session time by <b>30%</b></li>
+          <li>Optimized <b>Core Web Vitals</b> (<b>LCP/FID</b>) by <b>40%</b> using lazy loading, bundling, and route-based code splitting</li>
+          <li>Integrated <b>Strapi CMS</b> with automated publishing, reducing turnaround by <b>50%</b> and saving hours of manual edits</li>
+          <li>Led releases end-to-end from design to deployment, increasing delivery speed and reducing rework for stakeholders</li>
         </ul>
       </div>
       <hr className="my-4" />
